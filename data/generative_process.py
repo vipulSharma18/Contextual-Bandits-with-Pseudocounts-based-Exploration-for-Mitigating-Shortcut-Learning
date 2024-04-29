@@ -18,7 +18,7 @@ def amplification(alpha, weights, input):
 def embed(feature, alpha, weight, nesting_constant): 
     amplified_feature = amplification(alpha, weight, feature)
     nested_feature = nesting(amplified_feature)
-    return embedded_feature
+    return nested_feature
     
 def combine_features(embed_s, embed_c): 
     return embed_s + embed_c
