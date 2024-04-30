@@ -22,18 +22,20 @@ def generate_image():
     y1 = random.randint(0, height - size_1)
     x2 = random.randint(0, width - size_2)
     y2 = random.randint(0, height - size_2)
-    
-    # Check for overlap and adjust positions if necessary
-    if (x1 < x2 + size_2 and x1 + size_1 > x2 and
-        y1 < y2 + size_2 and y1 + size_1 > y2):
-        # Squares overlap, adjust position of square 2
-        x2 = random.randint(0, width - size_2)
-        y2 = random.randint(0, height - size_2)
-    elif (x2 < x1 + size_1 and x2 + size_2 > x1 and
-          y2 < y1 + size_1 and y2 + size_2 > y1):
-        # Squares overlap, adjust position of square 1
-        x1 = random.randint(0, width - size_1)
-        y1 = random.randint(0, height - size_1)
+    for i in range(10): 
+        # Check for overlap and adjust positions if necessary
+        if (x1 < x2 + size_2 and x1 + size_1 > x2 and
+            y1 < y2 + size_2 and y1 + size_1 > y2):
+            # Squares overlap, adjust position of square 2
+            x2 = random.randint(0, width - size_2)
+            y2 = random.randint(0, height - size_2)
+        elif (x2 < x1 + size_1 and x2 + size_2 > x1 and
+            y2 < y1 + size_1 and y2 + size_2 > y1):
+            # Squares overlap, adjust position of square 1
+            x1 = random.randint(0, width - size_1)
+            y1 = random.randint(0, height - size_1)
+        else: 
+            break
     
     # Generate random color vectors
     # get the logic of how to convert z_s and z_c into a grayscale value of color from Thomas
