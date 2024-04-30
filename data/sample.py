@@ -39,8 +39,8 @@ def generate_image():
     
     # Generate random color vectors
     # get the logic of how to convert z_s and z_c into a grayscale value of color from Thomas
-    z_1 = np.random.normal(0, 1, 100)
-    z_2 = np.random.randint(0, 1, 100)
+    z_1 = 160 #np.random.normal(0, 1, 100)
+    z_2 = 100 #np.random.randint(0, 1, 100)
 
     # Draw square
     square_color = (z_1, z_1, z_1)  # Same grayscale value for entire square
