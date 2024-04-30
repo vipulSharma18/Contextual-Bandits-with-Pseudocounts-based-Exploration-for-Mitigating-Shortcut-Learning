@@ -36,6 +36,7 @@ def generate_image():
         y1 = random.randint(0, height - size_1)
     
     # Generate random color vectors
+    # get the logic of how to convert z_s and z_c into a grayscale value of color from Thomas
     z_1 = np.random.normal(0, 1, 100)
     z_2 = np.random.randint(0, 1, 100)
 
