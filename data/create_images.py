@@ -62,6 +62,6 @@ def create_image(data_path = None, mode='train'):
                             print('remaining', total)
                         total-=1
 
-create_image('synthetic_test_data.csv', 'test')
-# create_image('synthetic_train_data.csv', 'train')
+# create_image('synthetic_test_data.csv', 'test')
+create_image('synthetic_train_data.csv', 'train')
 

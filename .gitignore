@@ -1,5 +1,7 @@
 data/synthetic_*_data.csv
 
+data/0*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
