@@ -7,11 +7,11 @@ import pandas as pd
 from supervised_model import create_model, set_seed
 import wandb
 
-def calculate_accuracy(outputs, labels): 
-    _, predicted = torch.max(outputs.data, 1)
-    total = labels.size(0)
-    correct = (predicted==labels).sum().item()
-    return correct/total
+def calculate_accuracy(outputs, labels, threshold=0.5):
+    binary_predictions = torch.where(outputs >= threshold, torch.tensor(1.0), torch.tensor(0.0))
+    correct = torch.sum(binary_predictions == labels)
+    total = len(labels)
+    return correct.item() / total * 100
 
 def experiment(setting='0.9_3', seed=42): 
     set_seed(seed)
@@ -47,11 +47,11 @@ def experiment(setting='0.9_3', seed=42):
         model.train()
         train_loss, train_accuracy = 0, 0
         for i, (images, labels) in enumerate(train_loader): 
-            labels = labels.to(device).unsqueeze(1)
+            labels = labels.to(device).float()
             optimizer.zero_grad()
-            outputs = model(images.to(device))
+            outputs = model(images.to(device)).squeeze()
             #print(labels.size(), outputs.size())
-            loss = criterion(outputs, labels.float())
+            loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
             train_loss += loss.item()
@@ -67,10 +67,10 @@ def experiment(setting='0.9_3', seed=42):
         model.eval()
         with torch.no_grad():
             for i, (images, labels) in enumerate(val_loader): 
-                labels = labels.to(device).unsqueeze(1)
+                labels = labels.to(device).float()
                 optimizer.zero_grad()
-                outputs = model(images.to(device))
-                loss = criterion(outputs, labels.float())
+                outputs = model(images.to(device)).squeeze()
+                loss = criterion(outputs, labels)
                 val_loss += loss.item()
                 accuracy = calculate_accuracy(outputs, labels)
                 val_accuracy += accuracy
