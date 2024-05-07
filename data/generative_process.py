@@ -12,7 +12,7 @@ def nesting(input, nesting_constant=0):
 def amplification(alpha, weights, input): 
     #e_i = \alpha_i * w_i * z_i
     # w_i is R^d and final output x is also R^d
-    amplified_feature = alpha*weights*input
+    amplified_feature = alpha*weights*input[:,np.newaxis]
     return amplified_feature
 
 def embed(feature, alpha, weight, nesting_constant): 
@@ -33,19 +33,17 @@ def sample_z(class_label, p_s=0.6, p_c=0.9, std_sc=0.6, samples=2100):
     u_s = (2**0.5)*erfinv(2*p_s - 1)
     u_c = (2**0.5)*erfinv(2*p_c - 1)
     mean = [class_label*u_s, class_label*u_c]
-    z = np.random.multivariate_normal(mean, cov, (samples,100)) #d=100, i.e., each feature of 100 dimensions
-    z = np.transpose(z, (0,2,1)) #samples=4200 * d=100 * 2
+    z = np.random.multivariate_normal(mean, cov, samples) #samples, 2
     return z
 
 def sample_z_i(p_i, samples=30): 
     u_i = (2**0.5)*erfinv(2*p_i - 1)
-    z_i = np.linspace(-3 * u_i, 3 * u_i, num=samples, endpoint=True)
-    z_i = np.repeat(z_i[:, np.newaxis], 100, axis=1)
+    z_i = np.linspace(-3 * u_i, 3 * u_i, num=samples, endpoint=True) #(samples,)
     return z_i 
 
 def generate_test(p_s=0.6, p_c=0.9, samples=900): 
     z_samples = int(samples**0.5)
     z_s = sample_z_i(p_s, z_samples)
     z_c = sample_z_i(p_c, z_samples)
-    z = np.array([[zs_i, zc_i] for zs_i in z_s for zc_i in z_c])
+    z = np.array([[zs_i, zc_i] for zs_i in z_s for zc_i in z_c]) #(samples,2)
     return z

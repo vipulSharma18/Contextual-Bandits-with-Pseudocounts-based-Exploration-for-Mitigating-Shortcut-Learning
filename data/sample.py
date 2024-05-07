@@ -2,7 +2,10 @@ import numpy as np
 from PIL import Image, ImageDraw
 import random
 
-def generate_image():
+def generate_image(circle, square, circle_size, save_path=''):
+    '''
+    circle=z_s, square=z_c, circle_size=alpha_s
+    '''
     # Set image size
     width, height = 224, 224
     # Create cyan background
@@ -12,8 +15,7 @@ def generate_image():
 
     # Define object parameters
     min_size = 20
-    sizes = [1, 2, 3, 4, 5]
-    alpha_2 = random.choice(sizes)
+    alpha_2 = circle_size
     size_1 = min_size
     size_2 = min_size * alpha_2
 
@@ -36,24 +38,14 @@ def generate_image():
             y1 = random.randint(0, height - size_1)
         else: 
             break
-    
-    # Generate random color vectors
-    # get the logic of how to convert z_s and z_c into a grayscale value of color from Thomas
-    z_1 = 160 #np.random.normal(0, 1, 100)
-    z_2 = 100 #np.random.randint(0, 1, 100)
-
     # Draw square
-    square_color = (z_1, z_1, z_1)  # Same grayscale value for entire square
+    square_color = (square, square, square)  # Same grayscale value for entire square
     square_bbox = [(x1, y1), (x1 + size_1, y1 + size_1)]
     draw.rectangle(square_bbox, fill=square_color)
 
     # Draw circle
-    circle_color = (z_2, z_2, z_2)  # Same grayscale value for entire circle
+    circle_color = (circle, circle, circle)  # Same grayscale value for entire circle
     circle_bbox = [(x2, y2), (x2 + size_2, y2 + size_2)]
     draw.ellipse(circle_bbox, fill=circle_color)
 
     return image
-
-# Generate and display the image
-image = generate_image()
-image.show()

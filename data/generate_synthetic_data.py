@@ -1,5 +1,10 @@
+'''
+Uses generative_process to create vector form data using generative_process as dependency
+'''
 # total images: 
 # 102000 = (3200+1000+900)*(5 vals of alpha_s)*(4 vals of p_s)
+# train size = (3200+1000)*5*4 = 84,000 (42k for +1 and -1 each)
+# test size = 900*5*4 = 18,000 (9k for +1 and -1 each)
 
 # class +1 or -1
 # output class-balanced dataset
@@ -13,14 +18,14 @@
 # & 30 z_c in [-3u_c, +3u_c]
 
 # d = 100 (dimensionality of vectors)
-# n_c, n_s = 0
+# n_c, n_s = 0 #nesting to make features more non-linear and less available/easy to extract
 # p_c = 0.9 and \sigma or std_dev_{sc} = 0.6
 # 0.5 < p_s < p_c = 0.9 -> 0.6, 0.7, 0.8 and 0.9
 
 #μi = √2 erf^{−1} (2ρi − 1)
 
 # \alpha_c = 1, \alpha_s in [1,5] integer
-# based footprint of z_s is 400 pixels
+# base footprint of z_s is 400 pixels
 
 # color is given by raw feature value, amplification and embedding only change availability 
 import pandas as pd
@@ -65,12 +70,13 @@ for class_label in classes:
     for p_c in predictivities_c: 
         for p_s in predictivities_s:             
             z = sample_z(class_label, p_s, p_c, std_sc, samples=2100)
-            z_s = z[:, 0, :]
-            z_c = z[:, 1, :]
+            z_s = z[:, 0]
+            z_c = z[:, 1]
             embed_c = embed(z_c, alpha_c, w_c, nesting_constant=0)
             for a_s in alpha_s: 
                 embed_s = embed(z_s, a_s, w_s, nesting_constant=0)
                 x = combine_features(embed_s, embed_c)
+                class_label = 1 if class_label>0 else 0
                 df = pd.DataFrame({'class_label': [class_label]*x.shape[0], 
                                'p_c': [p_c]*x.shape[0], 
                                'p_s': [p_s]*x.shape[0],
@@ -93,15 +99,27 @@ synthetic_data_path = 'synthetic_test_data.csv'
 for p_c in predictivities_c: 
     for p_s in predictivities_s: 
         z = generate_test(p_s=p_s, p_c=p_c, samples=900)
-        z_s = z[:, 0, :]
-        z_c = z[:, 1, :]
-        x = combine_features(z_s, z_c)
-        df = pd.DataFrame({'p_c': [p_c]*x.shape[0], 
-                            'p_s': [p_s]*x.shape[0],
-                            'z_s': z_s.tolist(), 
-                            'z_c': z_c.tolist(),
-                            'x': x.tolist()})
-        cache_data(synthetic_data_path, df)
-        del df
-        gc.collect()
+        z_s = z[:, 0]
+        z_c = z[:, 1]
+        embed_c = embed(z_c, alpha_c, w_c, nesting_constant=0)
+        class_label = np.sign(z_c)
+        class_label[class_label == -1] = 0
+        for a_s in alpha_s: 
+            embed_s = embed(z_s, a_s, w_s, nesting_constant=0)
+            x = combine_features(embed_s, embed_c)    
+            df = pd.DataFrame({'class_label': class_label.tolist(), 
+                               'p_c': [p_c]*x.shape[0], 
+                               'p_s': [p_s]*x.shape[0],
+                               'a_c': [alpha_c]*x.shape[0],
+                               'a_s': [a_s]*x.shape[0],
+                               'z_s': z_s.tolist(), 
+                               'z_c': z_c.tolist(),
+                               'w_s': [w_s]*x.shape[0],
+                               'w_c': [w_c]*x.shape[0],
+                               'embed_c': embed_c.tolist(),
+                               'embed_s': embed_s.tolist(),
+                               'x': x.tolist()})
+            cache_data(synthetic_data_path, df)
+            del df
+            gc.collect()
 print("Generated test rows: ", count_rows(synthetic_data_path))
