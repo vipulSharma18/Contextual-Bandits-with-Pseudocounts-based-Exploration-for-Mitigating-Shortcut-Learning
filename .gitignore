@@ -2,6 +2,9 @@ data/synthetic_*_data.csv
 #data/0.6_1/test/0/0.png
 data/*/*/*/*.png
 
+supervised_learning/wandb
+supervised_learning/*.pth
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

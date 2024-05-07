@@ -56,12 +56,12 @@ def create_image(data_path = None, mode='train'):
                     total = len(write_df)
                     for index, row in write_df.iterrows(): 
                         # the image creating function call. use apply or something
-                        image = generate_image(circle=int(row['z_s']), square=int(row['z_c']), circle_size=row['a_s'])
+                        image = generate_image(circle=int(row['z_s']), square=int(row['z_c']), circle_size=row['a_s'], cls=class_)
                         image.save(save_path+str(index)+'.png')
                         if total%100==0:
                             print('remaining', total)
                         total-=1
 
-# create_image('synthetic_test_data.csv', 'test')
-create_image('synthetic_train_data.csv', 'train')
+create_image('synthetic_test_data.csv', 'test')
+# create_image('synthetic_train_data.csv', 'train')
 

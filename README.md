@@ -29,7 +29,7 @@ Uses some threshold of probability matching with true label as "good enough" of 
 Harmonization/Alignment emerging without any exlicit reward/feedback for it.
 
 	
-1. generate dataset for all iamges
+1. generate dataset for all iamges -> Done. Might need to do changes in color genearation logic (make the distributions more different).
 2. contrastive learning model to generate feature states
 3. supervised learning model baseline with an alpha ration of 4 and predictivity as 0.9 (baseline)
 4. coding for measures of reliance and bias

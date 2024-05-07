@@ -1,0 +1,8 @@
+Random initialized ResNet18 architecture
+MSE loss
+Adam optimizer, batch size=64, lr = 1e-02
+
+Best model/validation logic: 
+top val accuracy across 100 training epochs. 
+
+5 random seeds

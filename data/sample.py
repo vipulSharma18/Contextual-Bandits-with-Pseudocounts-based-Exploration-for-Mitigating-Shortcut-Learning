@@ -2,7 +2,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 import random
 
-def generate_image(circle, square, circle_size, save_path=''):
+def generate_image(circle, square, circle_size, save_path, cls):
     '''
     circle=z_s, square=z_c, circle_size=alpha_s
     '''
@@ -39,12 +39,18 @@ def generate_image(circle, square, circle_size, save_path=''):
         else: 
             break
     # Draw square
-    square_color = (square, square, square)  # Same grayscale value for entire square
+    if cls==0: 
+        square_color = (square, 0, 0)  
+    elif cls==1: 
+        square_color = (0, square, 0)  
     square_bbox = [(x1, y1), (x1 + size_1, y1 + size_1)]
     draw.rectangle(square_bbox, fill=square_color)
 
     # Draw circle
-    circle_color = (circle, circle, circle)  # Same grayscale value for entire circle
+    if cls==0: 
+        circle_color = (circle, 0, 0)  
+    elif cls==1: 
+        circle_color = (0, circle, 0)
     circle_bbox = [(x2, y2), (x2 + size_2, y2 + size_2)]
     draw.ellipse(circle_bbox, fill=circle_color)
 
