@@ -1,0 +1,31 @@
+anchor/query is a patch from crop. 
+
+key/positives and negatives are augmented patches 
+like below::
+
+Patch-based augmentation (torchvision): 
+1. shearing
+2. drop 2 out of 3 color channels in each patch randomly
+3. scale
+4. translation
+5. rotation
+random color jittering, 
+random horizontal flip, and 
+random grayscale conversion
+crop and then pad back to original (pad with blue)
+
+patches: learn patch to state dictionary mapping. 
+bandits get multiple states as input. 
+with each image, the order of the states is random and hence,
+the reward is random to pick or not pick a state.
+
+Image 1 -> Patches -> States unique arrangement
+Image 2 -> Patches -> States unique arrangement
+
+Class-wise exploration counts (Spurious for one, core for another)
+
+
+We adopt a ResNet [33] as the encoder, whose last fully-connected layer (after global average pooling) has a fixed-dimensional output (128-D [61]). This output vector is normalized by its L2-norm [61]. This is the representation of the query or key. 
+
+The temperature τ in Eqn.(1) is set as 0.07 [61]. 
+
