@@ -39,27 +39,25 @@ def generate_image(circle, square, circle_size, cls):
         else: 
             break
     # Draw square
-    if cls==0: 
-        square_color = (square, 0, 0)  #red
-    elif cls==1: 
-        square_color = (0, square, 0)  #green
+    square_color = (square, square, square)  
     square_bbox = [(x1, y1), (x1 + size_1, y1 + size_1)]
     draw.rectangle(square_bbox, fill=square_color)
 
     # Draw circle
-    if cls==0: 
-        circle_color = (circle, 0, 0)  #red
-    elif cls==1: 
-        circle_color = (0, circle, 0)  #green
+    circle_color = (circle, circle, circle)
     circle_bbox = [(x2, y2), (x2 + size_2, y2 + size_2)]
     draw.ellipse(circle_bbox, fill=circle_color)
 
     return image
 
 if __name__=='__main__': 
+    image = generate_image(circle=120, square=120, circle_size=1, cls=0)
+    image.save('greyscale.png')
+    '''
     image = generate_image(circle=255, square=255, circle_size=1, cls=0)
     image.save('sample1.png')
     image = generate_image(circle=0, square=0, circle_size=1, cls=0)
     image.save('sample2.png')
     image = generate_image(circle=127, square=127, circle_size=1, cls=0)
     image.save('sample3.png')
+    '''

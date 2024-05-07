@@ -35,7 +35,7 @@ def create_image(data_path = None, mode='train'):
     df['class_label'] = df['class_label'].astype(int)
     for p_s in predictivities_s: 
         for a_s in alpha_s: 
-            dataset_folder = str(p_s) + '_' + str(a_s)+'/'
+            dataset_folder = 'greyscale/'+str(p_s) + '_' + str(a_s)+'/'
             print(f"Creating images for folder {dataset_folder}")
             for class_ in classes: 
                 curr_df = df[(df['p_s']==p_s) & (df['a_s']==a_s) & (df['class_label']==class_)]

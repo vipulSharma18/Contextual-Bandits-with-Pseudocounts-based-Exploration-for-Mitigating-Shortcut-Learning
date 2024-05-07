@@ -40,7 +40,8 @@ def experiment(setting='0.9_3', seed=42):
         config={
             'architecture': 'ResNet18',
             'setting': setting, 
-            'seed': seed
+            'seed': seed,
+            'task': 'red vs green'
         })
     for epoch in range(100): 
         #train loop
@@ -98,8 +99,8 @@ if __name__=='__main__':
         print("Running experiment for setting", setting)
         print("==========================================================================")
         for seed in [1,42,89,23,113]:
-            print("Running for seed", seed) 
+            print("Running for seed", seed, "of experiment", setting) 
             experiment(setting, seed)
-            print("Seed completed execution!")
+            print("Seed completed execution!", seed, setting)
             print("------------------------------------------------------------------")
-        print("Experiment complete")
+        print("Experiment complete", setting)
