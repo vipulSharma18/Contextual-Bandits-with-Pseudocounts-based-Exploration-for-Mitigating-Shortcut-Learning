@@ -86,8 +86,8 @@ def experiment(setting='0.9_3', seed=42):
         if val_accuracy>best_acc: 
             torch.save(model.state_dict(), 'results_vanilla_'+setting+'_'+str(seed)+'.pth')
             best_acc=val_accuracy
-        if best_acc==100: 
-            print("100% Validation Accuracy reached, no further training required")
+        if best_acc>=99.8: 
+            print("Validation Accuracy above 99.8, no further training required")
             break
     wandb.finish()
 
