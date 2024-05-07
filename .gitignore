@@ -1,6 +1,6 @@
 data/synthetic_*_data.csv
-
-data/0*
+#data/0.6_1/test/0/0.png
+data/*/*/*/*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
