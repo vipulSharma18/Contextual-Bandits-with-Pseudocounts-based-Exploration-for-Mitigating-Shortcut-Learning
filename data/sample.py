@@ -55,3 +55,11 @@ def generate_image(circle, square, circle_size, cls):
     draw.ellipse(circle_bbox, fill=circle_color)
 
     return image
+
+if __name__=='__main__': 
+    image = generate_image(circle=255, square=255, circle_size=1, cls=0)
+    image.save('sample1.png')
+    image = generate_image(circle=0, square=0, circle_size=1, cls=0)
+    image.save('sample2.png')
+    image = generate_image(circle=127, square=127, circle_size=1, cls=0)
+    image.save('sample3.png')

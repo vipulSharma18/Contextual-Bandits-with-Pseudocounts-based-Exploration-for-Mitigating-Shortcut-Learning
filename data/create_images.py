@@ -50,8 +50,8 @@ def create_image(data_path = None, mode='train'):
                 for i,split in enumerate(splits): 
                     save_path = dataset_folder+split+str(class_)+'/'
                     write_df = curr_df.loc[indices[i]]
-                    write_df['z_s'] = (write_df['z_s'] - write_df['z_s'].mean())/(write_df['z_s'].max() - write_df['z_s'].min()) * (255)
-                    write_df['z_c'] = (write_df['z_c'] - write_df['z_c'].mean())/(write_df['z_c'].max() - write_df['z_c'].min()) * (255)
+                    write_df['z_s'] = (write_df['z_s'] - write_df['z_s'].min())/(write_df['z_s'].max() - write_df['z_s'].min()) * (255)
+                    write_df['z_c'] = (write_df['z_c'] - write_df['z_c'].min())/(write_df['z_c'].max() - write_df['z_c'].min()) * (255)
                     print(f'Processing class {class_}, split {split}, num of images {len(write_df)}')
                     total = len(write_df)
                     for index, row in write_df.iterrows(): 
