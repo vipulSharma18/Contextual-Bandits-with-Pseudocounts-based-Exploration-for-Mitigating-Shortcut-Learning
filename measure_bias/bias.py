@@ -9,6 +9,8 @@ sys.path.append(parent_dir)
 
 from optimal_classifier import load_lda
 from supervised_learning import load_model
+from supervised_learning import set_seed
+
 import wandb
 import pandas as pd
 import numpy as np
@@ -19,9 +21,9 @@ from torch.utils.data import DataLoader
 def reliance_tabular(model=None, data=None): 
     X,y = data[0]
     z_s, z_c = data[1]
-    y_pred = model.predict(X)
+    y_pred = model.predict(X) #either 1 or -1
     #print(y_pred.shape)
-    reliance = np.mean(y_pred*(np.sign(z_s) - np.sign(z_c)))
+    reliance = np.mean(y_pred*(np.where(z_s>=0, 1, -1) - np.where(z_c>=0, 1, -1)))
     #print(reliance)
     return reliance
 
@@ -35,9 +37,11 @@ def reliance_image(model=None, data=None):
         for images, labels in test_loader: 
             outputs = model(images.to(device)).squeeze()
             y_pred.extend(outputs.tolist())
-    y_pred = np.array(y_pred)
+    y_pred = np.array(y_pred) #logit values, optimized 
+    y_pred = np.where(y_pred>=0.5, 1, -1)  #thresholding the same as the training setup, i.e., at >=0.5, but the labels now 1 or -1
+    #probably want to redo all the experiments with consistent thresholding and labels for classes. don't have the time as of now.
     #print(y_pred.shape)
-    reliance = np.mean(y_pred*(np.sign(z_s) - np.sign(z_c)))
+    reliance = np.mean(y_pred*(np.where(z_s>=0, 1, -1) - np.where(z_c>=0, 1, -1)))
     #print(reliance)
     return reliance
 
@@ -55,7 +59,8 @@ if __name__=='__main__':
         project="RL_Project_CSCI2951F", 
         config={
             'architecture': 'Bias Measurement',
-            'task': 'red vs green'
+            'task': 'red vs green',
+            'class_threshold': 0.5
         })
     
     optimal_weights = '../optimal_classifier/model_weights/'
@@ -79,9 +84,11 @@ if __name__=='__main__':
         print("==========================================================================")
         print("Measuring bias for setting", setting)
         print("==========================================================================")
-        for seed in [1,42,89,23,113]:
+        seeds = [1,42,89,23,113]
+        for seed in seeds:
             print("Running for seed", seed, "of experiment", setting) 
             #model
+            set_seed(seed)
             resnet = load_model(resnet_weights+resnet_template+setting+'_'+str(seed)+'.pth').to(device)
             resnet.eval()
             lda = load_lda(optimal_weights+optimal_template+setting+'_'+str(seed)+'.joblib')
@@ -107,7 +114,8 @@ if __name__=='__main__':
             
             #logging
             print({'p_s': p_s, 'a_s': a_s, 'seed': seed, 'resnet_reliance': resnet_reliance, 'lda_reliance': lda_reliance, 'bias': bias})
-            wandb.log({'p_s': p_s, 'a_s': a_s, 'seed': seed, 'resnet_reliance': resnet_reliance, 'lda_reliance': lda_reliance, 'bias': bias})
+            wandb.log({'p_s': p_s, 'a_s': a_s, 'seeds': seed, 'resnet_reliance': resnet_reliance, 'lda_reliance': lda_reliance, 'bias': bias})
             print("Seed completed execution!", seed, setting)
             print("------------------------------------------------------------------")
+
         print("Experiment complete", setting)

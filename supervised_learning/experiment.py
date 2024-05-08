@@ -8,7 +8,7 @@ from supervised_model import create_model, set_seed
 import wandb
 
 def calculate_accuracy(outputs, labels, threshold=0.5):
-    binary_predictions = torch.where(outputs > threshold, torch.tensor(1.0), torch.tensor(-1.0))
+    binary_predictions = torch.where(outputs >= threshold, torch.tensor(1.0), torch.tensor(0.0))
     correct = torch.sum(binary_predictions == labels)
     total = len(labels)
     return correct.item() / total * 100
@@ -49,10 +49,11 @@ def experiment(setting='0.9_3', seed=42):
         model.train()
         train_loss, train_accuracy = 0, 0
         for i, (images, labels) in enumerate(train_loader): 
-            labels = labels.to(device).float() #either 0 or 1, converted to -1 and 1 to increase loss and learning
+            labels = labels.to(device).float() #either 0 or 1 based on the folder names, can be converted to -1 and 1 to increase loss and learning
             #labels = torch.where(labels > 0, torch.tensor(1.0), torch.tensor(-1.0))
             optimizer.zero_grad()
-            outputs = model(images.to(device)).squeeze()
+            outputs = model(images.to(device)).squeeze() #logits of a linear layer without any activation
+            # the outputs are thresholded at 0.5 to get 1 or 0 label prediction
             #print(labels.size(), outputs.size())
             loss = criterion(outputs, labels)
             loss.backward()
