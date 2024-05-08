@@ -7,7 +7,7 @@ import pandas as pd
 from supervised_model import create_model, set_seed
 import wandb
 
-def calculate_accuracy(outputs, labels, threshold=0):
+def calculate_accuracy(outputs, labels, threshold=0.5):
     binary_predictions = torch.where(outputs > threshold, torch.tensor(1.0), torch.tensor(-1.0))
     correct = torch.sum(binary_predictions == labels)
     total = len(labels)
@@ -15,8 +15,8 @@ def calculate_accuracy(outputs, labels, threshold=0):
 
 def experiment(setting='0.9_3', seed=42): 
     set_seed(seed)
-    path = '../data/greyscale/'+setting  #for greyscale task
-    #path = '../data/'+setting  #for red vs green task
+    #path = '../data/greyscale/'+setting  #for greyscale task
+    path = '../data/'+setting  #for red vs green task
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = create_model()
     model.to(device)
@@ -42,7 +42,7 @@ def experiment(setting='0.9_3', seed=42):
             'architecture': 'ResNet18',
             'setting': setting, 
             'seed': seed,
-            'task': 'greyscale'
+            'task': 'red vs green'
         })
     for epoch in range(100): 
         #train loop
@@ -50,7 +50,7 @@ def experiment(setting='0.9_3', seed=42):
         train_loss, train_accuracy = 0, 0
         for i, (images, labels) in enumerate(train_loader): 
             labels = labels.to(device).float() #either 0 or 1, converted to -1 and 1 to increase loss and learning
-            labels = torch.where(labels > 0, torch.tensor(1.0), torch.tensor(-1.0))
+            #labels = torch.where(labels > 0, torch.tensor(1.0), torch.tensor(-1.0))
             optimizer.zero_grad()
             outputs = model(images.to(device)).squeeze()
             #print(labels.size(), outputs.size())
@@ -71,7 +71,7 @@ def experiment(setting='0.9_3', seed=42):
         with torch.no_grad():
             for i, (images, labels) in enumerate(val_loader): 
                 labels = labels.to(device).float()
-                labels = torch.where(labels > 0, torch.tensor(1.0), torch.tensor(-1.0))
+                #labels = torch.where(labels > 0, torch.tensor(1.0), torch.tensor(-1.0))
                 optimizer.zero_grad()
                 outputs = model(images.to(device)).squeeze()
                 loss = criterion(outputs, labels)
@@ -87,7 +87,7 @@ def experiment(setting='0.9_3', seed=42):
         print(f"Epoch {epoch}, Train Loss:{train_loss}, Train Acc:{train_accuracy}, Val loss:{val_loss}, Val acc:{val_accuracy}")
         wandb.log({'Epoch': epoch, 'Train Loss':train_loss, 'Train Acc':train_accuracy, 'Val Loss':val_loss, 'Val Acc':val_accuracy})
         if val_accuracy>best_acc: 
-            torch.save(model.state_dict(), 'greyscale_data/results_vanilla_'+setting+'_'+str(seed)+'.pth')
+            torch.save(model.state_dict(), 'results_vanilla_'+setting+'_'+str(seed)+'.pth')
             best_acc=val_accuracy
         if best_acc>=99.75 and train_accuracy>99: 
             print("Validation Accuracy above 99.8, no further training required")

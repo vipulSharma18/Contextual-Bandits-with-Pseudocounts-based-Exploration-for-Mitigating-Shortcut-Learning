@@ -29,10 +29,14 @@ Uses some threshold of probability matching with true label as "good enough" of 
 Harmonization/Alignment emerging without any exlicit reward/feedback for it.
 
 	
-1. generate dataset for all iamges -> Done. Might need to do changes in color genearation logic (make the distributions more different).
+1. generate dataset for all iamges -> Done. Two types of data generated, stick with oen of them. 
+
 2. contrastive learning model to generate feature states
-3. supervised learning model baseline with an alpha ration of 4 and predictivity as 0.9 (baseline)
+
+3. supervised learning model baseline with an alpha ration of 4 and predictivity as 0.9 (baseline). -> done, all settings with 5 seeds data available now. 
+
 4. coding for measures of reliance and bias
+
 5. bandit algos made
 
 6. bandit algos use contrastive embedding to decide mask on or off. 
@@ -41,5 +45,3 @@ Harmonization/Alignment emerging without any exlicit reward/feedback for it.
 - Exploration done via pseudo-counts (input state and output 0 or 10
 
 8. bandits tell supervised which mask to be on or off. 
-
-9. run for alpha ration 4 and predictivity 0.9

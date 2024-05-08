@@ -1,0 +1,4 @@
+Optimal classifier. 
+To obtain optimal classifications, we use Linear Discriminant Analysis 
+(LDA, as implemented in Sklearn with the least-squares solver). 
+the optimal classifier was fit to and probed with the same embedded base inputs used to train the corresponding model in a given experiment. 

@@ -3,7 +3,10 @@ data/synthetic_*_data.csv
 data/*/*/*/*.png
 data/greyscale/*/*/*/*.png
 supervised_learning/wandb
-supervised_learning/*.pth
+supervised_learning/model_weights/*.pth
+supervised_learning/greyscale_data/*.pth
+optimal_classifier/model_weights/*.joblib
+*/wandb/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
