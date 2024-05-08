@@ -72,7 +72,6 @@ def experiment(setting='0.9_3', seed=42):
             for i, (images, labels) in enumerate(val_loader): 
                 labels = labels.to(device).float()
                 #labels = torch.where(labels > 0, torch.tensor(1.0), torch.tensor(-1.0))
-                optimizer.zero_grad()
                 outputs = model(images.to(device)).squeeze()
                 loss = criterion(outputs, labels)
                 val_loss += loss.item()

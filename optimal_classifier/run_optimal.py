@@ -14,6 +14,7 @@ import wandb
 
 def load_lda(path): 
     loaded_lda = load(path)
+    return loaded_lda
 
 def train_optimal(setting, seed, df): 
     s = setting.split('_')

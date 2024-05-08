@@ -17,5 +17,7 @@ def create_model():
 def load_model(model_path):
     # Load the pretrained ResNet18 model
     model = models.resnet18()
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Linear(num_ftrs, 1)
     model.load_state_dict(torch.load(model_path))
     return model

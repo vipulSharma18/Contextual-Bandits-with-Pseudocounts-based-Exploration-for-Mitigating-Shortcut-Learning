@@ -1,0 +1,480 @@
+==========================================================================
+Measuring bias for setting 0.6_1
+==========================================================================
+Running for seed 1 of experiment 0.6_1
+{'p_s': 0.6, 'a_s': 1, 'seed': 1, 'resnet_reliance': 0.40298322815448046, 'lda_reliance': -0.5, 'bias': 0.9029832281544805}
+Seed completed execution! 1 0.6_1
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_1
+{'p_s': 0.6, 'a_s': 1, 'seed': 42, 'resnet_reliance': 0.465268058180809, 'lda_reliance': -0.5, 'bias': 0.9652680581808091}
+Seed completed execution! 42 0.6_1
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.6_1
+{'p_s': 0.6, 'a_s': 1, 'seed': 89, 'resnet_reliance': 0.5842150119112598, 'lda_reliance': -0.5, 'bias': 1.08421501191126}
+Seed completed execution! 89 0.6_1
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.6_1
+{'p_s': 0.6, 'a_s': 1, 'seed': 23, 'resnet_reliance': 0.43917902864929703, 'lda_reliance': -0.5, 'bias': 0.939179028649297}
+Seed completed execution! 23 0.6_1
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.6_1
+{'p_s': 0.6, 'a_s': 1, 'seed': 113, 'resnet_reliance': 0.34060433950689106, 'lda_reliance': -0.5, 'bias': 0.8406043395068911}
+Seed completed execution! 113 0.6_1
+------------------------------------------------------------------
+Experiment complete 0.6_1
+==========================================================================
+Measuring bias for setting 0.6_2
+==========================================================================
+Running for seed 1 of experiment 0.6_2
+{'p_s': 0.6, 'a_s': 2, 'seed': 1, 'resnet_reliance': 0.39381122128417095, 'lda_reliance': -0.5, 'bias': 0.8938112212841709}
+Seed completed execution! 1 0.6_2
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_2
+{'p_s': 0.6, 'a_s': 2, 'seed': 42, 'resnet_reliance': 0.39062119485603436, 'lda_reliance': -0.5, 'bias': 0.8906211948560343}
+Seed completed execution! 42 0.6_2
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.6_2
+{'p_s': 0.6, 'a_s': 2, 'seed': 89, 'resnet_reliance': 0.42542826789948673, 'lda_reliance': -0.5, 'bias': 0.9254282678994867}
+Seed completed execution! 89 0.6_2
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.6_2
+{'p_s': 0.6, 'a_s': 2, 'seed': 23, 'resnet_reliance': 0.3740327692321605, 'lda_reliance': -0.5, 'bias': 0.8740327692321606}
+Seed completed execution! 23 0.6_2
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.6_2
+{'p_s': 0.6, 'a_s': 2, 'seed': 113, 'resnet_reliance': 0.45515939430540636, 'lda_reliance': -0.5, 'bias': 0.9551593943054064}
+Seed completed execution! 113 0.6_2
+------------------------------------------------------------------
+Experiment complete 0.6_2
+==========================================================================
+Measuring bias for setting 0.6_3
+==========================================================================
+Running for seed 1 of experiment 0.6_3
+{'p_s': 0.6, 'a_s': 3, 'seed': 1, 'resnet_reliance': 0.42818647456769315, 'lda_reliance': -0.5, 'bias': 0.9281864745676931}
+Seed completed execution! 1 0.6_3
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_3
+{'p_s': 0.6, 'a_s': 3, 'seed': 42, 'resnet_reliance': 0.451758354736699, 'lda_reliance': -0.5, 'bias': 0.951758354736699}
+Seed completed execution! 42 0.6_3
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.6_3
+{'p_s': 0.6, 'a_s': 3, 'seed': 89, 'resnet_reliance': 0.42320517351229986, 'lda_reliance': -0.5, 'bias': 0.9232051735122999}
+Seed completed execution! 89 0.6_3
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.6_3
+{'p_s': 0.6, 'a_s': 3, 'seed': 23, 'resnet_reliance': 0.3997666748488943, 'lda_reliance': -0.5, 'bias': 0.8997666748488943}
+Seed completed execution! 23 0.6_3
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.6_3
+{'p_s': 0.6, 'a_s': 3, 'seed': 113, 'resnet_reliance': 0.2860298441516029, 'lda_reliance': -0.5, 'bias': 0.7860298441516029}
+Seed completed execution! 113 0.6_3
+------------------------------------------------------------------
+Experiment complete 0.6_3
+==========================================================================
+Measuring bias for setting 0.6_4
+==========================================================================
+Running for seed 1 of experiment 0.6_4
+{'p_s': 0.6, 'a_s': 4, 'seed': 1, 'resnet_reliance': 0.4052889358335071, 'lda_reliance': -0.5, 'bias': 0.9052889358335071}
+Seed completed execution! 1 0.6_4
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_4
+{'p_s': 0.6, 'a_s': 4, 'seed': 42, 'resnet_reliance': 0.8634976109448407, 'lda_reliance': -0.5, 'bias': 1.3634976109448407}
+Seed completed execution! 42 0.6_4
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.6_4
+{'p_s': 0.6, 'a_s': 4, 'seed': 89, 'resnet_reliance': 0.5818278861873679, 'lda_reliance': -0.5, 'bias': 1.081827886187368}
+Seed completed execution! 89 0.6_4
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.6_4
+{'p_s': 0.6, 'a_s': 4, 'seed': 23, 'resnet_reliance': 0.8526286498498585, 'lda_reliance': -0.5, 'bias': 1.3526286498498585}
+Seed completed execution! 23 0.6_4
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.6_4
+{'p_s': 0.6, 'a_s': 4, 'seed': 113, 'resnet_reliance': 0.3962398093442122, 'lda_reliance': -0.5, 'bias': 0.8962398093442122}
+Seed completed execution! 113 0.6_4
+------------------------------------------------------------------
+Experiment complete 0.6_4
+==========================================================================
+Measuring bias for setting 0.6_5
+==========================================================================
+Running for seed 1 of experiment 0.6_5
+{'p_s': 0.6, 'a_s': 5, 'seed': 1, 'resnet_reliance': 0.398243787743979, 'lda_reliance': -0.5, 'bias': 0.8982437877439791}
+Seed completed execution! 1 0.6_5
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_5
+{'p_s': 0.6, 'a_s': 5, 'seed': 42, 'resnet_reliance': 0.5677128119601144, 'lda_reliance': -0.5, 'bias': 1.0677128119601145}
+Seed completed execution! 42 0.6_5
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.6_5
+{'p_s': 0.6, 'a_s': 5, 'seed': 89, 'resnet_reliance': 0.43848303672340183, 'lda_reliance': -0.5, 'bias': 0.9384830367234018}
+Seed completed execution! 89 0.6_5
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.6_5
+{'p_s': 0.6, 'a_s': 5, 'seed': 23, 'resnet_reliance': 1.3772276588291343, 'lda_reliance': -0.5, 'bias': 1.8772276588291343}
+Seed completed execution! 23 0.6_5
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.6_5
+{'p_s': 0.6, 'a_s': 5, 'seed': 113, 'resnet_reliance': 0.5137230318288009, 'lda_reliance': -0.5, 'bias': 1.0137230318288009}
+Seed completed execution! 113 0.6_5
+------------------------------------------------------------------
+Experiment complete 0.6_5
+==========================================================================
+Measuring bias for setting 0.7_1
+==========================================================================
+Running for seed 1 of experiment 0.7_1
+{'p_s': 0.7, 'a_s': 1, 'seed': 1, 'resnet_reliance': 0.3910644843346543, 'lda_reliance': -0.45111111111111113, 'bias': 0.8421755954457655}
+Seed completed execution! 1 0.7_1
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.7_1
+{'p_s': 0.7, 'a_s': 1, 'seed': 42, 'resnet_reliance': 0.41226475380981964, 'lda_reliance': -0.4488888888888889, 'bias': 0.8611536426987085}
+Seed completed execution! 42 0.7_1
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.7_1
+{'p_s': 0.7, 'a_s': 1, 'seed': 89, 'resnet_reliance': 0.4185786939164003, 'lda_reliance': -0.4488888888888889, 'bias': 0.8674675828052891}
+Seed completed execution! 89 0.7_1
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.7_1
+{'p_s': 0.7, 'a_s': 1, 'seed': 23, 'resnet_reliance': 0.3647534180722303, 'lda_reliance': -0.4488888888888889, 'bias': 0.8136423069611192}
+Seed completed execution! 23 0.7_1
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.7_1
+{'p_s': 0.7, 'a_s': 1, 'seed': 113, 'resnet_reliance': 0.40774027016427783, 'lda_reliance': -0.4488888888888889, 'bias': 0.8566291590531667}
+Seed completed execution! 113 0.7_1
+------------------------------------------------------------------
+Experiment complete 0.7_1
+==========================================================================
+Measuring bias for setting 0.7_2
+==========================================================================
+Running for seed 1 of experiment 0.7_2
+{'p_s': 0.7, 'a_s': 2, 'seed': 1, 'resnet_reliance': 0.3824560797876782, 'lda_reliance': -0.45111111111111113, 'bias': 0.8335671908987894}
+Seed completed execution! 1 0.7_2
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.7_2
+{'p_s': 0.7, 'a_s': 2, 'seed': 42, 'resnet_reliance': 0.3947011251168119, 'lda_reliance': -0.4488888888888889, 'bias': 0.8435900140057008}
+Seed completed execution! 42 0.7_2
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.7_2
+{'p_s': 0.7, 'a_s': 2, 'seed': 89, 'resnet_reliance': 0.3927242150406043, 'lda_reliance': -0.4488888888888889, 'bias': 0.8416131039294932}
+Seed completed execution! 89 0.7_2
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.7_2
+{'p_s': 0.7, 'a_s': 2, 'seed': 23, 'resnet_reliance': 0.3947828304477864, 'lda_reliance': -0.4488888888888889, 'bias': 0.8436717193366753}
+Seed completed execution! 23 0.7_2
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.7_2
+{'p_s': 0.7, 'a_s': 2, 'seed': 113, 'resnet_reliance': 0.40462583035230637, 'lda_reliance': -0.4488888888888889, 'bias': 0.8535147192411953}
+Seed completed execution! 113 0.7_2
+------------------------------------------------------------------
+Experiment complete 0.7_2
+==========================================================================
+Measuring bias for setting 0.7_3
+==========================================================================
+Running for seed 1 of experiment 0.7_3
+{'p_s': 0.7, 'a_s': 3, 'seed': 1, 'resnet_reliance': 0.43397030561622363, 'lda_reliance': -0.45111111111111113, 'bias': 0.8850814167273348}
+Seed completed execution! 1 0.7_3
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.7_3
+{'p_s': 0.7, 'a_s': 3, 'seed': 42, 'resnet_reliance': 0.36085192419588563, 'lda_reliance': -0.4488888888888889, 'bias': 0.8097408130847745}
+Seed completed execution! 42 0.7_3
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.7_3
+{'p_s': 0.7, 'a_s': 3, 'seed': 89, 'resnet_reliance': 0.5744031345595916, 'lda_reliance': -0.4488888888888889, 'bias': 1.0232920234484806}
+Seed completed execution! 89 0.7_3
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.7_3
+{'p_s': 0.7, 'a_s': 3, 'seed': 23, 'resnet_reliance': 0.9078938050406415, 'lda_reliance': -0.4488888888888889, 'bias': 1.3567826939295304}
+Seed completed execution! 23 0.7_3
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.7_3
+{'p_s': 0.7, 'a_s': 3, 'seed': 113, 'resnet_reliance': 0.36511181861162184, 'lda_reliance': -0.4488888888888889, 'bias': 0.8140007075005107}
+Seed completed execution! 113 0.7_3
+------------------------------------------------------------------
+Experiment complete 0.7_3
+==========================================================================
+Measuring bias for setting 0.7_4
+==========================================================================
+Running for seed 1 of experiment 0.7_4
+{'p_s': 0.7, 'a_s': 4, 'seed': 1, 'resnet_reliance': 0.4351438791092692, 'lda_reliance': -0.45111111111111113, 'bias': 0.8862549902203803}
+Seed completed execution! 1 0.7_4
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.7_4
+{'p_s': 0.7, 'a_s': 4, 'seed': 42, 'resnet_reliance': 0.4549519602457682, 'lda_reliance': -0.4488888888888889, 'bias': 0.9038408491346571}
+Seed completed execution! 42 0.7_4
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.7_4
+{'p_s': 0.7, 'a_s': 4, 'seed': 89, 'resnet_reliance': 0.7002069153015812, 'lda_reliance': -0.4488888888888889, 'bias': 1.1490958041904702}
+Seed completed execution! 89 0.7_4
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.7_4
+{'p_s': 0.7, 'a_s': 4, 'seed': 23, 'resnet_reliance': 0.4943375868164003, 'lda_reliance': -0.4488888888888889, 'bias': 0.9432264757052892}
+Seed completed execution! 23 0.7_4
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.7_4
+{'p_s': 0.7, 'a_s': 4, 'seed': 113, 'resnet_reliance': 0.4200695429245631, 'lda_reliance': -0.4488888888888889, 'bias': 0.868958431813452}
+Seed completed execution! 113 0.7_4
+------------------------------------------------------------------
+Experiment complete 0.7_4
+==========================================================================
+Measuring bias for setting 0.7_5
+==========================================================================
+Running for seed 1 of experiment 0.7_5
+{'p_s': 0.7, 'a_s': 5, 'seed': 1, 'resnet_reliance': 0.4096456752138005, 'lda_reliance': -0.45111111111111113, 'bias': 0.8607567863249117}
+Seed completed execution! 1 0.7_5
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.7_5
+{'p_s': 0.7, 'a_s': 5, 'seed': 42, 'resnet_reliance': 0.40960622712141936, 'lda_reliance': -0.4488888888888889, 'bias': 0.8584951160103083}
+Seed completed execution! 42 0.7_5
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.7_5
+{'p_s': 0.7, 'a_s': 5, 'seed': 89, 'resnet_reliance': 0.35282352244688403, 'lda_reliance': -0.4488888888888889, 'bias': 0.801712411335773}
+Seed completed execution! 89 0.7_5
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.7_5
+{'p_s': 0.7, 'a_s': 5, 'seed': 23, 'resnet_reliance': 0.693870985251334, 'lda_reliance': -0.4488888888888889, 'bias': 1.1427598741402227}
+Seed completed execution! 23 0.7_5
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.7_5
+{'p_s': 0.7, 'a_s': 5, 'seed': 113, 'resnet_reliance': 0.4304642021490468, 'lda_reliance': -0.4488888888888889, 'bias': 0.8793530910379357}
+Seed completed execution! 113 0.7_5
+------------------------------------------------------------------
+Experiment complete 0.7_5
+==========================================================================
+Measuring bias for setting 0.8_1
+==========================================================================
+Running for seed 1 of experiment 0.8_1
+{'p_s': 0.8, 'a_s': 1, 'seed': 1, 'resnet_reliance': 0.3978466659080651, 'lda_reliance': -0.4022222222222222, 'bias': 0.8000688881302873}
+Seed completed execution! 1 0.8_1
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.8_1
+{'p_s': 0.8, 'a_s': 1, 'seed': 42, 'resnet_reliance': 0.3685940623904268, 'lda_reliance': -0.4, 'bias': 0.7685940623904268}
+Seed completed execution! 42 0.8_1
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.8_1
+{'p_s': 0.8, 'a_s': 1, 'seed': 89, 'resnet_reliance': 0.41020179813520774, 'lda_reliance': -0.4, 'bias': 0.8102017981352078}
+Seed completed execution! 89 0.8_1
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.8_1
+{'p_s': 0.8, 'a_s': 1, 'seed': 23, 'resnet_reliance': 0.4704108583016528, 'lda_reliance': -0.4, 'bias': 0.8704108583016528}
+Seed completed execution! 23 0.8_1
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.8_1
+{'p_s': 0.8, 'a_s': 1, 'seed': 113, 'resnet_reliance': 0.4083922598345412, 'lda_reliance': -0.4, 'bias': 0.8083922598345412}
+Seed completed execution! 113 0.8_1
+------------------------------------------------------------------
+Experiment complete 0.8_1
+==========================================================================
+Measuring bias for setting 0.8_2
+==========================================================================
+Running for seed 1 of experiment 0.8_2
+{'p_s': 0.8, 'a_s': 2, 'seed': 1, 'resnet_reliance': 0.4276337625996934, 'lda_reliance': -0.4022222222222222, 'bias': 0.8298559848219156}
+Seed completed execution! 1 0.8_2
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.8_2
+{'p_s': 0.8, 'a_s': 2, 'seed': 42, 'resnet_reliance': 0.3786494589348634, 'lda_reliance': -0.4, 'bias': 0.7786494589348634}
+Seed completed execution! 42 0.8_2
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.8_2
+{'p_s': 0.8, 'a_s': 2, 'seed': 89, 'resnet_reliance': 0.591822398280104, 'lda_reliance': -0.4, 'bias': 0.991822398280104}
+Seed completed execution! 89 0.8_2
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.8_2
+{'p_s': 0.8, 'a_s': 2, 'seed': 23, 'resnet_reliance': 0.41834511581394407, 'lda_reliance': -0.4, 'bias': 0.8183451158139441}
+Seed completed execution! 23 0.8_2
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.8_2
+{'p_s': 0.8, 'a_s': 2, 'seed': 113, 'resnet_reliance': 0.523555655926466, 'lda_reliance': -0.4, 'bias': 0.923555655926466}
+Seed completed execution! 113 0.8_2
+------------------------------------------------------------------
+Experiment complete 0.8_2
+==========================================================================
+Measuring bias for setting 0.8_3
+==========================================================================
+Running for seed 1 of experiment 0.8_3
+{'p_s': 0.8, 'a_s': 3, 'seed': 1, 'resnet_reliance': 0.46235596760693526, 'lda_reliance': -0.4022222222222222, 'bias': 0.8645781898291575}
+Seed completed execution! 1 0.8_3
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.8_3
+{'p_s': 0.8, 'a_s': 3, 'seed': 42, 'resnet_reliance': 0.6784018773254421, 'lda_reliance': -0.4, 'bias': 1.078401877325442}
+Seed completed execution! 42 0.8_3
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.8_3
+{'p_s': 0.8, 'a_s': 3, 'seed': 89, 'resnet_reliance': 0.40250535135467846, 'lda_reliance': -0.4, 'bias': 0.8025053513546785}
+Seed completed execution! 89 0.8_3
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.8_3
+{'p_s': 0.8, 'a_s': 3, 'seed': 23, 'resnet_reliance': 0.3948937388592296, 'lda_reliance': -0.4, 'bias': 0.7948937388592296}
+Seed completed execution! 23 0.8_3
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.8_3
+{'p_s': 0.8, 'a_s': 3, 'seed': 113, 'resnet_reliance': 0.33247507684760624, 'lda_reliance': -0.4, 'bias': 0.7324750768476063}
+Seed completed execution! 113 0.8_3
+------------------------------------------------------------------
+Experiment complete 0.8_3
+==========================================================================
+Measuring bias for setting 0.8_4
+==========================================================================
+Running for seed 1 of experiment 0.8_4
+{'p_s': 0.8, 'a_s': 4, 'seed': 1, 'resnet_reliance': 0.43387110085123115, 'lda_reliance': -0.4022222222222222, 'bias': 0.8360933230734533}
+Seed completed execution! 1 0.8_4
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.8_4
+{'p_s': 0.8, 'a_s': 4, 'seed': 42, 'resnet_reliance': 0.6087713470806678, 'lda_reliance': -0.4, 'bias': 1.0087713470806678}
+Seed completed execution! 42 0.8_4
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.8_4
+{'p_s': 0.8, 'a_s': 4, 'seed': 89, 'resnet_reliance': 0.4191203856964906, 'lda_reliance': -0.4, 'bias': 0.8191203856964906}
+Seed completed execution! 89 0.8_4
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.8_4
+{'p_s': 0.8, 'a_s': 4, 'seed': 23, 'resnet_reliance': 0.6389822006639507, 'lda_reliance': -0.4, 'bias': 1.0389822006639506}
+Seed completed execution! 23 0.8_4
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.8_4
+{'p_s': 0.8, 'a_s': 4, 'seed': 113, 'resnet_reliance': 0.43731706105172635, 'lda_reliance': -0.4, 'bias': 0.8373170610517264}
+Seed completed execution! 113 0.8_4
+------------------------------------------------------------------
+Experiment complete 0.8_4
+==========================================================================
+Measuring bias for setting 0.8_5
+==========================================================================
+Running for seed 1 of experiment 0.8_5
+{'p_s': 0.8, 'a_s': 5, 'seed': 1, 'resnet_reliance': 0.44803884455313286, 'lda_reliance': -0.4022222222222222, 'bias': 0.8502610667753551}
+Seed completed execution! 1 0.8_5
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.8_5
+{'p_s': 0.8, 'a_s': 5, 'seed': 42, 'resnet_reliance': 0.4424937052445279, 'lda_reliance': -0.4, 'bias': 0.8424937052445279}
+Seed completed execution! 42 0.8_5
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.8_5
+{'p_s': 0.8, 'a_s': 5, 'seed': 89, 'resnet_reliance': 0.5423130000879367, 'lda_reliance': -0.4, 'bias': 0.9423130000879367}
+Seed completed execution! 89 0.8_5
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.8_5
+{'p_s': 0.8, 'a_s': 5, 'seed': 23, 'resnet_reliance': 0.5431415889329381, 'lda_reliance': -0.4, 'bias': 0.9431415889329381}
+Seed completed execution! 23 0.8_5
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.8_5
+{'p_s': 0.8, 'a_s': 5, 'seed': 113, 'resnet_reliance': 0.44846393339335916, 'lda_reliance': -0.4, 'bias': 0.8484639333933592}
+Seed completed execution! 113 0.8_5
+------------------------------------------------------------------
+Experiment complete 0.8_5
+==========================================================================
+Measuring bias for setting 0.9_1
+==========================================================================
+Running for seed 1 of experiment 0.9_1
+{'p_s': 0.9, 'a_s': 1, 'seed': 1, 'resnet_reliance': 0.413430180048777, 'lda_reliance': 0.05555555555555555, 'bias': 0.3578746244932215}
+Seed completed execution! 1 0.9_1
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.9_1
+{'p_s': 0.9, 'a_s': 1, 'seed': 42, 'resnet_reliance': 0.4498622657524215, 'lda_reliance': 0.06, 'bias': 0.3898622657524215}
+Seed completed execution! 42 0.9_1
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.9_1
+{'p_s': 0.9, 'a_s': 1, 'seed': 89, 'resnet_reliance': 0.4177691015932295, 'lda_reliance': 0.06, 'bias': 0.3577691015932295}
+Seed completed execution! 89 0.9_1
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.9_1
+{'p_s': 0.9, 'a_s': 1, 'seed': 23, 'resnet_reliance': 0.4185289183507363, 'lda_reliance': 0.04666666666666667, 'bias': 0.3718622516840696}
+Seed completed execution! 23 0.9_1
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.9_1
+{'p_s': 0.9, 'a_s': 1, 'seed': 113, 'resnet_reliance': 0.4342147541211711, 'lda_reliance': 0.06, 'bias': 0.3742147541211711}
+Seed completed execution! 113 0.9_1
+------------------------------------------------------------------
+Experiment complete 0.9_1
+==========================================================================
+Measuring bias for setting 0.9_2
+==========================================================================
+Running for seed 1 of experiment 0.9_2
+{'p_s': 0.9, 'a_s': 2, 'seed': 1, 'resnet_reliance': 0.43033719251553215, 'lda_reliance': 0.05555555555555555, 'bias': 0.37478163695997657}
+Seed completed execution! 1 0.9_2
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.9_2
+{'p_s': 0.9, 'a_s': 2, 'seed': 42, 'resnet_reliance': 0.304494317587879, 'lda_reliance': 0.06, 'bias': 0.24449431758787898}
+Seed completed execution! 42 0.9_2
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.9_2
+{'p_s': 0.9, 'a_s': 2, 'seed': 89, 'resnet_reliance': 0.44529858375589054, 'lda_reliance': 0.06, 'bias': 0.38529858375589054}
+Seed completed execution! 89 0.9_2
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.9_2
+{'p_s': 0.9, 'a_s': 2, 'seed': 23, 'resnet_reliance': 0.46414112657308576, 'lda_reliance': 0.04666666666666667, 'bias': 0.41747445990641907}
+Seed completed execution! 23 0.9_2
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.9_2
+{'p_s': 0.9, 'a_s': 2, 'seed': 113, 'resnet_reliance': 0.6080198120408588, 'lda_reliance': 0.06, 'bias': 0.5480198120408588}
+Seed completed execution! 113 0.9_2
+------------------------------------------------------------------
+Experiment complete 0.9_2
+==========================================================================
+Measuring bias for setting 0.9_3
+==========================================================================
+Running for seed 1 of experiment 0.9_3
+{'p_s': 0.9, 'a_s': 3, 'seed': 1, 'resnet_reliance': 0.43766443960368634, 'lda_reliance': 0.05555555555555555, 'bias': 0.3821088840481308}
+Seed completed execution! 1 0.9_3
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.9_3
+{'p_s': 0.9, 'a_s': 3, 'seed': 42, 'resnet_reliance': 0.32954885797368155, 'lda_reliance': 0.06, 'bias': 0.26954885797368155}
+Seed completed execution! 42 0.9_3
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.9_3
+{'p_s': 0.9, 'a_s': 3, 'seed': 89, 'resnet_reliance': 0.5031155637651682, 'lda_reliance': 0.06, 'bias': 0.4431155637651682}
+Seed completed execution! 89 0.9_3
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.9_3
+{'p_s': 0.9, 'a_s': 3, 'seed': 23, 'resnet_reliance': 0.45350456591281624, 'lda_reliance': 0.04666666666666667, 'bias': 0.40683789924614955}
+Seed completed execution! 23 0.9_3
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.9_3
+{'p_s': 0.9, 'a_s': 3, 'seed': 113, 'resnet_reliance': 0.3091463394628631, 'lda_reliance': 0.06, 'bias': 0.24914633946286308}
+Seed completed execution! 113 0.9_3
+------------------------------------------------------------------
+Experiment complete 0.9_3
+==========================================================================
+Measuring bias for setting 0.9_4
+==========================================================================
+Running for seed 1 of experiment 0.9_4
+{'p_s': 0.9, 'a_s': 4, 'seed': 1, 'resnet_reliance': 0.4132598386081453, 'lda_reliance': 0.05555555555555555, 'bias': 0.3577042830525897}
+Seed completed execution! 1 0.9_4
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.9_4
+{'p_s': 0.9, 'a_s': 4, 'seed': 42, 'resnet_reliance': 0.3987070868909359, 'lda_reliance': 0.06, 'bias': 0.3387070868909359}
+Seed completed execution! 42 0.9_4
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.9_4
+{'p_s': 0.9, 'a_s': 4, 'seed': 89, 'resnet_reliance': 0.5376815261857377, 'lda_reliance': 0.06, 'bias': 0.4776815261857377}
+Seed completed execution! 89 0.9_4
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.9_4
+{'p_s': 0.9, 'a_s': 4, 'seed': 23, 'resnet_reliance': 0.46720120711071, 'lda_reliance': 0.04666666666666667, 'bias': 0.4205345404440433}
+Seed completed execution! 23 0.9_4
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.9_4
+{'p_s': 0.9, 'a_s': 4, 'seed': 113, 'resnet_reliance': 0.3698277905707558, 'lda_reliance': 0.06, 'bias': 0.3098277905707558}
+Seed completed execution! 113 0.9_4
+------------------------------------------------------------------
+Experiment complete 0.9_4
+==========================================================================
+Measuring bias for setting 0.9_5
+==========================================================================
+Running for seed 1 of experiment 0.9_5
+{'p_s': 0.9, 'a_s': 5, 'seed': 1, 'resnet_reliance': 0.3761947020888329, 'lda_reliance': 0.05555555555555555, 'bias': 0.3206391465332773}
+Seed completed execution! 1 0.9_5
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.9_5
+{'p_s': 0.9, 'a_s': 5, 'seed': 42, 'resnet_reliance': 0.4514887358744939, 'lda_reliance': 0.06, 'bias': 0.3914887358744939}
+Seed completed execution! 42 0.9_5
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.9_5
+{'p_s': 0.9, 'a_s': 5, 'seed': 89, 'resnet_reliance': 0.4960033975376023, 'lda_reliance': 0.06, 'bias': 0.4360033975376023}
+Seed completed execution! 89 0.9_5
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.9_5
+{'p_s': 0.9, 'a_s': 5, 'seed': 23, 'resnet_reliance': 0.4667534234561026, 'lda_reliance': 0.04666666666666667, 'bias': 0.4200867567894359}
+Seed completed execution! 23 0.9_5
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.9_5
+{'p_s': 0.9, 'a_s': 5, 'seed': 113, 'resnet_reliance': 0.43864952518915135, 'lda_reliance': 0.06, 'bias': 0.37864952518915135}
+Seed completed execution! 113 0.9_5
+------------------------------------------------------------------
+Experiment complete 0.9_5
