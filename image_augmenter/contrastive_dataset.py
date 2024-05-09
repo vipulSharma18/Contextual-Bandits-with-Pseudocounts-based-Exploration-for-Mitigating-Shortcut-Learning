@@ -37,7 +37,7 @@ class PatchOperations():
                 keys.append(key)
             all_queries.extend(queries)
             all_keys.extend(keys)
-        return all_queries, all_keys
+        return torch.stack(all_queries), torch.stack(all_keys)
     def extract_patches(self, image):
         """ Extract non-overlapping patches from an image. """
         #image channels * height * width

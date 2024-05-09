@@ -16,7 +16,7 @@ class ConvNetEncoder(nn.Module):
         ])
         # Layer normalization
         self.layer_norm = nn.LayerNorm(z_dim)
-        self.size_after_convs = self._calculate_size_after_convs(224)  # input image size is 224x224
+        self.size_after_convs = self._calculate_size_after_convs(56)  # patch size
         # Output MLP to get the latent vector
         self.mlp = nn.Sequential(
             nn.Flatten(),
@@ -47,9 +47,9 @@ class ConvNetEncoder(nn.Module):
         Assume square input.
         """
         size = input_size
-        size = (size - 2) // 2 + 1  # Initial conv: kernel_size=3, stride=2
+        size = (size -1*(3-1) -1) // 2 + 1  # Initial conv: kernel_size=3, stride=2
         for _ in range(len(self.conv_layers)):  # Other convs: kernel_size=3, stride=1
-            size = size - 2 + 1  # Kernel size 3, stride 1
+            size = size - 2 - 1 + 1  # Kernel size 3, stride 1
         return size
 
 '''

@@ -39,7 +39,7 @@ def experiment(setting='0.9_3', seed=42):
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
-    patchOps = PatchOperations(patch_size=56, image_size=224)
+    patchOps = PatchOperations(patch_size=56, image_size=(224,224))
     
     z_dim, num_layers = 16, 4
     q_enc = ConvNetEncoder(z_dim, num_layers)
@@ -101,8 +101,9 @@ def experiment(setting='0.9_3', seed=42):
         with torch.no_grad():
             for i, (images, labels) in enumerate(val_loader): 
                 images = images.to(device)
-                mini_batch = torch.cat([torch.stack(patchOps.query_key(image)) for image in images])
-                queries, keys = mini_batch[:, 0, :], mini_batch[:, 1, :]
+                queries, keys = patchOps.query_key(images)
+                queries.to(device)
+                keys.to(device)
                 z_q = q_enc(queries)
                 z_k = k_enc(keys)
                 z_k = z_k.detach()
@@ -120,7 +121,7 @@ def experiment(setting='0.9_3', seed=42):
         print(f"Epoch {epoch}, Train Loss:{train_loss}, Val loss:{val_loss}")
         wandb.log({'Epoch': epoch, 'Train Loss':train_loss, 'Val Loss':val_loss})
     torch.save(q_enc.state_dict(), 'model_weights/16_4/'+'contrastive_encoder_'+setting+'_'+str(seed)+'.pth')
-    torch.save(W, 'model_weights/16_4/'+'W_'+setting+'_'+str(seed)+'.pth')
+    torch.save(W, 'model_weights/'+str(z_dim)+'_'+str(num_layers)+'/'+'W_'+setting+'_'+str(seed)+'.pth')
     wandb.finish()
     del q_enc, k_enc
 
