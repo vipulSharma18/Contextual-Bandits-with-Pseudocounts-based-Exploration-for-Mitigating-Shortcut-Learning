@@ -9,19 +9,18 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 # Add the parent directory to sys.path
 sys.path.append(parent_dir)
 
-import torch.nn as nn
-import torch.optim as optim
-import torch
-from torchvision import datasets, transforms
-from torch.utils.data import DataLoader
-import pandas as pd
+import torch.nn as nn # type: ignore
+import torch.optim as optim # type: ignore
+import torch # type: ignore
+from torchvision import datasets, transforms # type: ignore
+from torch.utils.data import DataLoader # type: ignore
+import pandas as pd # type: ignore
 from supervised_learning import set_seed
-import wandb
-import numpy as np
-from torch.nn.functional import bmm, mm
+import wandb # type: ignore
+import numpy as np # type: ignore
 
 from image_augmenter import PatchOperations
-from .encoder import ConvNetEncoder
+from encoder import ConvNetEncoder
 
 @torch.no_grad()
 def momentum_update(k_enc, q_enc, beta=0.999): 
@@ -30,15 +29,6 @@ def momentum_update(k_enc, q_enc, beta=0.999):
 
 def experiment(setting='0.9_3', seed=42): 
     set_seed(seed)
-    #wandb setup
-    wandb.init(
-        project="RL_Project_CSCI2951F", 
-        config={
-            'architecture': 'ConvEncoder_'+str(z_dim)+'_'+str(num_layers),
-            'setting': setting, 
-            'seed': seed, 
-            'task': 'red vs green'
-        })
     
     path = '../data/'+setting  #for red vs green task
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -58,11 +48,22 @@ def experiment(setting='0.9_3', seed=42):
     k_enc.to(device)
     #Bilinear product similarity in the latent space as done in CURL
     W = torch.rand(z_dim, z_dim, requires_grad=True).to(device)
+    W = torch.nn.Parameter(W)
     #loss and optim setup
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(q_enc.parameters(), lr=0.001)
     optimizer_W = optim.SGD([W], lr=0.001)
     k_enc.eval()
+    
+    #wandb setup
+    wandb.init(
+        project="RL_Project_CSCI2951F", 
+        config={
+            'architecture': 'ConvEncoder_'+str(z_dim)+'_'+str(num_layers),
+            'setting': setting, 
+            'seed': seed, 
+            'task': 'red vs green'
+        })
     for epoch in range(100): 
         #train loop
         q_enc.train()
