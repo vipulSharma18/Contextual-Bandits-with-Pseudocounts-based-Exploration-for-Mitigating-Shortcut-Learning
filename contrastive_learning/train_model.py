@@ -71,8 +71,9 @@ def experiment(setting='0.9_3', seed=42):
         train_loss = 0
         for i, (images, labels) in enumerate(train_loader): 
             images = images.to(device)
-            mini_batch = torch.cat([torch.stack(patchOps.query_key(image)) for image in images])
-            queries, keys = mini_batch[:, 0, :], mini_batch[:, 1, :]
+            queries, keys = patchOps.query_key(images)
+            queries.to(device)
+            keys.to(device)
             optimizer.zero_grad()
             optimizer_W.zero_grad()
             z_q = q_enc(queries)
