@@ -8,17 +8,13 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 # Add the parent directory to sys.path
 sys.path.append(parent_dir)
-
-import torch.nn as nn # type: ignore
-import torch.optim as optim # type: ignore
-import torch # type: ignore
-from torchvision import datasets, transforms # type: ignore
-from torch.utils.data import DataLoader # type: ignore
-import pandas as pd # type: ignore
-from supervised_learning import set_seed
+import torch 
+import torch.optim as optim 
+from torchvision import datasets, transforms 
+from torch.utils.data import DataLoader
 import wandb # type: ignore
-import numpy as np # type: ignore
 
+from supervised_learning import set_seed
 from image_augmenter import PatchOperations
 from encoder import ConvNetEncoder
 
@@ -39,22 +35,16 @@ def experiment(setting='0.9_3', seed=42):
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
-    patchOps = PatchOperations(patch_size=56, image_size=(224,224))
-    
+    patchOps = PatchOperations(patch_size=224//2, image_size=(224,224))
     z_dim, num_layers = 16, 4
-    q_enc = ConvNetEncoder(z_dim, num_layers)
-    k_enc = ConvNetEncoder(z_dim, num_layers)
+    q_enc = ConvNetEncoder(z_dim, num_layers, patch_size=224//2)
+    k_enc = ConvNetEncoder(z_dim, num_layers, patch_size=224//2)
     q_enc.to(device)
     k_enc.to(device)
-    #Bilinear product similarity in the latent space as done in CURL
-    W = torch.rand(z_dim, z_dim, requires_grad=True).to(device)
-    W = torch.nn.Parameter(W)
     #loss and optim setup
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(q_enc.parameters(), lr=0.001)
-    optimizer_W = optim.SGD([W], lr=0.001)
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = optim.SGD(q_enc.parameters(), lr=0.9)
     k_enc.eval()
-    
     #wandb setup
     wandb.init(
         project="RL_Project_CSCI2951F", 
@@ -64,32 +54,32 @@ def experiment(setting='0.9_3', seed=42):
             'seed': seed, 
             'task': 'red vs green'
         })
-    for epoch in range(100): 
+    for epoch in range(20): 
         #train loop
         q_enc.train()
-        k_enc.load_state_dict(q_enc.state_dict())
         train_loss = 0
         for i, (images, labels) in enumerate(train_loader): 
             images = images.to(device)
-            queries, keys = patchOps.query_key(images)
+            queries, keys = patchOps.query_key(images)  #for each image, return augmented list of patches
             queries.to(device)
             keys.to(device)
             optimizer.zero_grad()
-            optimizer_W.zero_grad()
-            z_q = q_enc(queries)
+            z_q = q_enc(queries) #B*K, z_dim
             with torch.no_grad():
-                z_k = k_enc(keys)
-                z_k = z_k.detach()
+                z_k = k_enc(keys) #B*K, z_dim
             K = patchOps.num_patches #sub-batch/patches per image
             B = images.size(0) #total num of images
-            proj_k = torch.matmul(W, z_k.T) #(z_dim,z_dim) x z_dim,(B*K) -> (z_dim, B*K)
-            logits = torch.matmul(z_q, proj_k) #(B*K),z_dim x z_dim,(B*K) -> (B*K, B*K)
-            labels = torch.arange(K).repeat(B).to(device) #class indices, i.e., each query should only match with its corresponding key
+            #distance measure is L2 norm calculated by matrix multiplication
+            l_pos = torch.bmm(z_q.view(B*K, 1, z_dim), z_k.view(B*K, z_dim, 1)).squeeze(-1)
+            l_neg = torch.mm(z_q, z_k.t()) 
+            mask = torch.eye(B*K, device=device).bool()
+            l_neg[mask] = float('-inf') #diagnoal elements are positive pair already accounted for in l_pos
+            logits = torch.cat([l_pos, l_neg], dim=1)
+            labels = torch.zeros(B*K, dtype=torch.long, device=device)
             loss = criterion(logits, labels)
             loss.backward()
             optimizer.step()
-            optimizer_W.step() 
-            momentum_update(k_enc, q_enc, beta=0.999)
+            momentum_update(k_enc, q_enc, beta=0.9)
             train_loss += loss.item()
             if i%10 == 0: 
                 print(f"Batch {i}, train loss:{loss.item()}")
@@ -106,12 +96,15 @@ def experiment(setting='0.9_3', seed=42):
                 keys.to(device)
                 z_q = q_enc(queries)
                 z_k = k_enc(keys)
-                z_k = z_k.detach()
                 K = patchOps.num_patches #sub-batch/patches per image
                 B = images.size(0) #total num of images
-                proj_k = torch.matmul(W, z_k.T) #(z_dim,z_dim) x z_dim,(B*K)
-                logits = torch.matmul(z_q, proj_k) #(B*K),z_dim x z_dim,(B*K)
-                labels = torch.arange(K).repeat(B).to(device) #class indices, i.e., each query should only match with its corresponding key
+                #distance measure is L2 norm calculated by matrix multiplication
+                l_pos = torch.bmm(z_q.view(B*K, 1, z_dim), z_k.view(B*K, z_dim, 1)).squeeze(-1) 
+                l_neg = torch.mm(z_q, z_k.t()) 
+                mask = torch.eye(B*K, device=device).bool()
+                l_neg[mask] = float('-inf') #diagnoal elements are positive pair already accounted for in l_pos
+                logits = torch.cat([l_pos, l_neg], dim=1)
+                labels = torch.zeros(B*K, dtype=torch.long, device=device)
                 loss = criterion(logits, labels)
                 val_loss += loss.item()
                 if i%10 == 0: 

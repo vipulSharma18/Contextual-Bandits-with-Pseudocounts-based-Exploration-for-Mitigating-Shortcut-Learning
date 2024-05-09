@@ -1,1 +1,1 @@
-from .patch_operations import *
+from .patch_operations import PatchOperations

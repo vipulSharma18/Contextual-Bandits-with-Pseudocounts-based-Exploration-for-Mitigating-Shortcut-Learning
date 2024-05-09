@@ -16,10 +16,10 @@ class PatchOperations():
         self.num_patches = (image_size[0]//patch_size)**2
         self.augmentations = transforms.Compose([
             transforms.RandomChoice([
-                transforms.RandomAffine(degrees=10, translate=(0.1, 0.1), scale=(0.9, 1.1), shear=10),
-                transforms.RandomHorizontalFlip(),
-                transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
-                transforms.RandomRotation(degrees=45),
+                transforms.RandomVerticalFlip(), 
+                transforms.RandomHorizontalFlip(), 
+                transforms.ColorJitter(hue=0.1), 
+                transforms.RandomRotation(degrees=20)
             ])
         ])
     def query_key(self, images):
@@ -31,8 +31,8 @@ class PatchOperations():
             queries = []
             keys = []
             for patch in patches:
-                query = patch#self.augmentations(patch)
-                key = patch#self.augmentations(patch)
+                query = self.augmentations(patch)
+                key = self.augmentations(patch)
                 queries.append(query)
                 keys.append(key)
             all_queries.extend(queries)
