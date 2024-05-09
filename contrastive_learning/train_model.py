@@ -17,5 +17,5 @@ from torch.utils.data import DataLoader
 import pandas as pd
 from supervised_learning import set_seed
 import wandb
-from image_augmenter import ContrastivePatchDataset
+from image_augmenter import PatchOperations
 from .encoder import encoder

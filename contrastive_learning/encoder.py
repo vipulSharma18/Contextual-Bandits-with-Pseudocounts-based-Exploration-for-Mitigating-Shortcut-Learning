@@ -1,8 +1,4 @@
-import torch
-import torchvision.models as models
-from torch import nn
-
-#The encoder architecture is taken from 
+#The encoder architecture details are taken from 
 # “CURL: Contrastive Learning for RL.” Available: https://mishalaskin.github.io/curl/
 
 import torch
@@ -64,3 +60,11 @@ x = torch.rand(4, 3, 224, 224)
 z = encoder(x)
 print(z.shape)  # Should show (4, 16) if input size and output linear layer are correctly calculated
 '''
+
+def save_encoder(model, path): 
+    torch.save(model.state_dict(), path)
+
+def load_encoder(path, z_dim=16, num_layers=4): 
+    encoder = ConvNetEncoder(z_dim=z_dim, num_layers=num_layers)
+    encoder.load_state_dict(torch.load(path))
+    return encoder
