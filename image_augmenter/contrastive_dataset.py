@@ -13,6 +13,7 @@ class PatchOperations():
     def __init__(self, patch_size=56, image_size=224): 
         self.patch_size = patch_size
         self.image_size = image_size
+        self.num_patches = (image_size//patch_size)**2
         self.augmentations = transforms.Compose([
             transforms.RandomChoice([
                 transforms.RandomAffine(degrees=10, translate=(0.1, 0.1), scale=(0.9, 1.1), shear=10),
@@ -22,6 +23,7 @@ class PatchOperations():
             ])
         ])
     def query_key(self, image):
+        """"Query and Key returned as a list of augmented patches """
         patches = self.extract_patches(image)
         # Apply two different augmentations
         results = []
@@ -32,13 +34,12 @@ class PatchOperations():
         return results
     def extract_patches(self, image):
         """ Extract non-overlapping patches from an image. """
-        patches = []
-        for i in range(0, image.size[0], self.patch_size):
-            for j in range(0, image.size[1], self.patch_size):
-                patch = image.crop((i, j, i + self.patch_size, j + self.patch_size))
-                patches.append(patch)
+        patches = [image.crop((i % 4 * self.patch_size, i // 4 * self.patch_size,
+                               (i % 4 + 1) * self.patch_size, (i // 4 + 1) * self.patch_size))
+                   for i in range(self.num_patches)]
         return patches
     def reconstruct_image(self, patches, mask): 
+        """Input patches and bandit's returned mask, recreate original image with cyan masks"""
         image = Image.new('RGB', self.image_size)
         idx = 0
         for i in range(0, self.image_size[0], self.patch_size):
