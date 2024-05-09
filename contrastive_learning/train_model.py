@@ -62,11 +62,10 @@ def experiment(setting='0.9_3', seed=42):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(q_enc.parameters(), lr=0.001)
     optimizer_W = optim.SGD([W], lr=0.001)
-    
+    k_enc.eval()
     for epoch in range(100): 
         #train loop
         q_enc.train()
-        k_enc.eval()
         k_enc.load_state_dict(q_enc.state_dict())
         train_loss = 0
         for i, (images, labels) in enumerate(train_loader): 
