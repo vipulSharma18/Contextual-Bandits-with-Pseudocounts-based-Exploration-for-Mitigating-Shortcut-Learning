@@ -82,8 +82,8 @@ def experiment(setting='0.9_3', seed=42):
                 z_k = z_k.detach()
             K = patchOps.num_patches #sub-batch/patches per image
             B = images.size(0) #total num of images
-            proj_k = torch.matmul(W, z_k.T) #(z_dim,z_dim) x z_dim,(B*K)
-            logits = torch.matmul(z_q, proj_k) #(B*K),z_dim x z_dim,(B*K)
+            proj_k = torch.matmul(W, z_k.T) #(z_dim,z_dim) x z_dim,(B*K) -> (z_dim, B*K)
+            logits = torch.matmul(z_q, proj_k) #(B*K),z_dim x z_dim,(B*K) -> (B*K, B*K)
             labels = torch.arange(K).repeat(B).to(device) #class indices, i.e., each query should only match with its corresponding key
             loss = criterion(logits, labels)
             loss.backward()

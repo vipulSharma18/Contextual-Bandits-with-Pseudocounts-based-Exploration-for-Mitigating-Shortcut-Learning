@@ -31,8 +31,8 @@ class PatchOperations():
             queries = []
             keys = []
             for patch in patches:
-                query = self.augmentations(patch)
-                key = self.augmentations(patch)
+                query = patch#self.augmentations(patch)
+                key = patch#self.augmentations(patch)
                 queries.append(query)
                 keys.append(key)
             all_queries.extend(queries)
