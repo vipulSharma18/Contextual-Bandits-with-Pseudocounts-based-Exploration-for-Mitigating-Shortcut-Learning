@@ -1,3 +1,12 @@
+import sys
+import os
+
+# Determine the absolute path of the parent directory
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+# Add the parent directory to sys.path
+sys.path.append(parent_dir)
+
 import torch.nn as nn
 import torch.optim as optim
 import torch
@@ -20,9 +29,8 @@ def experiment(setting='0.9_3', seed=42):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = create_model()
     model.to(device)
-    transform = transforms.Compose([
-        transforms.ToTensor()
-    ])
+    transform_list = [transforms.ToTensor()]
+    transform = transforms.Compose(transform_list)
     #load data
     train_dataset = datasets.ImageFolder(root=f'{path}/train', transform=transform)
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)

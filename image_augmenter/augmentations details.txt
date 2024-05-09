@@ -1,0 +1,17 @@
+Patch-based augmentation (torchvision): 
+affine transform
+rotation
+random color jittering, 
+random horizontal flip, and 
+
+patches: learn patch to state dictionary mapping. 
+bandits get multiple states as input. 
+with each image, the order of the states is random and hence,
+the reward is random to pick or not pick a state.
+
+Image 1 -> Patches -> States unique arrangement
+Image 2 -> Patches -> States unique arrangement
+
+Class-wise exploration counts (Spurious for one, core for another)
+
+
