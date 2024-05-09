@@ -67,4 +67,6 @@ def save_encoder(model, path):
 def load_encoder(path, z_dim=16, num_layers=4): 
     encoder = ConvNetEncoder(z_dim=z_dim, num_layers=num_layers)
     encoder.load_state_dict(torch.load(path))
+    for param in encoder.parameters():
+        param.requires_grad = False
     return encoder
