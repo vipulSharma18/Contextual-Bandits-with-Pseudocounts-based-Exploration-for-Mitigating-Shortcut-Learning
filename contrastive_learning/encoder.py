@@ -2,71 +2,13 @@
 # “CURL: Contrastive Learning for RL.” Available: https://mishalaskin.github.io/curl/
 
 import torch
-from torch import nn
-from torch.nn import functional as F
+import torchvision.models as models
 
-class ConvNetEncoder(nn.Module):
-    def __init__(self, z_dim=16, num_layers=4, patch_size=56):
-        super(ConvNetEncoder, self).__init__()
-        self.patch_size = patch_size
-        
-        # Initial convolution layer
-        self.initial_conv = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=2)
-        # Additional layers
-        self.conv_layers = nn.ModuleList([
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, stride=1) for _ in range(num_layers - 1)
-        ])
-        # Layer normalization
-        self.layer_norm = nn.LayerNorm(z_dim)
-        self.size_after_convs = self._calculate_size_after_convs(self.patch_size)  # patch size
-        
-        # Output MLP to get the latent vector
-        self.mlp = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(32 * (self.size_after_convs ** 2), 1024),
-            #nn.Linear(3*self.patch_size*self.patch_size, 1024),
-            nn.ReLU(),
-            nn.Linear(1024, z_dim),
-        )
-
-    def forward(self, x):
-        """
-        Forward pass of the encoder.
-        """
-        x = x/255.0
-        z = F.relu(self.initial_conv(x))
-        for conv in self.conv_layers:
-            z = F.relu(conv(z))
-        # Pass through MLP
-        z = self.mlp(z)
-        return z
-
-    def _calculate_size_after_convs(self, input_size):
-        """
-        Utility to calculate the size of the image after all convolutions.
-        Assume square input.
-        """
-        size = input_size
-        size = (size -1*(3-1) -1) // 2 + 1  # Initial conv: kernel_size=3, stride=2
-        for _ in range(len(self.conv_layers)):  # Other convs: kernel_size=3, stride=1
-            size = size - 2 - 1 + 1  # Kernel size 3, stride 1
-        return size
-
-'''
-# Example of using the encoder
-encoder = ConvNetEncoder(z_dim=16, num_layers=3)
-# Example input tensor (batch size, channels, height, width)
-x = torch.rand(4, 3, 224, 224)
-z = encoder(x)
-print(z.shape)  # Should show (4, 16) if input size and output linear layer are correctly calculated
-'''
+def ConvNetEncoder(z_dim=16, num_layers=4, patch_size=56):
+        resnet18 = models.resnet18(weights=None)
+        num_ftrs = resnet18.fc.in_features
+        resnet18.fc = torch.nn.Linear(num_ftrs, z_dim)
+        return resnet18
 
 def save_encoder(model, path): 
     torch.save(model.state_dict(), path)
-
-def load_encoder(path, z_dim=16, num_layers=4): 
-    encoder = ConvNetEncoder(z_dim=z_dim, num_layers=num_layers)
-    encoder.load_state_dict(torch.load(path))
-    for param in encoder.parameters():
-        param.requires_grad = False
-    return encoder

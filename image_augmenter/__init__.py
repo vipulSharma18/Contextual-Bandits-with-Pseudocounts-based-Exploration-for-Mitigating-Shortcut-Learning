@@ -1,1 +1,1 @@
-from .patch_operations import PatchOperations
+from .patch_operations import PatchOperations, RemoveBackgroundTransform
