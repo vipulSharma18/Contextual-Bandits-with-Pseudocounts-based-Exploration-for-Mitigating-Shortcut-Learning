@@ -39,8 +39,8 @@ def experiment(setting='0.9_1', seed=42):
     #transform = transforms.Compose([transforms.ToTensor()])
     train_dataset = datasets.ImageFolder(root=f'{path}/train', transform=transform)
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
-    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, num_workers=4)
-    val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, num_workers=4)
+    train_loader = DataLoader(train_dataset, batch_size=20, shuffle=True, num_workers=4)
+    val_loader = DataLoader(val_dataset, batch_size=20, shuffle=False, num_workers=4)
     patchOps = PatchOperations(patch_size=224//4, image_size=(224,224))
     z_dim = 256
     q_enc = ConvNetEncoder(z_dim, patch_size=224//4)
@@ -49,7 +49,7 @@ def experiment(setting='0.9_1', seed=42):
     k_enc.to(device)
     #loss and optim setup
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(q_enc.parameters(), lr=0.1)
+    optimizer = optim.SGD(q_enc.parameters(), lr=0.5)
     #wandb setup
     wandb.init(
         project="RL_Project_CSCI2951F", 
@@ -88,7 +88,7 @@ def experiment(setting='0.9_1', seed=42):
             loss = criterion(logits, labels)
             loss.backward()
             optimizer.step()
-            momentum_update(k_enc, q_enc, beta=0.99)
+            momentum_update(k_enc, q_enc, beta=0.999)
             train_loss += loss.item()
             if i%10 == 0: 
                 print(f"Batch {i}, train loss:{loss.item()}")
