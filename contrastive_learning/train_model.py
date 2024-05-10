@@ -35,7 +35,7 @@ def experiment(setting='0.9_5'):
     train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)
     patchOps = PatchOperations(patch_size=56, image_size=(224,224))
-    z_dim, num_layers = 128, 4
+    z_dim, num_layers = 256, 4
     q_enc = ConvNetEncoder(z_dim, num_layers, patch_size=56)
     k_enc = ConvNetEncoder(z_dim, num_layers, patch_size=56)
     q_enc.to(device)
@@ -52,7 +52,7 @@ def experiment(setting='0.9_5'):
             'setting': setting, 
             'task': 'red vs green'
         })
-    for epoch in range(3): 
+    for epoch in range(10): 
         #train loop
         q_enc.train()
         train_loss = 0
@@ -76,7 +76,7 @@ def experiment(setting='0.9_5'):
             batch_loss /= len(images)
             if i%10 == 0: 
                 print(f"Batch {i}, train loss:{batch_loss}")
-            wandb.log({'train_batch':i, 'train_batch_loss': batch_loss})
+            #wandb.log({'train_batch':i, 'train_batch_loss': batch_loss})
             train_loss += batch_loss
         train_loss /= len(train_loader)
         #validation
@@ -99,7 +99,7 @@ def experiment(setting='0.9_5'):
                 batch_loss /= len(images)
                 if i%10 == 0: 
                     print(f"Batch {i}, val loss:{batch_loss}")
-                wandb.log({'val_batch':i, 'val_batch_loss': batch_loss})
+                #wandb.log({'val_batch':i, 'val_batch_loss': batch_loss})
                 val_loss += batch_loss
             val_loss /= len(val_loader)
         print(f"Epoch {epoch}, Train Loss:{train_loss}, Val loss:{val_loss}")

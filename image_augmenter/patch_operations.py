@@ -15,10 +15,9 @@ class PatchOperations():
         self.image_size = image_size
         self.num_patches = (image_size[0]//patch_size)**2
         self.augmentations = transforms.Compose([
-            transforms.RandomChoice([
                 transforms.RandomVerticalFlip(), 
-                transforms.RandomHorizontalFlip()
-            ])
+                transforms.RandomHorizontalFlip(),
+                transforms.RandomRotation(20)
         ])
     def query_key(self, image):
         """"Query and Key returned as a list of augmented patches """
