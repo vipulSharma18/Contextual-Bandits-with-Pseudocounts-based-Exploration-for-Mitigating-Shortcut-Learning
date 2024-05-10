@@ -17,27 +17,20 @@ class PatchOperations():
         self.augmentations = transforms.Compose([
             transforms.RandomChoice([
                 transforms.RandomVerticalFlip(), 
-                transforms.RandomHorizontalFlip(), 
-                transforms.ColorJitter(hue=0.1), 
-                transforms.RandomRotation(degrees=20)
+                transforms.RandomHorizontalFlip()
             ])
         ])
-    def query_key(self, images):
+    def query_key(self, image):
         """"Query and Key returned as a list of augmented patches """
-        all_queries = []
-        all_keys = []
-        for image in images:
-            patches = self.extract_patches(image)
-            queries = []
-            keys = []
-            for patch in patches:
-                query = self.augmentations(patch)
-                key = self.augmentations(patch)
-                queries.append(query)
-                keys.append(key)
-            all_queries.extend(queries)
-            all_keys.extend(keys)
-        return torch.stack(all_queries), torch.stack(all_keys)
+        patches = self.extract_patches(image)
+        queries = []
+        keys = []
+        for patch in patches:
+            query = self.augmentations(patch)
+            key = self.augmentations(patch)
+            queries.append(query)
+            keys.append(key)
+        return torch.stack(queries), torch.stack(keys)
     def extract_patches(self, image):
         """ Extract non-overlapping patches from an image. """
         #image channels * height * width
