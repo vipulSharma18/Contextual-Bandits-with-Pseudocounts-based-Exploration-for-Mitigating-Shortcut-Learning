@@ -39,10 +39,10 @@ def experiment(setting='0.9_1', seed=42):
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)#, num_workers=4)
     val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)#, num_workers=4)
-    patchOps = PatchOperations(patch_size=56, image_size=(224,224))
-    z_dim, num_layers = 256, 4
-    q_enc = ConvNetEncoder(z_dim, num_layers, patch_size=56)
-    k_enc = ConvNetEncoder(z_dim, num_layers, patch_size=56)
+    patchOps = PatchOperations(patch_size=224//2, image_size=(224,224))
+    z_dim = 256
+    q_enc = ConvNetEncoder(z_dim, patch_size=224//2)
+    k_enc = ConvNetEncoder(z_dim, patch_size=224//2)
     q_enc.to(device)
     k_enc.to(device)
     #loss and optim setup
@@ -52,7 +52,7 @@ def experiment(setting='0.9_1', seed=42):
     wandb.init(
         project="RL_Project_CSCI2951F", 
         config={
-            'architecture': 'ConvEncoder_'+str(z_dim)+'_'+str(num_layers),
+            'architecture': 'ConvEncoder_'+str(z_dim),
             'setting': setting, 
             'task': 'red vs green'
         })
@@ -85,8 +85,8 @@ def experiment(setting='0.9_1', seed=42):
                 z_k = k_enc(keys) #K, z_dim
                 z_k = z_k.detach()
                 K = patchOps.num_patches #sub-batch/patches per image
-                z_q = z_q/torch.norm(z_q, dim=1).unsqueeze(-1)
-                z_k = z_k/torch.norm(z_k, dim=1).unsqueeze(-1)
+                #z_q = z_q/torch.norm(z_q, dim=1).unsqueeze(-1)
+                #z_k = z_k/torch.norm(z_k, dim=1).unsqueeze(-1)
                 #torch.set_printoptions(threshold=10_000)
                 #non_black.extend([0,1])
                 #non_black = torch.tensor(non_black)
@@ -105,7 +105,7 @@ def experiment(setting='0.9_1', seed=42):
             batch_loss /= len(images)
             if i%10 == 0: 
                 print(f"Batch {i}, train loss:{batch_loss}")
-            #wandb.log({'train_batch':i, 'train_batch_loss': batch_loss})
+            wandb.log({'train_batch':i, 'train_batch_loss': batch_loss})
             train_loss += batch_loss
         train_loss /= len(train_loader)
         #validation
@@ -121,8 +121,8 @@ def experiment(setting='0.9_1', seed=42):
                     z_k = k_enc(keys) #K, z_dim
                     z_k = z_k.detach()
                     K = patchOps.num_patches #sub-batch/patches per image
-                    z_q = z_q/torch.norm(z_q, dim=1).unsqueeze(-1)
-                    z_k = z_k/torch.norm(z_k, dim=1).unsqueeze(-1)
+                    #z_q = z_q/torch.norm(z_q, dim=1).unsqueeze(-1)
+                    #z_k = z_k/torch.norm(z_k, dim=1).unsqueeze(-1)
                     logits = torch.mm(z_q, z_k.t()) #K,K -> diagonals are positive pairs
                     labels = torch.arange(K, dtype=torch.long, device=device)
                     loss = criterion(logits, labels)
@@ -130,7 +130,7 @@ def experiment(setting='0.9_1', seed=42):
                 batch_loss /= len(images)
                 if i%10 == 0: 
                     print(f"Batch {i}, val loss:{batch_loss}")
-                #wandb.log({'val_batch':i, 'val_batch_loss': batch_loss})
+                wandb.log({'val_batch':i, 'val_batch_loss': batch_loss})
                 val_loss += batch_loss
             val_loss /= len(val_loader)
         print(f"Epoch {epoch}, Train Loss:{train_loss}, Val loss:{val_loss}")

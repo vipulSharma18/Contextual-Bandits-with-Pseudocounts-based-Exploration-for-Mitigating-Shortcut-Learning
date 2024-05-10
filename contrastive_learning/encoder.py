@@ -4,10 +4,13 @@
 import torch
 import torchvision.models as models
 
-def ConvNetEncoder(z_dim=16, num_layers=4, patch_size=56):
+def ConvNetEncoder(z_dim=16, patch_size=56):
         resnet18 = models.resnet18(weights=None)
         num_ftrs = resnet18.fc.in_features
-        resnet18.fc = torch.nn.Linear(num_ftrs, z_dim)
+        resnet18.fc = torch.nn.Sequential(
+            torch.nn.Linear(num_ftrs, z_dim),
+            torch.nn.LayerNorm(z_dim)
+        )
         return resnet18
 
 def save_encoder(model, path): 
