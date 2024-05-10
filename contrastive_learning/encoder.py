@@ -9,6 +9,7 @@ class ConvNetEncoder(nn.Module):
     def __init__(self, z_dim=16, num_layers=4, patch_size=56):
         super(ConvNetEncoder, self).__init__()
         self.patch_size = patch_size
+        '''
         # Initial convolution layer
         self.initial_conv = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=2)
         # Additional layers
@@ -18,10 +19,12 @@ class ConvNetEncoder(nn.Module):
         # Layer normalization
         self.layer_norm = nn.LayerNorm(z_dim)
         self.size_after_convs = self._calculate_size_after_convs(self.patch_size)  # patch size
+        '''
         # Output MLP to get the latent vector
         self.mlp = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(32 * (self.size_after_convs ** 2), 1024),
+            #nn.Linear(32 * (self.size_after_convs ** 2), 1024),
+            nn.Linear(3*self.patch_size*self.patch_size, 1024),
             nn.ReLU(),
             nn.Linear(1024, z_dim),
         )
@@ -30,14 +33,12 @@ class ConvNetEncoder(nn.Module):
         """
         Forward pass of the encoder.
         """
-        x = x / 255.0  # Normalize input
-        z = F.relu(self.initial_conv(x))
-        for conv in self.conv_layers:
-            z = F.relu(conv(z))
+        x = x/255.0
+        #z = F.relu(self.initial_conv(x))
+        #for conv in self.conv_layers:
+        #    z = F.relu(conv(z))
         # Pass through MLP
-        z = self.mlp(z)
-        # Normalize and activate
-        z = self.layer_norm(z)
+        z = self.mlp(x)
         return z
 
     def _calculate_size_after_convs(self, input_size):
