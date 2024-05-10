@@ -70,6 +70,7 @@ def experiment(setting='0.9_1', seed=42):
                 q, k = patchOps.query_key(image) #num_patches, 3, height, width
                 queries.append(q)
                 keys.append(k)
+            #print("Patch calculation completed. Batch", i)
             keys = torch.cat(keys, dim=0).to(device)
             queries = torch.cat(queries, dim=0).to(device)
             z_q = q_enc(queries) #B*K, z_dim
@@ -78,12 +79,12 @@ def experiment(setting='0.9_1', seed=42):
             K = patchOps.num_patches #patches per image
             logits, labels = [], []
             #print(keys.size(), K, len(cls_label), z_k.size(), z_q.size())
-            for i in range(len(cls_label)): 
-                logits.append(torch.mm(z_q[i*K:i*K+K], z_k[i*K:i*K+K].t())) #K,K -> diagonals are positive pairs
+            for j in range(len(cls_label)): 
+                logits.append(torch.mm(z_q[j*K:j*K+K], z_k[j*K:j*K+K].t())) #K,K -> diagonals are positive pairs
                 labels.append(torch.arange(K, dtype=torch.long, device=device))
             logits = torch.cat(logits, dim=0)
             labels = torch.cat(labels, dim=0)
-            #print(keys.size(), logits.size(), labels.size(), K, len(labels))
+            #print(keys.size(), logits.size(), labels.size(), K)
             loss = criterion(logits, labels)
             loss.backward()
             optimizer.step()
@@ -111,8 +112,8 @@ def experiment(setting='0.9_1', seed=42):
                 z_k = z_k.detach()
                 K = patchOps.num_patches #patches per image
                 logits, labels = [], []
-                for i in range(len(cls_label)): 
-                    logits.append(torch.mm(z_q[i*K:i*K+K], z_k[i*K:i*K+K].t())) #K,K -> diagonals are positive pairs
+                for j in range(len(cls_label)): 
+                    logits.append(torch.mm(z_q[j*K:j*K+K], z_k[j*K:j*K+K].t())) #K,K -> diagonals are positive pairs
                     labels.append(torch.arange(K, dtype=torch.long, device=device))
                 logits = torch.cat(logits, dim=0)
                 labels = torch.cat(labels, dim=0)
