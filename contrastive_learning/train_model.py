@@ -39,10 +39,10 @@ def experiment(setting='0.9_1', seed=42):
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)#, num_workers=4)
     val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)#, num_workers=4)
-    patchOps = PatchOperations(patch_size=224//2, image_size=(224,224))
+    patchOps = PatchOperations(patch_size=224//4, image_size=(224,224))
     z_dim = 256
-    q_enc = ConvNetEncoder(z_dim, patch_size=224//2)
-    k_enc = ConvNetEncoder(z_dim, patch_size=224//2)
+    q_enc = ConvNetEncoder(z_dim, patch_size=224//4)
+    k_enc = ConvNetEncoder(z_dim, patch_size=224//4)
     q_enc.to(device)
     k_enc.to(device)
     #loss and optim setup
