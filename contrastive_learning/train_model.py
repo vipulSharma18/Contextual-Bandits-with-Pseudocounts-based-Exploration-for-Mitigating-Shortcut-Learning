@@ -14,6 +14,7 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from PIL import Image
 import wandb # type: ignore
+import gc
 
 from supervised_learning import set_seed
 from image_augmenter import PatchOperations, RemoveBackgroundTransform
@@ -29,6 +30,7 @@ def experiment(setting='0.9_1', seed=42):
     path = '../data/'+setting  #for red vs green task
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     set_seed(42)
+    gc.collect()
     #load data
     #1 possible data augmentation
         #remove background cyan, make it (0,0,0) to remove excessive noise in the data.
@@ -37,8 +39,8 @@ def experiment(setting='0.9_1', seed=42):
     #transform = transforms.Compose([transforms.ToTensor()])
     train_dataset = datasets.ImageFolder(root=f'{path}/train', transform=transform)
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
-    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, num_workers=2)
-    val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, num_workers=2)
+    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, num_workers=4)
+    val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, num_workers=4)
     patchOps = PatchOperations(patch_size=224//4, image_size=(224,224))
     z_dim = 256
     q_enc = ConvNetEncoder(z_dim, patch_size=224//4)
@@ -47,7 +49,7 @@ def experiment(setting='0.9_1', seed=42):
     k_enc.to(device)
     #loss and optim setup
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(q_enc.parameters(), lr=0.9)
+    optimizer = optim.SGD(q_enc.parameters(), lr=0.1)
     #wandb setup
     wandb.init(
         project="RL_Project_CSCI2951F", 
@@ -61,19 +63,27 @@ def experiment(setting='0.9_1', seed=42):
         q_enc.train()
         k_enc.train()
         train_loss = 0
-        for i, (images, labels) in enumerate(train_loader): 
+        for i, (images, cls_label) in enumerate(train_loader): 
             optimizer.zero_grad()
-            logits, labels = [], []
+            queries, keys = [], []
             for img_idx, image in enumerate(images): 
-                queries, keys = patchOps.query_key(image.to(device)) #num_patches, 3, height, width
-                z_q = q_enc(queries) #K, z_dim
-                z_k = k_enc(keys) #K, z_dim
-                z_k = z_k.detach()
-                K = patchOps.num_patches #patches per image
-                logits.append(torch.mm(z_q, z_k.t())) #K,K -> diagonals are positive pairs
+                q, k = patchOps.query_key(image) #num_patches, 3, height, width
+                queries.append(q)
+                keys.append(k)
+            keys = torch.cat(keys, dim=0).to(device)
+            queries = torch.cat(queries, dim=0).to(device)
+            z_q = q_enc(queries) #B*K, z_dim
+            z_k = k_enc(keys) #B*K, z_dim
+            z_k = z_k.detach()
+            K = patchOps.num_patches #patches per image
+            logits, labels = [], []
+            #print(keys.size(), K, len(cls_label), z_k.size(), z_q.size())
+            for i in range(len(cls_label)): 
+                logits.append(torch.mm(z_q[i*K:i*K+K], z_k[i*K:i*K+K].t())) #K,K -> diagonals are positive pairs
                 labels.append(torch.arange(K, dtype=torch.long, device=device))
-            logits = torch.stack(logits)
-            labels = torch.stack(labels)
+            logits = torch.cat(logits, dim=0)
+            labels = torch.cat(labels, dim=0)
+            #print(keys.size(), logits.size(), labels.size(), K, len(labels))
             loss = criterion(logits, labels)
             loss.backward()
             optimizer.step()
@@ -88,18 +98,24 @@ def experiment(setting='0.9_1', seed=42):
         q_enc.eval()
         k_enc.eval()
         with torch.no_grad():
-            for i, (images, labels) in enumerate(val_loader): 
-                logits, labels = [], []
+            for i, (images, cls_label) in enumerate(val_loader): 
+                queries, keys = [], []
                 for img_idx, image in enumerate(images): 
-                    queries, keys = patchOps.query_key(image.to(device)) 
-                    z_q = q_enc(queries) #K, z_dim
-                    z_k = k_enc(keys) #K, z_dim
-                    z_k = z_k.detach()
-                    K = patchOps.num_patches #sub-batch/patches per image
-                    logits.append(torch.mm(z_q, z_k.t())) #K,K -> diagonals are positive pairs
+                    q, k = patchOps.query_key(image) #num_patches, 3, height, width
+                    queries.append(q)
+                    keys.append(k)
+                keys = torch.cat(keys, dim=0).to(device)
+                queries = torch.cat(queries, dim=0).to(device)
+                z_q = q_enc(queries) #B*K, z_dim
+                z_k = k_enc(keys) #B*K, z_dim
+                z_k = z_k.detach()
+                K = patchOps.num_patches #patches per image
+                logits, labels = [], []
+                for i in range(len(cls_label)): 
+                    logits.append(torch.mm(z_q[i*K:i*K+K], z_k[i*K:i*K+K].t())) #K,K -> diagonals are positive pairs
                     labels.append(torch.arange(K, dtype=torch.long, device=device))
-                logits = torch.stack(logits)
-                labels = torch.stack(labels)
+                logits = torch.cat(logits, dim=0)
+                labels = torch.cat(labels, dim=0)
                 loss = criterion(logits, labels)
                 val_loss += loss.item()
                 if i%10 == 0: 
