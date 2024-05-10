@@ -37,8 +37,8 @@ def experiment(setting='0.9_1', seed=42):
     #transform = transforms.Compose([transforms.ToTensor()])
     train_dataset = datasets.ImageFolder(root=f'{path}/train', transform=transform)
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
-    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)#, num_workers=4)
-    val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)#, num_workers=4)
+    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, num_workers=2)
+    val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, num_workers=2)
     patchOps = PatchOperations(patch_size=224//4, image_size=(224,224))
     z_dim = 256
     q_enc = ConvNetEncoder(z_dim, patch_size=224//4)
@@ -62,51 +62,26 @@ def experiment(setting='0.9_1', seed=42):
         k_enc.train()
         train_loss = 0
         for i, (images, labels) in enumerate(train_loader): 
-            batch_loss = 0
+            optimizer.zero_grad()
+            logits, labels = [], []
             for img_idx, image in enumerate(images): 
-                '''
-                print(labels[img_idx], image.shape, image.permute(1,2,0).shape, torch.max(image), torch.min(image))
-                sv_im = Image.fromarray((image*255.).permute(1,2,0).cpu().numpy().astype('uint8'))
-                sv_im.save('sample_data/train_example.png')
-                '''
                 queries, keys = patchOps.query_key(image.to(device)) #num_patches, 3, height, width
-                '''
-                non_black = []
-                for i in range(len(queries)): 
-                    if ((queries[i]*255)>5).any().item(): 
-                        non_black.append(i)
-                    sv_im = Image.fromarray((queries[i]*255.).permute(1,2,0).cpu().numpy().astype('uint8'))
-                    sv_im.save(f'sample_data/query{i}.png')
-                    sv_im = Image.fromarray((keys[i]*255.).permute(1,2,0).cpu().numpy().astype('uint8'))
-                    sv_im.save(f'sample_data/keys{i}.png')
-                '''
-                optimizer.zero_grad()
                 z_q = q_enc(queries) #K, z_dim
                 z_k = k_enc(keys) #K, z_dim
                 z_k = z_k.detach()
-                K = patchOps.num_patches #sub-batch/patches per image
-                #z_q = z_q/torch.norm(z_q, dim=1).unsqueeze(-1)
-                #z_k = z_k/torch.norm(z_k, dim=1).unsqueeze(-1)
-                #torch.set_printoptions(threshold=10_000)
-                #non_black.extend([0,1])
-                #non_black = torch.tensor(non_black)
-                #print(non_black)
-                #print(z_q[non_black, :10])
-                #print(z_k[non_black, :10])
-                logits = torch.mm(z_q, z_k.t()) #K,K -> diagonals are positive pairs
-                #print(logits)
-                #exit(0)
-                labels = torch.arange(K, dtype=torch.long, device=device)
-                loss = criterion(logits, labels)
-                loss.backward()
-                optimizer.step()
-                momentum_update(k_enc, q_enc, beta=0.9)
-                batch_loss += loss.item()
-            batch_loss /= len(images)
+                K = patchOps.num_patches #patches per image
+                logits.append(torch.mm(z_q, z_k.t())) #K,K -> diagonals are positive pairs
+                labels.append(torch.arange(K, dtype=torch.long, device=device))
+            logits = torch.stack(logits)
+            labels = torch.stack(labels)
+            loss = criterion(logits, labels)
+            loss.backward()
+            optimizer.step()
+            momentum_update(k_enc, q_enc, beta=0.99)
+            train_loss += loss.item()
             if i%10 == 0: 
-                print(f"Batch {i}, train loss:{batch_loss}")
-            wandb.log({'train_batch':i, 'train_batch_loss': batch_loss})
-            train_loss += batch_loss
+                print(f"Batch {i}, train loss:{loss.item()}")
+            wandb.log({'train_batch':i, 'train_batch_loss': loss.item()})
         train_loss /= len(train_loader)
         #validation
         val_loss= 0
@@ -114,24 +89,22 @@ def experiment(setting='0.9_1', seed=42):
         k_enc.eval()
         with torch.no_grad():
             for i, (images, labels) in enumerate(val_loader): 
-                batch_loss = 0
+                logits, labels = [], []
                 for img_idx, image in enumerate(images): 
                     queries, keys = patchOps.query_key(image.to(device)) 
                     z_q = q_enc(queries) #K, z_dim
                     z_k = k_enc(keys) #K, z_dim
                     z_k = z_k.detach()
                     K = patchOps.num_patches #sub-batch/patches per image
-                    #z_q = z_q/torch.norm(z_q, dim=1).unsqueeze(-1)
-                    #z_k = z_k/torch.norm(z_k, dim=1).unsqueeze(-1)
-                    logits = torch.mm(z_q, z_k.t()) #K,K -> diagonals are positive pairs
-                    labels = torch.arange(K, dtype=torch.long, device=device)
-                    loss = criterion(logits, labels)
-                    batch_loss += loss.item()
-                batch_loss /= len(images)
+                    logits.append(torch.mm(z_q, z_k.t())) #K,K -> diagonals are positive pairs
+                    labels.append(torch.arange(K, dtype=torch.long, device=device))
+                logits = torch.stack(logits)
+                labels = torch.stack(labels)
+                loss = criterion(logits, labels)
+                val_loss += loss.item()
                 if i%10 == 0: 
-                    print(f"Batch {i}, val loss:{batch_loss}")
-                wandb.log({'val_batch':i, 'val_batch_loss': batch_loss})
-                val_loss += batch_loss
+                    print(f"Batch {i}, val loss:{loss.item()}")
+                wandb.log({'val_batch':i, 'val_batch_loss': loss.item()})
             val_loss /= len(val_loader)
         print(f"Epoch {epoch}, Train Loss:{train_loss}, Val loss:{val_loss}")
         wandb.log({'Epoch': epoch, 'Train Loss':train_loss, 'Val Loss':val_loss})
