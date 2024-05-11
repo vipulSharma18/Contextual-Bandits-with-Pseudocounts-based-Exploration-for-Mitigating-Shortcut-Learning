@@ -1,0 +1,10 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 1988358
+##  Job Name : 8_3
+##  Nodelist : gpu2003
+##      CPUs : 1
+##  Mem/Node : 10240 MB
+## Directory : /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning
+##   Job Started : Fri May 10 11:41:13 PM EDT 2024
+###############################################################################
+slurmstepd: error: *** JOB 1988358 ON gpu2003 CANCELLED AT 2024-05-10T23:41:17 ***

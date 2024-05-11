@@ -1,0 +1,344 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 1988331
+##  Job Name : 6_2
+##  Nodelist : gpu1401
+##      CPUs : 1
+##  Mem/Node : 10240 MB
+## Directory : /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning
+##   Job Started : Fri May 10 11:29:14 PM EDT 2024
+###############################################################################
+Running for input 0.6_2
+==========================================================================
+Running experiment for setting 0.6_1
+==========================================================================
+Running for seed 1 of experiment 0.6_1
+wandb: Currently logged in as: vipul. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning/wandb/run-20240510_232923-udccddu0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run summer-hill-279
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/udccddu0
+/users/vsharm44/.conda/envs/dl_project/lib/python3.11/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch 0, Batch 0, train loss:7.749749183654785, Elapsed time for epoch : 0.019725235303243
+Epoch 0, Batch 10, train loss:2.8786063194274902, Elapsed time for epoch : 0.14216524759928387
+Epoch 0, Batch 20, train loss:2.7323262691497803, Elapsed time for epoch : 0.263271423180898
+Epoch 0, Batch 30, train loss:2.5986077785491943, Elapsed time for epoch : 0.384925905863444
+Epoch 0, Batch 40, train loss:2.152283191680908, Elapsed time for epoch : 0.5078253269195556
+Epoch 0, Batch 50, train loss:2.00974702835083, Elapsed time for epoch : 0.6302059412002563
+Epoch 0, Batch 60, train loss:2.023862838745117, Elapsed time for epoch : 0.7530012448628743
+Epoch 0, Batch 70, train loss:1.9585319757461548, Elapsed time for epoch : 0.8746718764305115
+Epoch 0, Batch 80, train loss:1.7858167886734009, Elapsed time for epoch : 0.9971447189648946
+Epoch 0, Batch 90, train loss:1.7713773250579834, Elapsed time for epoch : 1.1197722951571147
+Epoch 0, Batch 100, train loss:1.7235767841339111, Elapsed time for epoch : 1.2428105394045512
+Epoch 0, Batch 110, train loss:1.5021312236785889, Elapsed time for epoch : 1.3684955517450967
+Batch 0, val loss:5.606189727783203
+Batch 10, val loss:4.975593090057373
+Batch 20, val loss:3.281553030014038
+Batch 30, val loss:8.310664176940918
+Epoch 0, Train Loss:3.063380724450816, Val loss:3.6622612675031028
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.024 MB uploadedwandb: | 0.015 MB of 0.024 MB uploadedwandb: / 0.024 MB of 0.024 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            Epoch ▁
+wandb:       Train Loss ▁
+wandb:         Val Loss ▁
+wandb:      train_batch ▁▂▂▃▄▄▅▅▆▇▇█
+wandb: train_batch_loss █▃▂▂▂▂▂▂▁▁▁▁
+wandb:        val_batch ▁▃▆█
+wandb:   val_batch_loss ▄▃▁█
+wandb: 
+wandb: Run summary:
+wandb:            Epoch 0
+wandb:       Train Loss 3.06338
+wandb:         Val Loss 3.66226
+wandb:      train_batch 110
+wandb: train_batch_loss 1.50213
+wandb:        val_batch 30
+wandb:   val_batch_loss 8.31066
+wandb: 
+wandb: 🚀 View run summer-hill-279 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/udccddu0
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240510_232923-udccddu0/logs
+Seed completed execution! 1 0.6_1
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_1
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning/wandb/run-20240510_233111-ciu5pjrb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run helpful-galaxy-281
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/ciu5pjrb
+Epoch 0, Batch 0, train loss:7.749749183654785, Elapsed time for epoch : 0.012681317329406739
+Epoch 0, Batch 10, train loss:2.8786063194274902, Elapsed time for epoch : 0.1275900681813558
+Epoch 0, Batch 20, train loss:2.7323262691497803, Elapsed time for epoch : 0.24268678426742554
+Epoch 0, Batch 30, train loss:2.5986077785491943, Elapsed time for epoch : 0.357668670018514
+Epoch 0, Batch 40, train loss:2.152283191680908, Elapsed time for epoch : 0.4725768009821574
+Epoch 0, Batch 50, train loss:2.00974702835083, Elapsed time for epoch : 0.5879868427912395
+Epoch 0, Batch 60, train loss:2.023862838745117, Elapsed time for epoch : 0.70321044921875
+Epoch 0, Batch 70, train loss:1.9585319757461548, Elapsed time for epoch : 0.8186462720235189
+Epoch 0, Batch 80, train loss:1.7858167886734009, Elapsed time for epoch : 0.9343920151392618
+Epoch 0, Batch 90, train loss:1.7713773250579834, Elapsed time for epoch : 1.0501875480016072
+Epoch 0, Batch 100, train loss:1.7235767841339111, Elapsed time for epoch : 1.1655532042185466
+Epoch 0, Batch 110, train loss:1.5021312236785889, Elapsed time for epoch : 1.2809768597284952
+Batch 0, val loss:5.606189727783203
+Batch 10, val loss:4.975593090057373
+Batch 20, val loss:3.281553030014038
+Batch 30, val loss:8.310664176940918
+Epoch 0, Train Loss:3.063380724450816, Val loss:3.6622612675031028
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.024 MB uploadedwandb: | 0.015 MB of 0.024 MB uploadedwandb: / 0.024 MB of 0.024 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            Epoch ▁
+wandb:       Train Loss ▁
+wandb:         Val Loss ▁
+wandb:      train_batch ▁▂▂▃▄▄▅▅▆▇▇█
+wandb: train_batch_loss █▃▂▂▂▂▂▂▁▁▁▁
+wandb:        val_batch ▁▃▆█
+wandb:   val_batch_loss ▄▃▁█
+wandb: 
+wandb: Run summary:
+wandb:            Epoch 0
+wandb:       Train Loss 3.06338
+wandb:         Val Loss 3.66226
+wandb:      train_batch 110
+wandb: train_batch_loss 1.50213
+wandb:        val_batch 30
+wandb:   val_batch_loss 8.31066
+wandb: 
+wandb: 🚀 View run helpful-galaxy-281 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/ciu5pjrb
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240510_233111-ciu5pjrb/logs
+Seed completed execution! 42 0.6_1
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.6_1
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning/wandb/run-20240510_233253-9c91pt3v
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run crimson-plant-283
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/9c91pt3v
+Epoch 0, Batch 0, train loss:7.749749183654785, Elapsed time for epoch : 0.012672992547353108
+Epoch 0, Batch 10, train loss:2.8786063194274902, Elapsed time for epoch : 0.12779155572255452
+Epoch 0, Batch 20, train loss:2.7323262691497803, Elapsed time for epoch : 0.24300496180852255
+Epoch 0, Batch 30, train loss:2.5986077785491943, Elapsed time for epoch : 0.3586155931154887
+Epoch 0, Batch 40, train loss:2.152283191680908, Elapsed time for epoch : 0.47456151247024536
+Epoch 0, Batch 50, train loss:2.00974702835083, Elapsed time for epoch : 0.5904192050298055
+Epoch 0, Batch 60, train loss:2.023862838745117, Elapsed time for epoch : 0.7056615352630615
+Epoch 0, Batch 70, train loss:1.9585319757461548, Elapsed time for epoch : 0.8215082327524821
+Epoch 0, Batch 80, train loss:1.7858167886734009, Elapsed time for epoch : 0.937237020333608
+Epoch 0, Batch 90, train loss:1.7713773250579834, Elapsed time for epoch : 1.0528237064679464
+Epoch 0, Batch 100, train loss:1.7235767841339111, Elapsed time for epoch : 1.1684295415878296
+Epoch 0, Batch 110, train loss:1.5021312236785889, Elapsed time for epoch : 1.284619677066803
+Batch 0, val loss:5.606189727783203
+Batch 10, val loss:4.975593090057373
+Batch 20, val loss:3.281553030014038
+Batch 30, val loss:8.310664176940918
+Epoch 0, Train Loss:3.063380724450816, Val loss:3.6622612675031028
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.015 MB uploadedwandb: | 0.024 MB of 0.024 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            Epoch ▁
+wandb:       Train Loss ▁
+wandb:         Val Loss ▁
+wandb:      train_batch ▁▂▂▃▄▄▅▅▆▇▇█
+wandb: train_batch_loss █▃▂▂▂▂▂▂▁▁▁▁
+wandb:        val_batch ▁▃▆█
+wandb:   val_batch_loss ▄▃▁█
+wandb: 
+wandb: Run summary:
+wandb:            Epoch 0
+wandb:       Train Loss 3.06338
+wandb:         Val Loss 3.66226
+wandb:      train_batch 110
+wandb: train_batch_loss 1.50213
+wandb:        val_batch 30
+wandb:   val_batch_loss 8.31066
+wandb: 
+wandb: 🚀 View run crimson-plant-283 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/9c91pt3v
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240510_233253-9c91pt3v/logs
+Seed completed execution! 89 0.6_1
+------------------------------------------------------------------
+Running for seed 23 of experiment 0.6_1
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning/wandb/run-20240510_233434-7jeryquk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run glad-sound-285
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/7jeryquk
+Epoch 0, Batch 0, train loss:7.749749183654785, Elapsed time for epoch : 0.012057932217915852
+Epoch 0, Batch 10, train loss:2.8786063194274902, Elapsed time for epoch : 0.12747209866841633
+Epoch 0, Batch 20, train loss:2.7323262691497803, Elapsed time for epoch : 0.24267770051956178
+Epoch 0, Batch 30, train loss:2.5986077785491943, Elapsed time for epoch : 0.35830549399058026
+Epoch 0, Batch 40, train loss:2.152283191680908, Elapsed time for epoch : 0.47434295415878297
+Epoch 0, Batch 50, train loss:2.00974702835083, Elapsed time for epoch : 0.590472404162089
+Epoch 0, Batch 60, train loss:2.023862838745117, Elapsed time for epoch : 0.7061557054519654
+Epoch 0, Batch 70, train loss:1.9585319757461548, Elapsed time for epoch : 0.8216607133547466
+Epoch 0, Batch 80, train loss:1.7858167886734009, Elapsed time for epoch : 0.9374260624249776
+Epoch 0, Batch 90, train loss:1.7713773250579834, Elapsed time for epoch : 1.0528471310933432
+Epoch 0, Batch 100, train loss:1.7235767841339111, Elapsed time for epoch : 1.1689477960268657
+Epoch 0, Batch 110, train loss:1.5021312236785889, Elapsed time for epoch : 1.2845911502838134
+Batch 0, val loss:5.606189727783203
+Batch 10, val loss:4.975593090057373
+Batch 20, val loss:3.281553030014038
+Batch 30, val loss:8.310664176940918
+Epoch 0, Train Loss:3.063380724450816, Val loss:3.6622612675031028
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.015 MB uploadedwandb: | 0.015 MB of 0.015 MB uploadedwandb: / 0.024 MB of 0.024 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            Epoch ▁
+wandb:       Train Loss ▁
+wandb:         Val Loss ▁
+wandb:      train_batch ▁▂▂▃▄▄▅▅▆▇▇█
+wandb: train_batch_loss █▃▂▂▂▂▂▂▁▁▁▁
+wandb:        val_batch ▁▃▆█
+wandb:   val_batch_loss ▄▃▁█
+wandb: 
+wandb: Run summary:
+wandb:            Epoch 0
+wandb:       Train Loss 3.06338
+wandb:         Val Loss 3.66226
+wandb:      train_batch 110
+wandb: train_batch_loss 1.50213
+wandb:        val_batch 30
+wandb:   val_batch_loss 8.31066
+wandb: 
+wandb: 🚀 View run glad-sound-285 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/7jeryquk
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240510_233434-7jeryquk/logs
+Seed completed execution! 23 0.6_1
+------------------------------------------------------------------
+Running for seed 113 of experiment 0.6_1
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning/wandb/run-20240510_233617-8ng3cg90
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run feasible-water-287
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/8ng3cg90
+Epoch 0, Batch 0, train loss:7.749749183654785, Elapsed time for epoch : 0.012454505761464436
+Epoch 0, Batch 10, train loss:2.8786063194274902, Elapsed time for epoch : 0.12783729235331218
+Epoch 0, Batch 20, train loss:2.7323262691497803, Elapsed time for epoch : 0.24320196708043415
+Epoch 0, Batch 30, train loss:2.5986077785491943, Elapsed time for epoch : 0.3589068134625753
+Epoch 0, Batch 40, train loss:2.152283191680908, Elapsed time for epoch : 0.4744641621907552
+Epoch 0, Batch 50, train loss:2.00974702835083, Elapsed time for epoch : 0.5902367353439331
+Epoch 0, Batch 60, train loss:2.023862838745117, Elapsed time for epoch : 0.7063375194867452
+Epoch 0, Batch 70, train loss:1.9585319757461548, Elapsed time for epoch : 0.8220979332923889
+Epoch 0, Batch 80, train loss:1.7858167886734009, Elapsed time for epoch : 0.9381260593732198
+Epoch 0, Batch 90, train loss:1.7713773250579834, Elapsed time for epoch : 1.053753944238027
+Epoch 0, Batch 100, train loss:1.7235767841339111, Elapsed time for epoch : 1.1697269837061564
+Epoch 0, Batch 110, train loss:1.5021312236785889, Elapsed time for epoch : 1.285641324520111
+Batch 0, val loss:5.606189727783203
+Batch 10, val loss:4.975593090057373
+Batch 20, val loss:3.281553030014038
+Batch 30, val loss:8.310664176940918
+Epoch 0, Train Loss:3.063380724450816, Val loss:3.6622612675031028
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.024 MB uploadedwandb: | 0.015 MB of 0.024 MB uploadedwandb: / 0.024 MB of 0.024 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            Epoch ▁
+wandb:       Train Loss ▁
+wandb:         Val Loss ▁
+wandb:      train_batch ▁▂▂▃▄▄▅▅▆▇▇█
+wandb: train_batch_loss █▃▂▂▂▂▂▂▁▁▁▁
+wandb:        val_batch ▁▃▆█
+wandb:   val_batch_loss ▄▃▁█
+wandb: 
+wandb: Run summary:
+wandb:            Epoch 0
+wandb:       Train Loss 3.06338
+wandb:         Val Loss 3.66226
+wandb:      train_batch 110
+wandb: train_batch_loss 1.50213
+wandb:        val_batch 30
+wandb:   val_batch_loss 8.31066
+wandb: 
+wandb: 🚀 View run feasible-water-287 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/8ng3cg90
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240510_233617-8ng3cg90/logs
+Seed completed execution! 113 0.6_1
+------------------------------------------------------------------
+Experiment complete 0.6_1
+==========================================================================
+Running experiment for setting 0.6_2
+==========================================================================
+Running for seed 1 of experiment 0.6_2
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning/wandb/run-20240510_233758-20ap57e3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run spring-waterfall-289
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/20ap57e3
+Epoch 0, Batch 0, train loss:8.076019287109375, Elapsed time for epoch : 0.013532737890879313
+Epoch 0, Batch 10, train loss:3.6126110553741455, Elapsed time for epoch : 0.13945379257202148
+Epoch 0, Batch 20, train loss:3.0048885345458984, Elapsed time for epoch : 0.26404914061228435
+Epoch 0, Batch 30, train loss:2.5433719158172607, Elapsed time for epoch : 0.38878533045450847
+Epoch 0, Batch 40, train loss:2.2187340259552, Elapsed time for epoch : 0.5138234535853068
+Epoch 0, Batch 50, train loss:2.1253087520599365, Elapsed time for epoch : 0.6383870720863343
+Epoch 0, Batch 60, train loss:1.935720443725586, Elapsed time for epoch : 0.7624176859855651
+Epoch 0, Batch 70, train loss:1.9726771116256714, Elapsed time for epoch : 0.8861368815104167
+Epoch 0, Batch 80, train loss:1.9342073202133179, Elapsed time for epoch : 1.0109725793202717
+Epoch 0, Batch 90, train loss:1.7427997589111328, Elapsed time for epoch : 1.1351698716481526
+Epoch 0, Batch 100, train loss:1.5247939825057983, Elapsed time for epoch : 1.2600044409434001
+Epoch 0, Batch 110, train loss:1.4078329801559448, Elapsed time for epoch : 1.3847906430562338
+Batch 0, val loss:4.238219261169434
+Batch 10, val loss:8.622987747192383
+Batch 20, val loss:4.837219715118408
+Batch 30, val loss:7.081770896911621
+Epoch 0, Train Loss:2.9249830836835113, Val loss:3.995532747772005
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.024 MB uploadedwandb: | 0.015 MB of 0.024 MB uploadedwandb: / 0.024 MB of 0.024 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            Epoch ▁
+wandb:       Train Loss ▁
+wandb:         Val Loss ▁
+wandb:      train_batch ▁▂▂▃▄▄▅▅▆▇▇█
+wandb: train_batch_loss █▃▃▂▂▂▂▂▂▁▁▁
+wandb:        val_batch ▁▃▆█
+wandb:   val_batch_loss ▁█▂▆
+wandb: 
+wandb: Run summary:
+wandb:            Epoch 0
+wandb:       Train Loss 2.92498
+wandb:         Val Loss 3.99553
+wandb:      train_batch 110
+wandb: train_batch_loss 1.40783
+wandb:        val_batch 30
+wandb:   val_batch_loss 7.08177
+wandb: 
+wandb: 🚀 View run spring-waterfall-289 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/20ap57e3
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240510_233758-20ap57e3/logs
+Seed completed execution! 1 0.6_2
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_2
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/contrastive_learning/wandb/run-20240510_233948-6i652551
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run misunderstood-dawn-291
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/6i652551
+Epoch 0, Batch 0, train loss:8.076019287109375, Elapsed time for epoch : 0.012897694110870361
+Epoch 0, Batch 10, train loss:3.6126110553741455, Elapsed time for epoch : 0.12840059995651246
+slurmstepd: error: *** JOB 1988331 ON gpu1401 CANCELLED AT 2024-05-10T23:40:04 ***

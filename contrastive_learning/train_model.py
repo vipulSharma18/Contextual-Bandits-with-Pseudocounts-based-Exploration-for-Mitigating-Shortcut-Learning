@@ -78,6 +78,7 @@ def experiment(setting='0.9_1', seed=42):
             start = time.time()
             optimizer.zero_grad()
             queries, keys = patchOps.query_key(images.to(device)) #batch_dim, num_patches, 3, h, w
+            del images
             times['patch'].append(time.time()-start)
             start = time.time()
             z_q = q_enc(queries) #B*K, z_dim
@@ -119,6 +120,7 @@ def experiment(setting='0.9_1', seed=42):
         with torch.no_grad():
             for i, (images, cls_label) in enumerate(val_loader): 
                 queries, keys = patchOps.query_key(images.to(device)) #batch_dim, num_patches, 3, h, w
+                del images
                 z_q = q_enc(queries) #B*K, z_dim
                 z_k = k_enc(keys) #B*K, z_dim
                 K = patchOps.num_patches #patches per image
@@ -144,8 +146,16 @@ def experiment(setting='0.9_1', seed=42):
     del q_enc, k_enc
 
 
+#compute math
+# 5 alpha * 5 seeds -> 25 * 5 epochs -> 125 * 1.5 -> 3 hrs
+# total 4 predictivity -> total 12 hrs -> hopefully split into 3 hrs parallel batch jobs
+# split into more by individual setting as input arg to script
+# 1 setting -> 5 seeds * 5 epochs -> 25 * 1.5 -> 37.5 mins -> 45 mins to be safe
 if __name__=='__main__': 
     settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+    setting_input = sys.argv[1]
+    settings = [s for s in settings if setting_input in settings]
+    print("Running for input", setting_input)
     for setting in settings: 
         print("==========================================================================")
         print("Running experiment for setting", setting)
