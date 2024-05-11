@@ -13,9 +13,9 @@ So intrinsinc reward (state) -> intrinsic reward
 \beta count based exploration bonus = 1/(pseudocount)**0.5
 pseudocount = 1/\beta**2
 
-CFN -> argmin Loss(state, label) -> estimates the bonus directly, 
-not the pseudocounts
-Loss is simply MSE between random vector of d dim and predictions of the model.
+CFN -> argmin Loss(state, label) -> estimates the d/N or num_coins/pseudocount of state, 
+
+Loss is simply MSE between model's prediction of -1 and 1 using state of d dim & coin flip network's random {-1,1}^d.
 regression problem.
 Bonus = sqrt(1/num_coins_d * L2_norm(model**2))
 
@@ -26,5 +26,5 @@ even if state repeated in batch -> different random vector, or different label.
 average across coins -> square -> divide by total number of coins
 
 
-Bandit's reward will be (reward + intrinsic bonus)/probability(action | context)
+Bandit's reward will be (reward + intrinsic bonus)
 

@@ -1,37 +1,48 @@
 # coin flipping network for pseudo-counts
 # takes the context vector (output of ResNet18) as input state
 
-#code adapted from this
-#https://github.com/samlobel/CFN/blob/main/bonus_based_exploration/intrinsic_motivation/intrinsic_rewards.py
+
 
 import numpy as np
+import torch 
+import torch.nn as nn
+import math 
+
+class ExplorationBonus(nn.module): 
+    def __init__(self, input_size=256, hidden_size=512, output_size=64): 
+        super().__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, output_size)
+        self.tanh = nn.Tanh() #used in the linear model in the CFN code
+    
+    def forward(self,x): 
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        output = self.tanh(x)
+        return output
+
+class ExponentialDecayExploration(): 
+    def __init__(self, init_value, exp_decay_rate=0.01): 
+        self.init_value = init_value
+        self.exp_decay_rate = exp_decay_rate
+        self.current_step = 0
+    def __call__(self): 
+        value = self.init_value*math.exp(-self.exp_decay_rate*self.current_step)
+        return value
+    def step(self): 
+        self.current_step+=1
+    def reset(self): 
+        self.current_step = 0
+    
+#code taken from this
+#https://github.com/samlobel/CFN/blob/main/bonus_based_exploration/intrinsic_motivation/intrinsic_rewards.py
 
 class CoinFlipMaker(object):
-  """Their thang"""
-  def __init__(self, output_dimensions, p_replace=1, only_zero_flips=False):
-    self.p_replace = p_replace
-    self.output_dimensions = output_dimensions
-    self.only_zero_flips = only_zero_flips
-    self.previous_output = self._draw()
-
-  def _draw(self):
-    if self.only_zero_flips:
-      return np.zeros(self.output_dimensions, dtype=np.float32)
-    return 2 * np.random.binomial(1, 0.5, size=self.output_dimensions) - 1
-
-  def __call__(self):
-    if self.only_zero_flips:
-      return np.zeros(self.output_dimensions, dtype=np.float32)
-    new_output = self._draw()
-    new_output = np.where(
-      np.random.rand(self.output_dimensions) < self.p_replace,
-      new_output,
-      self.previous_output
-    )
-    self.previous_output = new_output
-    return new_output
-
-  def reset(self):
-    if self.only_zero_flips:
-      self.previous_output = np.zeros(self.output_dimensions, dtype=np.float32)
-    self.previous_output = self._draw()
+    """Sam's thang"""
+    def __init__(self, num_coins, p_replace=1):
+        self.p_replace = p_replace
+        self.num_coins = num_coins
+    def __call__(self, num_samples):
+        return 2 * np.random.binomial(1, 0.5, size=(num_samples, self.coins)) - 1
