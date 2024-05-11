@@ -32,18 +32,10 @@ Harmonization/Alignment emerging without any exlicit reward/feedback for it.
 
 	
 1. generate dataset for all iamges -> Done. Two types of data generated, stick with oen of them. 
-
-2. contrastive learning model to generate feature states
-
+2. contrastive learning model to generate feature states -> done
 3. supervised learning model baseline with an alpha ration of 4 and predictivity as 0.9 (baseline). -> done, all settings with 5 seeds data available now. 
-
 4. coding for measures of reliance and bias -> done
 
 5. bandit algos made
-
 6. bandit algos use contrastive embedding to decide mask on or off. 
-7. supervised learning has an input context to determine which mask to be on or off. 
-
 - Exploration done via pseudo-counts (input state and output 0 or 1)
-
-8. bandits tell supervised which mask to be on or off. Bandits return a simple transform list, i.e., a masking function as a pytorch transform. Simple Plug and Play code for existing supervised learning.

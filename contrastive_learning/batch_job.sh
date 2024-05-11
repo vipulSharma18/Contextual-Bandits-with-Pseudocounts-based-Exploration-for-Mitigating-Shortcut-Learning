@@ -2,10 +2,10 @@
 #SBATCH -n 1
 #SBATCH -N 1
 #SBATCH --mem=10G
-#SBATCH -t 1:30:00
-#SBATCH -J 6_5
-#SBATCH -o 6_5.out
-#SBATCH -e 6_5.out
+#SBATCH -t 8:00:00
+#SBATCH -J second_half
+#SBATCH -o second_half.out
+#SBATCH -e second_half.out
 #SBATCH -p gpu --gres=gpu:1 --gres-flags=enforce-binding
 
 if [ -f /etc/bashrc ]; then
@@ -32,4 +32,4 @@ unset __conda_setup
 module load cuda
 conda activate dl_project
 
-python -u train_model.py 0.6_5
+python -u train_model.py

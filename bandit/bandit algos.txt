@@ -1,0 +1,50 @@
+Only 3200 samples to learn from. 
+3200*16 = 51,200 patches
+Need a lot of inductive biases and prior knowledge.
+
+#
+2^16 total policies possible for 16 patches of a single image
+65536 -> Since states and hence contexts are discretized and finite.
+
+#Neural Bandits -> 
+stick a linear layer on top of pre-trained and frozen contrastively learnt world model
+
+#Value-Action Space:
+Either treat each context as independent and pick an action independently 
+for each context. 
+
+#Policy Space/Policy gradient: 
+Or, choose in the policy space treating contexts as dependent and actions as dependent.
+
+My Comparison class is my contrastive learner.
+
+Greedy with FULL information -> No, it would mean for all 2^16 actions, we're giving back the reward information.
+Only information about chose actions is given hence there's a need for exploration.
+
+Switch between exploration and exploitation phases.
+Explore for epsilong*T trials and then exploit for (1-epsilong)*T trials.
+
+Epoch-greedy method: 
+Training set as exploration and validation set as exploitation.
+
+Coverage assumption in exploration/logging: 
+probability of action given x/context > 0, for all actions and contexts. 
+i.e., at least seen once.
+
+Unbiased estimator of reward of an arm even by using data from random policies. 
+i.e., for other actions given a context
+Inverse Propensity Score estimator.
+
+a is any action for which we're computing reward, 
+a_s is known actions, estimated reward for action
+R(x_s,a) = r_s [(Indicator function (a==a_s))/p(a_s|x_s)]
+
+if a !=, then 0, if equal then r_s/p(a_s|x_s), i.e., 
+normalized by probability of seeing that action and hence reward.
+r_s is true reward or loss l_s (r_s and l_s need to be between [0,1])
+
+Why different networks for different actions -> 
+if not then parameters are shared and taking 1 action is teaching 
+something about the other action which is not valid.
+
+We can have a same network as well, it will be less "clean". 

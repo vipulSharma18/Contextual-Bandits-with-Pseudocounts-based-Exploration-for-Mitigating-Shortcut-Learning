@@ -151,11 +151,12 @@ def experiment(setting='0.9_1', seed=42):
 # total 4 predictivity -> total 12 hrs -> hopefully split into 3 hrs parallel batch jobs
 # split into more by individual setting as input arg to script
 # 1 setting -> 5 seeds * 5 epochs -> 25 * 1.5 -> 37.5 mins -> 45 mins to be safe
+#Reality since access to only 2 gpus:
+# 20 settings * 5 seeds -> 100 experiments * 5 epochs -> 500 * 1.5 -> 750 mins/2 GPUs -> 375 mins -> 6.25 hrs
+
 if __name__=='__main__': 
-    settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
-    setting_input = sys.argv[1]
-    settings = [s for s in settings if setting_input in settings]
-    print("Running for input", setting_input)
+    #settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+    settings = ['0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
     for setting in settings: 
         print("==========================================================================")
         print("Running experiment for setting", setting)
