@@ -59,3 +59,8 @@ Batch 30, val loss:2.7645397186279297
 Epoch 1, Train Loss:1.4318218894626784, Val loss:5.813211020496157
 Epoch 2, Batch 0, train loss:1.1983665227890015, Elapsed time for epoch : 0.011781020959218343
 Epoch 2, Batch 10, train loss:1.1901637315750122, Elapsed time for epoch : 0.12724588314692178
+Epoch 2, Batch 20, train loss:1.2106598615646362, Elapsed time for epoch : 0.2430603861808777
+Epoch 2, Batch 30, train loss:1.187260627746582, Elapsed time for epoch : 0.35912131468454994
+Epoch 2, Batch 40, train loss:1.1398866176605225, Elapsed time for epoch : 0.47541762590408326
+Epoch 2, Batch 50, train loss:1.168094277381897, Elapsed time for epoch : 0.5910537521044413
+Epoch 2, Batch 60, train loss:1.0461105108261108, Elapsed time for epoch : 0.7069404880205791

@@ -65,3 +65,6 @@ Epoch 2, Batch 40, train loss:1.1398866176605225, Elapsed time for epoch : 0.475
 Epoch 2, Batch 50, train loss:1.168094277381897, Elapsed time for epoch : 0.591865622997284
 Epoch 2, Batch 60, train loss:1.0461105108261108, Elapsed time for epoch : 0.7079748352368672
 Epoch 2, Batch 70, train loss:1.0999122858047485, Elapsed time for epoch : 0.8237067540486653
+Epoch 2, Batch 80, train loss:1.1805543899536133, Elapsed time for epoch : 0.939767348766327
+Epoch 2, Batch 90, train loss:1.0766286849975586, Elapsed time for epoch : 1.0556510885556538
+Epoch 2, Batch 100, train loss:1.0625262260437012, Elapsed time for epoch : 1.171736772855123
