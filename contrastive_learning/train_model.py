@@ -43,10 +43,10 @@ def experiment(setting='0.9_1', seed=42):
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)
-    patchOps = PatchOperations(patch_size=224//4, image_size=(224,224))
-    z_dim = 256
-    q_enc = ConvNetEncoder(z_dim, patch_size=224//4)
-    k_enc = ConvNetEncoder(z_dim, patch_size=224//4)
+    z_dim, patch_size = 256, 224//4
+    patchOps = PatchOperations(patch_size=patch_size, image_size=(224,224))
+    q_enc = ConvNetEncoder(z_dim, patch_size=patch_size)
+    k_enc = ConvNetEncoder(z_dim, patch_size=patch_size)
     q_enc.to(device)
     k_enc.to(device)
     #loss and optim setup
@@ -98,12 +98,11 @@ def experiment(setting='0.9_1', seed=42):
             times['back_k'].append(time.time()-start)
             train_loss += loss.item()
             if i%10 == 0: 
-                print(f"Batch {i}, train loss:{loss.item()}")
+                print(f"Epoch {epoch}, Batch {i}, train loss:{loss.item()}, Elapsed time for epoch : {(time.time() - batch_running_time)/60}")
                 #print("Batch Time statistics", end=": ")
                 #for k in times: 
                 #    print(k, ":", np.mean(times[k]), end=",", sep="")
                 #print()
-                print("Total Time Spent in Epoch:", (time.time() - batch_running_time)/60)
                 wandb.log({'train_batch':i, 'train_batch_loss': loss.item()})
         train_loss /= len(train_loader)
         #validation
