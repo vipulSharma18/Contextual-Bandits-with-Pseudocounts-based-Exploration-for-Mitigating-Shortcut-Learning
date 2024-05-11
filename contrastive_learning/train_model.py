@@ -15,10 +15,12 @@ from torch.utils.data import DataLoader
 from PIL import Image
 import wandb # type: ignore
 import gc
+import numpy as np
 
 from supervised_learning import set_seed
 from image_augmenter import PatchOperations, RemoveBackgroundTransform
 from encoder import ConvNetEncoder
+import time
 
 @torch.no_grad()
 def momentum_update(k_enc, q_enc, beta=0.999): 
@@ -39,8 +41,8 @@ def experiment(setting='0.9_1', seed=42):
     #transform = transforms.Compose([transforms.ToTensor()])
     train_dataset = datasets.ImageFolder(root=f'{path}/train', transform=transform)
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
-    train_loader = DataLoader(train_dataset, batch_size=20, shuffle=True, num_workers=4)
-    val_loader = DataLoader(val_dataset, batch_size=20, shuffle=False, num_workers=4)
+    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)
     patchOps = PatchOperations(patch_size=224//4, image_size=(224,224))
     z_dim = 256
     q_enc = ConvNetEncoder(z_dim, patch_size=224//4)
@@ -49,7 +51,7 @@ def experiment(setting='0.9_1', seed=42):
     k_enc.to(device)
     #loss and optim setup
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(q_enc.parameters(), lr=0.5)
+    optimizer = optim.SGD(q_enc.parameters(), lr=0.01)
     #wandb setup
     wandb.init(
         project="RL_Project_CSCI2951F", 
@@ -63,36 +65,46 @@ def experiment(setting='0.9_1', seed=42):
         q_enc.train()
         k_enc.train()
         train_loss = 0
+        times = {'patch': [], 'forward': [], 'logit_cal': [], 'back_q': [], 'back_k': []}
+        batch_running_time = time.time()
         for i, (images, cls_label) in enumerate(train_loader): 
+            start = time.time()
             optimizer.zero_grad()
-            queries, keys = [], []
-            for img_idx, image in enumerate(images): 
-                q, k = patchOps.query_key(image) #num_patches, 3, height, width
-                queries.append(q)
-                keys.append(k)
-            #print("Patch calculation completed. Batch", i)
-            keys = torch.cat(keys, dim=0).to(device)
-            queries = torch.cat(queries, dim=0).to(device)
+            queries, keys = patchOps.query_key(images.to(device)) #batch_dim, num_patches, 3, h, w
+            times['patch'].append(time.time()-start)
+            start = time.time()
             z_q = q_enc(queries) #B*K, z_dim
             z_k = k_enc(keys) #B*K, z_dim
             z_k = z_k.detach()
             K = patchOps.num_patches #patches per image
+            times['forward'].append(time.time()-start)
+            start = time.time()
             logits, labels = [], []
-            #print(keys.size(), K, len(cls_label), z_k.size(), z_q.size())
+            #oprint(keys.size(), K, len(cls_label), z_k.size(), z_q.size())
             for j in range(len(cls_label)): 
                 logits.append(torch.mm(z_q[j*K:j*K+K], z_k[j*K:j*K+K].t())) #K,K -> diagonals are positive pairs
                 labels.append(torch.arange(K, dtype=torch.long, device=device))
             logits = torch.cat(logits, dim=0)
             labels = torch.cat(labels, dim=0)
             #print(keys.size(), logits.size(), labels.size(), K)
+            times['logit_cal'].append(time.time()-start)
+            start = time.time()
             loss = criterion(logits, labels)
             loss.backward()
             optimizer.step()
+            times['back_q'].append(time.time()-start)
+            start = time.time()
             momentum_update(k_enc, q_enc, beta=0.999)
+            times['back_k'].append(time.time()-start)
             train_loss += loss.item()
             if i%10 == 0: 
                 print(f"Batch {i}, train loss:{loss.item()}")
-            wandb.log({'train_batch':i, 'train_batch_loss': loss.item()})
+                print("Batch Time statistics", end=": ")
+                for k in times: 
+                    print(k, ":", np.mean(times[k]), end=",", sep="")
+                print()
+                print("Total Time Spent in Epoch:", (time.time() - batch_running_time)/60)
+                wandb.log({'train_batch':i, 'train_batch_loss': loss.item()})
         train_loss /= len(train_loader)
         #validation
         val_loss= 0
@@ -100,13 +112,7 @@ def experiment(setting='0.9_1', seed=42):
         k_enc.eval()
         with torch.no_grad():
             for i, (images, cls_label) in enumerate(val_loader): 
-                queries, keys = [], []
-                for img_idx, image in enumerate(images): 
-                    q, k = patchOps.query_key(image) #num_patches, 3, height, width
-                    queries.append(q)
-                    keys.append(k)
-                keys = torch.cat(keys, dim=0).to(device)
-                queries = torch.cat(queries, dim=0).to(device)
+                queries, keys = patchOps.query_key(images.to(device)) #batch_dim, num_patches, 3, h, w
                 z_q = q_enc(queries) #B*K, z_dim
                 z_k = k_enc(keys) #B*K, z_dim
                 z_k = z_k.detach()
@@ -117,11 +123,12 @@ def experiment(setting='0.9_1', seed=42):
                     labels.append(torch.arange(K, dtype=torch.long, device=device))
                 logits = torch.cat(logits, dim=0)
                 labels = torch.cat(labels, dim=0)
+                #print(keys.size(), logits.size(), labels.size(), K)
                 loss = criterion(logits, labels)
                 val_loss += loss.item()
                 if i%10 == 0: 
                     print(f"Batch {i}, val loss:{loss.item()}")
-                wandb.log({'val_batch':i, 'val_batch_loss': loss.item()})
+                    wandb.log({'val_batch':i, 'val_batch_loss': loss.item()})
             val_loss /= len(val_loader)
         print(f"Epoch {epoch}, Train Loss:{train_loss}, Val loss:{val_loss}")
         wandb.log({'Epoch': epoch, 'Train Loss':train_loss, 'Val Loss':val_loss})

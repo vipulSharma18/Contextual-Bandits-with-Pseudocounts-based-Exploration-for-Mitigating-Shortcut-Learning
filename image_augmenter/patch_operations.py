@@ -15,7 +15,7 @@ class PatchOperations():
     def __init__(self, patch_size=56, image_size=(224,224)): 
         self.patch_size = patch_size
         self.image_size = image_size
-        self.num_patches = (image_size[0]//patch_size)**2
+        self.num_patches = (image_size[0]//patch_size)*(image_size[1]//patch_size)
         self.augmentations = transforms.Compose([
             transforms.ColorJitter(saturation=0.7,contrast=0.7), 
             transforms.RandomHorizontalFlip(),
@@ -24,39 +24,39 @@ class PatchOperations():
     def query_key(self, image):
         """"Query and Key returned as a list of augmented patches """
         patches = self.extract_patches(image)
-        queries = []
-        keys = []
-        for patch in patches:
-            patch = F.interpolate(patch.unsqueeze(0), size=(224, 224), mode='bilinear', align_corners=False).squeeze(0)
-            query = self.augmentations(patch)
-            key = self.augmentations(patch)
-            queries.append(query)
-            keys.append(key)
-        return torch.stack(queries), torch.stack(keys)
+        #print(patches.size(), patches.reshape(-1, 3, self.patch_size, self.patch_size).size())
+        patches = F.interpolate(patches.reshape(-1, 3, self.patch_size, self.patch_size), size=(224, 224), mode='bilinear', align_corners=False)
+        #print(patches.size())
+        query = self.augmentations(patches)
+        key = self.augmentations(patches)
+        #print("kq", query.size())
+        return query, key #batch_dim, num_patches, 3, height, width
+
     def extract_patches(self, image):
         """ Extract non-overlapping patches from an image. """
-        #image channels * height * width
-        patches = []
-        for i in range(0, image.size(1), self.patch_size):  # Iterate over height
-            for j in range(0, image.size(2), self.patch_size):  # Iterate over width
-                patch = image[:, i:i + self.patch_size, j:j + self.patch_size]
-                patches.append(patch)
-        return patches
+        #batch_dim * image channels * height * width
+        batch_patches = []
+        image = image.unsqueeze(0) if len(image.shape)==3 else image #batch and single image handled
+        unfolded = F.unfold(image, kernel_size = self.patch_size, stride=self.patch_size) #unfolding happens per color channel
+        unfolded = unfolded.view(image.size(0), image.size(1), -1, self.patch_size, self.patch_size)
+        return unfolded.permute(0, 2, 1, 3, 4) #batch_dim, num_patches, colors, h, w
+
     def reconstruct_image(self, patches, mask): 
         """Input patches and bandit's returned mask, recreate original image with cyan masks"""
-        image = Image.new('RGB', self.image_size)
+        #directly creating a normalized image between 0 and 1
+        image = torch.zeros((3, self.image_size[0], self.image_size[1]))
         idx = 0
         for i in range(0, self.image_size[0], self.patch_size):
             for j in range(0, self.image_size[1], self.patch_size):
-                
                 if idx in mask:
                     # Create a cyan patch for masking
-                    patch = Image.new('RGB', (self.patch_size, self.patch_size), (0, 255, 255))
+                    patch = torch.ones((3, self.patch_size, self.patch_size)) * torch.tensor([0,1,1])
                 else:
-                    patch = transforms.ToPIL()(patches[idx])
+                    patch = patches[idx]
                 image.paste(patch, (i, j))
+                image[:, i:i+self.patch_size, j:j+self.patch_size] = patch #1 image: 3, h, w
                 idx += 1
-        return transforms.ToTensor()(image)
+        return image
     
 class RemoveBackgroundTransform:
     def __init__(self, background_color=(0, 255, 255), replacement_color=(0, 0, 0)):
