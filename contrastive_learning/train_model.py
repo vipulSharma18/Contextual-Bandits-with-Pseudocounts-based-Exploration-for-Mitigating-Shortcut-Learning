@@ -32,17 +32,16 @@ def experiment(setting='0.9_1', seed=42):
     path = '../data/'+setting  #for red vs green task
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     set_seed(42)
-    gc.collect()
     #load data
     #1 possible data augmentation
         #remove background cyan, make it (0,0,0) to remove excessive noise in the data.
         #background (0, 255, 255), data (x,0,0) class 0 or (0,x,0) class 1
-    transform = transforms.Compose([RemoveBackgroundTransform(),transforms.ToTensor()])
-    #transform = transforms.Compose([transforms.ToTensor()])
+    #transform = transforms.Compose([RemoveBackgroundTransform(),transforms.ToTensor()])
+    transform = transforms.Compose([transforms.ToTensor()])
     train_dataset = datasets.ImageFolder(root=f'{path}/train', transform=transform)
     val_dataset = datasets.ImageFolder(root=f'{path}/val', transform=transform)
-    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)
+    train_loader = DataLoader(train_dataset, batch_size=28, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=28, shuffle=False)
     z_dim, patch_size = 256, 224//4
     patchOps = PatchOperations(patch_size=patch_size, image_size=(224,224))
     q_enc = ConvNetEncoder(z_dim, patch_size=patch_size)
@@ -51,16 +50,24 @@ def experiment(setting='0.9_1', seed=42):
     k_enc.to(device)
     #loss and optim setup
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(q_enc.parameters(), lr=0.01)
+    lr = 0.005
+    optimizer = optim.SGD(q_enc.parameters(), lr=lr)
+    epochs=5
     #wandb setup
     wandb.init(
         project="RL_Project_CSCI2951F", 
         config={
-            'architecture': 'ConvEncoder_'+str(z_dim),
+            'architecture': 'ResNet18',
+            'z_dim': z_dim, 
+            'patch_size': patch_size,
             'setting': setting, 
-            'task': 'red vs green'
+            'task': 'red vs green',
+            'lr': lr,
+            'seed': seed, 
+            'epochs': epochs
         })
-    for epoch in range(10): 
+    best_val_loss = 1e+9
+    for epoch in range(epochs): 
         #train loop
         q_enc.train()
         k_enc.train()
@@ -94,7 +101,7 @@ def experiment(setting='0.9_1', seed=42):
             optimizer.step()
             times['back_q'].append(time.time()-start)
             start = time.time()
-            momentum_update(k_enc, q_enc, beta=0.999)
+            momentum_update(k_enc, q_enc, beta=0.991)
             times['back_k'].append(time.time()-start)
             train_loss += loss.item()
             if i%10 == 0: 
@@ -114,7 +121,6 @@ def experiment(setting='0.9_1', seed=42):
                 queries, keys = patchOps.query_key(images.to(device)) #batch_dim, num_patches, 3, h, w
                 z_q = q_enc(queries) #B*K, z_dim
                 z_k = k_enc(keys) #B*K, z_dim
-                z_k = z_k.detach()
                 K = patchOps.num_patches #patches per image
                 logits, labels = [], []
                 for j in range(len(cls_label)): 
@@ -131,14 +137,14 @@ def experiment(setting='0.9_1', seed=42):
             val_loss /= len(val_loader)
         print(f"Epoch {epoch}, Train Loss:{train_loss}, Val loss:{val_loss}")
         wandb.log({'Epoch': epoch, 'Train Loss':train_loss, 'Val Loss':val_loss})
-    torch.save(q_enc.state_dict(), 'model_weights/16_4/'+'contrastive_encoder_'+setting+'.pth')
+        if val_loss<best_val_loss: 
+            best_val_loss = val_loss
+            torch.save(q_enc.state_dict(), 'model_weights/'+str(z_dim)+'_'+str(patch_size)+'_resnet18_'+setting+'_'+str(seed)+'.pth')
     wandb.finish()
     del q_enc, k_enc
 
 
 if __name__=='__main__': 
-    experiment()
-    '''
     settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
     for setting in settings: 
         print("==========================================================================")
@@ -150,4 +156,3 @@ if __name__=='__main__':
             print("Seed completed execution!", seed, setting)
             print("------------------------------------------------------------------")
         print("Experiment complete", setting)
-    '''
