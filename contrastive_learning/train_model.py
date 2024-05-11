@@ -99,10 +99,10 @@ def experiment(setting='0.9_1', seed=42):
             train_loss += loss.item()
             if i%10 == 0: 
                 print(f"Batch {i}, train loss:{loss.item()}")
-                print("Batch Time statistics", end=": ")
-                for k in times: 
-                    print(k, ":", np.mean(times[k]), end=",", sep="")
-                print()
+                #print("Batch Time statistics", end=": ")
+                #for k in times: 
+                #    print(k, ":", np.mean(times[k]), end=",", sep="")
+                #print()
                 print("Total Time Spent in Epoch:", (time.time() - batch_running_time)/60)
                 wandb.log({'train_batch':i, 'train_batch_loss': loss.item()})
         train_loss /= len(train_loader)
