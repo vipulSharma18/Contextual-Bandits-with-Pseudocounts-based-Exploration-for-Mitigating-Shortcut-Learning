@@ -39,7 +39,7 @@ def sample(setting, seed=42):
     num_coins, hidden_size, exploration_factor = 64, 512, 0.8
     #load bandit model
     bandit_path = 'model_weights/bandit_' + setting + '_' + str(seed) + '.pth'
-    bandit = load_model(bandit_path, context_length=z_dim+2, hidden_size=hidden_size,\
+    bandit = load_bandit(bandit_path, context_length=z_dim+2, hidden_size=hidden_size,\
         num_coins=num_coins, lambda_explore=exploration_factor).to(device)
     #load supervised model
     resnet_weights = 'model_weights/'
@@ -51,7 +51,7 @@ def sample(setting, seed=42):
     sup_model.eval()
     bandit.pseudocount_gen.eval()
     output_path = 'qualitative_check_data/'+setting
-    os.mkdir(output_path)
+    os.makedirs(output_path, exist_ok=True)
     with torch.no_grad():
         for images, cls_label in train_loader:
             cls_label = cls_label.to(device)
@@ -59,18 +59,23 @@ def sample(setting, seed=42):
             patches = patchOps.extract_patches(images)
             context = context_generator(patches.reshape(-1,3,patchOps.patch_size, patchOps.patch_size))
             context = torch.cat((context, one_hot(cls_label.repeat_interleave(patchOps.num_patches), num_classes=2)), dim=-1)
-            print('context generated + clas label:', context)
+            torch.set_printoptions(threshold=10_000)
+            print('context generated + clas label:', torch.sum(context, dim=-1))
             bandit_output, _, _ = bandit(context)
             bandit_output = torch.reshape(bandit_output, (-1, K)) #batch_dim, K num of patches
             print('bandit output:', bandit_output)
             bandit_logits, patch_idx = torch.max(bandit_output, dim=-1)
-            print('max bandit logit/action and patch idx', bandit_logits, patch_idx)
+            #print('max bandit logit/action and patch idx', bandit_logits, patch_idx)
             transformed_images = patchOps.mask_images(images, patch_idx) #only pick image patch given by patch_idx, rest are cyan
-            logits = sup_model(transformed_images)
-            print('output of supervised model/actual reward:', logits)
+            logits_bandit = sup_model(transformed_images)
+            logit_vanilla = sup_model(images)
+            print('output of supervised model/actual reward:', logits_bandit, 'total image reward:', logit_vanilla, 'actual class:', cls_label)
             break
 
 if __name__=='__main__': 
-    #settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
-    settings = ['0.8_1']
-    [sample(setting) for setting in settings]
+    settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+    #settings = ['0.6_1']
+    for setting in settings:
+        print("Running for setting:", setting)
+        sample(setting) 
+        print("------------------------------------------------")

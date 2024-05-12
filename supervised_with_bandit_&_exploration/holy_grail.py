@@ -60,11 +60,11 @@ def experiment(setting='0.9_5', seed=1):
     optim_cfn = optim.Adam(bandit.pseudocount_gen.parameters(), lr=lr_cfn)
     
     #wandb setup
-    epochs=30
+    epochs=3
     wandb.init(
         project="RL_Project_CSCI2951F", 
         config={
-            'architecture': 'CombinedFrameworkResnetBackbone',
+            'architecture': 'CombinedFrameworkResnetBackbone_ClippedSupervisedLogit',
             'context_dim': z_dim, 
             'num_coins': num_coins, 
             'bandit_size': hidden_size,
@@ -103,8 +103,8 @@ def experiment(setting='0.9_5', seed=1):
             #send context to bandit. -> done
             bandit_output, pseudocount_output, coin_label = bandit(context)
             #pick patch with max probability -> done
-            bandit_output = torch.reshape(bandit_output, (-1, K)) #batch_dim, K num of patches
-            bandit_logits, patch_idx = torch.max(bandit_output, dim=-1)
+            action_choices = torch.reshape(bandit_output, (-1, K)) #batch_dim, K num of patches
+            _, patch_idx = torch.max(action_choices, dim=-1)
             #reconstruct images based on action -> done
             transformed_images = patchOps.mask_images(images, patch_idx) #only pick image patch given by patch_idx, rest are cyan
             #supervised forward-backward -> done
@@ -116,10 +116,15 @@ def experiment(setting='0.9_5', seed=1):
             train_acc += b_acc
             sup_train_loss += loss_sup.item()
             #bandit backward -> done
-            sup_logits = logits.detach().squeeze(-1)
-            bandit_labels = torch.where(cls_label==0, 1-sup_logits, sup_logits) #prob of the correct class
-            cumulative_bandit_reward += torch.sum(bandit_labels).item()
-            loss_bandit = criterion_bandit(bandit_logits, bandit_labels)
+            sup_logits = torch.clamp(logits.detach().squeeze(-1), min=0.0, max=1.0) #supervised model doesn't have any activation in final layer
+            bandit_rewards = torch.where(cls_label==0, 1-sup_logits, sup_logits) #prob of the correct class
+            cumulative_bandit_reward += torch.sum(bandit_rewards).item()
+            increments = torch.arange(0, bandit_output.size(0), 16)[:patch_idx.size(0)]
+            increments = increments.to(device)
+            modified_patch_idx = patch_idx + increments
+            bandit_labels = torch.zeros(pseudocount_output.size(0), dtype=torch.float).to(device)
+            bandit_labels[modified_patch_idx] = bandit_rewards
+            loss_bandit = criterion_bandit(bandit_output, bandit_labels.unsqueeze(-1))
             loss_bandit.backward()
             optim_bandit.step()
             bandit_train_loss += loss_bandit.item()
@@ -134,6 +139,7 @@ def experiment(setting='0.9_5', seed=1):
             #logging -> done
             if i%10 == 0: 
                 print(f"Epoch {epoch}, Train: Batch {i}, train acc:{b_acc}, sup loss:{loss_sup.item()}, bdit loss: {loss_bandit.item()}, cfn loss: {loss_cfn.item()}, cumulative bdit reward: {cumulative_bandit_reward}, Elapsed time for epoch : {(time.time() - batch_running_time)/60}")
+                print('bandit output:', action_choices)
                 #print("Batch Time statistics", end=": ")
                 #for k in times: 
                 #    print(k, ":", np.mean(times[k]), end=",", sep="")
@@ -162,8 +168,8 @@ def experiment(setting='0.9_5', seed=1):
                     context = torch.cat((context, one_hot(cls_label.repeat_interleave(patchOps.num_patches), num_classes=2)), dim=-1)
                 bandit_output, pseudocount_output, coin_label = bandit(context)
                 #pick patch with max probability -> done
-                bandit_output = torch.reshape(bandit_output, (-1, K)) #batch_dim, K num of patches
-                bandit_logits, patch_idx = torch.max(bandit_output, dim=-1)
+                action_choices = torch.reshape(bandit_output, (-1, K)) #batch_dim, K num of patches
+                _, patch_idx = torch.max(action_choices, dim=-1)
                 #reconstruct images based on action -> done
                 transformed_images = patchOps.mask_images(images, patch_idx) #only pick image patch given by patch_idx, rest are cyan
                 #supervised forward-backward -> done
@@ -173,10 +179,15 @@ def experiment(setting='0.9_5', seed=1):
                 b_acc = calculate_accuracy(logits, cls_label.unsqueeze(-1))
                 val_acc += b_acc
                 #bandit backward -> done
-                sup_logits = logits.detach().squeeze(-1)
-                bandit_labels = torch.where(cls_label==0, 1-sup_logits, sup_logits) #prob of the correct class
-                cumulative_bandit_reward += torch.sum(bandit_labels).item()
-                loss_bandit = criterion_bandit(bandit_logits, bandit_labels)
+                sup_logits = torch.clamp(logits.detach().squeeze(-1), min=0.0, max=1.0) #supervised model doesn't have any activation in final layer
+                bandit_rewards = torch.where(cls_label==0, 1-sup_logits, sup_logits) #prob of the correct class
+                cumulative_bandit_reward += torch.sum(bandit_rewards).item()
+                increments = torch.arange(0, bandit_output.size(0), 16)[:patch_idx.size(0)]
+                increments = increments.to(device)
+                modified_patch_idx = patch_idx + increments
+                bandit_labels = torch.zeros(pseudocount_output.size(0), dtype=torch.float).to(device)
+                bandit_labels[modified_patch_idx] = bandit_rewards
+                loss_bandit = criterion_bandit(bandit_output, bandit_labels.unsqueeze(-1))
                 bandit_val_loss += loss_bandit.item()
                 #cfn backward -> done
                 loss_cfn = criterion_cfn(pseudocount_output, coin_label.to(device).type(torch.float))
@@ -197,8 +208,8 @@ def experiment(setting='0.9_5', seed=1):
             "Sup Train Acc": train_acc, "Sup Val Acc": val_acc, \
                 "Bandit Train Loss":bandit_train_loss, "Bandit Val loss":bandit_val_loss, \
                     "CFN Train Loss":cfn_train_loss, "CFN Val loss":cfn_val_loss})
-        torch.save(bandit.state_dict(), 'model_weights/bandit_'+setting+'_'+str(seed)+'.pth')
-        torch.save(sup_model.state_dict(), 'model_weights/supervised_'+setting+'_'+str(seed)+'.pth')
+        torch.save(bandit.state_dict(), 'model_weights/clipped_bandit_'+setting+'_'+str(seed)+'.pth')
+        torch.save(sup_model.state_dict(), 'model_weights/clipped_supervised_'+setting+'_'+str(seed)+'.pth')
     wandb.finish()
 
 
@@ -208,7 +219,8 @@ def experiment(setting='0.9_5', seed=1):
 #*3 as 30 epochs -> 8 hrs worst case. best case 6 hrs.
 
 if __name__=='__main__': 
-    #experiment('0.9_5', seed=1)
+    experiment('0.8_2', seed=1)
+    '''
     settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
     #settings = ['0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
     print("Running for settings:", settings)
@@ -222,3 +234,4 @@ if __name__=='__main__':
             print("Seed completed execution!", seed, setting)
             print("------------------------------------------------------------------")
         print("Experiment complete", setting)
+    '''

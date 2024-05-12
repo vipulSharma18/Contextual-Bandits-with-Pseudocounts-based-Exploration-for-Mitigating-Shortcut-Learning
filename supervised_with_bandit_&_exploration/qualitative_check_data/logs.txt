@@ -1,0 +1,160 @@
+Running for setting: 0.6_1
+context generated + clas label: tensor([0.9771, 0.9771, 0.9705, 0.9729, 0.9635, 0.9729, 0.9635, 0.9729, 0.9634,
+        0.9771, 0.9770, 0.9606, 0.9540, 0.9575, 0.9517, 0.9614],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.4676]], device='cuda:0') total image reward: tensor([[-1.1326]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.6_2
+context generated + clas label: tensor([0.9372, 0.9369, 0.9394, 0.9446, 0.9192, 0.9192, 0.9192, 0.9239, 0.9271,
+        0.9337, 0.9409, 0.9387, 0.9460, 0.9430, 0.9298, 0.9309],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[1.2914]], device='cuda:0') total image reward: tensor([[-6.8017]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.6_3
+context generated + clas label: tensor([1.0358, 1.0353, 1.0393, 1.0498, 1.0360, 1.0556, 1.0420, 1.0376, 1.0423,
+        1.0410, 1.0466, 1.0603, 1.0424, 1.0402, 1.0502, 1.0514],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.5641]], device='cuda:0') total image reward: tensor([[0.0647]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.6_4
+context generated + clas label: tensor([1.0532, 1.0609, 1.0610, 1.0638, 1.0555, 1.0624, 1.0537, 1.0624, 1.0552,
+        1.0733, 1.0515, 1.0671, 1.0704, 1.0648, 1.0643, 1.0536],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[-0.8911]], device='cuda:0') total image reward: tensor([[9.2669]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.6_5
+context generated + clas label: tensor([1.0799, 1.0847, 1.0470, 1.0700, 1.0619, 1.0664, 1.0734, 1.0629, 1.0677,
+        1.0742, 1.0802, 1.0802, 1.0815, 1.0717, 1.0646, 1.0976],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.4621]], device='cuda:0') total image reward: tensor([[-1.4732]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.7_1
+context generated + clas label: tensor([0.9556, 0.9545, 0.9501, 0.9614, 0.9496, 0.9582, 0.9412, 0.9582, 0.9412,
+        0.9582, 0.9504, 0.9577, 0.9577, 0.9577, 0.9568, 0.9598],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.5125]], device='cuda:0') total image reward: tensor([[-1.2506]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.7_2
+context generated + clas label: tensor([0.9663, 0.9663, 0.9663, 0.9802, 0.9361, 0.9420, 0.9417, 0.9362, 0.9434,
+        0.9346, 0.9471, 0.9424, 0.9534, 0.9524, 0.9401, 0.9669],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.0153]], device='cuda:0') total image reward: tensor([[-0.0385]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.7_3
+context generated + clas label: tensor([1.0688, 1.0581, 1.0644, 1.0577, 1.0679, 1.0577, 1.0619, 1.0547, 1.0661,
+        1.0656, 1.0533, 1.0616, 1.0490, 1.0578, 1.0548, 1.0698],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[1.5723]], device='cuda:0') total image reward: tensor([[-0.0124]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.7_4
+context generated + clas label: tensor([1.0952, 1.0640, 1.0918, 1.0791, 1.0662, 1.0819, 1.0999, 1.0855, 1.1000,
+        1.0886, 1.0838, 1.0822, 1.0786, 1.0830, 1.1111, 1.0755],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[1.8915]], device='cuda:0') total image reward: tensor([[1.3686]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.7_5
+context generated + clas label: tensor([1.0927, 1.1025, 1.1006, 1.1230, 1.0924, 1.1096, 1.1008, 1.1083, 1.0793,
+        1.1078, 1.0874, 1.1112, 1.0919, 1.1046, 1.0853, 1.0851],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[-7.5321]], device='cuda:0') total image reward: tensor([[-6.8116]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.8_1
+context generated + clas label: tensor([0.9079, 0.9171, 0.9079, 0.9171, 0.9079, 0.9171, 0.9225, 0.9225, 0.9225,
+        0.9180, 0.8992, 0.9269, 0.8978, 0.9262, 0.8957, 0.9225],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[1.2637]], device='cuda:0') total image reward: tensor([[1.0369]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.8_2
+context generated + clas label: tensor([0.9696, 0.9683, 0.9544, 0.9504, 0.9674, 0.9604, 0.9574, 0.9548, 0.9571,
+        0.9693, 0.9668, 0.9710, 0.9632, 0.9600, 0.9696, 0.9696],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.1755]], device='cuda:0') total image reward: tensor([[1.5422]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.8_3
+context generated + clas label: tensor([1.0777, 1.0630, 1.0767, 1.0615, 1.0715, 1.0628, 1.0683, 1.0712, 1.0535,
+        1.0563, 1.0655, 1.0635, 1.0517, 1.0686, 1.0523, 1.0551],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[1.5909]], device='cuda:0') total image reward: tensor([[-1.1233]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.8_4
+context generated + clas label: tensor([1.1340, 1.1252, 1.1403, 1.1476, 1.1433, 1.1379, 1.1316, 1.1309, 1.1308,
+        1.1405, 1.1308, 1.1367, 1.1353, 1.1420, 1.1274, 1.1556],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[-0.0275]], device='cuda:0') total image reward: tensor([[-0.3361]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.8_5
+context generated + clas label: tensor([1.0921, 1.0990, 1.0969, 1.0928, 1.0904, 1.0838, 1.0708, 1.0678, 1.0522,
+        1.0683, 1.0618, 1.0677, 1.0652, 1.0530, 1.0725, 1.0937],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.0066]], device='cuda:0') total image reward: tensor([[-0.1154]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.9_1
+context generated + clas label: tensor([0.9271, 0.9291, 0.9260, 0.9309, 0.9236, 0.9437, 0.9287, 0.9500, 0.9236,
+        0.9369, 0.9271, 0.9271, 0.9271, 0.9271, 0.9271, 0.9271],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.4488]], device='cuda:0') total image reward: tensor([[-9.6471]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.9_2
+context generated + clas label: tensor([0.9126, 0.9220, 0.9220, 0.9220, 0.9023, 0.9080, 0.8927, 0.9023, 0.8882,
+        0.8974, 0.8932, 0.8982, 0.8940, 0.8966, 0.9000, 0.8876],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.4836]], device='cuda:0') total image reward: tensor([[-0.9390]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.9_3
+context generated + clas label: tensor([1.0985, 1.0878, 1.0783, 1.0986, 1.0782, 1.0976, 1.0754, 1.0977, 1.0802,
+        1.0979, 1.0826, 1.1078, 1.0801, 1.0999, 1.0911, 1.0951],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[0.5104]], device='cuda:0') total image reward: tensor([[-1.4329]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.9_4
+context generated + clas label: tensor([1.1054, 1.1080, 1.0937, 1.0852, 1.0872, 1.0978, 1.1073, 1.1002, 1.0965,
+        1.0827, 1.0975, 1.0846, 1.1037, 1.0889, 1.1100, 1.0911],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[1.7894]], device='cuda:0') total image reward: tensor([[1.0123]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
+Running for setting: 0.9_5
+context generated + clas label: tensor([1.1143, 1.1037, 1.1027, 1.1203, 1.1155, 1.1007, 1.1060, 1.0812, 1.1068,
+        1.0914, 1.1129, 1.0930, 1.1163, 1.0902, 1.1011, 1.0721],
+       device='cuda:0')
+bandit output: tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]],
+       device='cuda:0')
+output of supervised model/actual reward: tensor([[-0.6343]], device='cuda:0') total image reward: tensor([[-0.2682]], device='cuda:0') actual class: tensor([0], device='cuda:0')
+------------------------------------------------
