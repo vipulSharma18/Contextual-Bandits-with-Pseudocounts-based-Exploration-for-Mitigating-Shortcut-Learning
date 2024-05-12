@@ -96,7 +96,7 @@ def experiment(setting='0.9_5', seed=1):
             patches = patchOps.extract_patches(images)
             #get context for each patch -> done
             with torch.no_grad(): 
-                context = context_generator(patches.to(device))
+                context = context_generator(patches.reshape(-1,3,patchOps.patch_size, patchOps.patch_size))
                 #class conditioned bandits. concatenating 1-hot class label to state context. -> done
                 context = torch.cat((context, one_hot(cls_label)), dim=-1)
             #send context to bandit. -> done

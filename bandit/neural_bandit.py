@@ -20,14 +20,15 @@ from pseudocounts.cfn import ExplorationBonus, CoinFlipMaker, ExponentialDecayEx
 
 class ContextualBanditWithPseudoCounts(nn.Module): 
     def __init__(self, context_length=256, hidden_size=512, num_coins=64, lambda_explore=0.8): 
+        super().__init__()
         self.pseudocount_gen = ExplorationBonus(input_size=context_length, hidden_size=hidden_size, output_size=num_coins)
         self.coin_flip_maker = CoinFlipMaker(num_coins=num_coins)
         self.exploration_rate_gen = ExponentialDecayExploration(init_value=lambda_explore, exp_decay_rate=0.02) #start at 0.8, reach 0.1 at 100th step/batch
-        self.reward_model = nn.Sequential([
+        self.reward_model = nn.Sequential(
             nn.Linear(context_length, hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, 1)
-        ])
+        )
     def forward(self, context): 
         pred_reward = self.reward_model(context)
         
