@@ -58,15 +58,18 @@ if __name__=='__main__':
     wandb.init(
         project="RL_Project_CSCI2951F", 
         config={
-            'architecture': 'Bias Measurement',
+            'architecture': 'Bias Measurement with bandits',
             'task': 'red vs green',
-            'class_threshold': 0.5
+            'class_threshold': 0.5,
         })
     
     optimal_weights = '../optimal_classifier/model_weights/'
-    resnet_weights = '../supervised_learning/model_weights/'
+    #weights for vanilla
+    #resnet_weights = '../supervised_learning/model_weights/'
+    #weights for bandit based exploration augmented resent
+    resnet_weights = '../supervised_with_bandit_&_exploration/model_weights/'
     optimal_template = 'lda_model_' #0.6_2_1.joblib p_s a_s seed
-    resnet_template = 'results_vanilla_' #0.6_1_1.pth p_s a_s seed
+    resnet_template = 'supervised_' #0.6_1_1.pth p_s a_s seed
 
     data_path = '../data/'
     test = 'synthetic_test_data.csv'

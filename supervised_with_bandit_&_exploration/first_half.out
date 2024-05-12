@@ -35,3 +35,509 @@ Epoch 0, Train: Batch 60, train acc:46.42857142857143, sup loss:0.25598037242889
 Epoch 0, Train: Batch 70, train acc:39.285714285714285, sup loss:0.2521543502807617, bdit loss: 0.2521543502807617, cfn loss: 1.0000700950622559, cumulative bdit reward: 1029.4492201805115, Elapsed time for epoch : 0.12497552235921223
 Epoch 0, Train: Batch 80, train acc:46.42857142857143, sup loss:0.24986986815929413, bdit loss: 0.24986986815929413, cfn loss: 1.0000932216644287, cumulative bdit reward: 1170.727478504181, Elapsed time for epoch : 0.14092453320821127
 Epoch 0, Train: Batch 90, train acc:57.14285714285714, sup loss:0.23882539570331573, bdit loss: 0.23882539570331573, cfn loss: 1.0001181364059448, cumulative bdit reward: 1312.3552107810974, Elapsed time for epoch : 0.15717389583587646
+Epoch 0, Train: Batch 100, train acc:39.285714285714285, sup loss:0.3015666902065277, bdit loss: 0.3015666902065277, cfn loss: 1.000247597694397, cumulative bdit reward: 1451.4132800102234, Elapsed time for epoch : 0.1737096945444743
+Epoch 0, Train: Batch 110, train acc:50.0, sup loss:0.29828542470932007, bdit loss: 0.29828542470932007, cfn loss: 0.9999223947525024, cumulative bdit reward: 1591.1389374732971, Elapsed time for epoch : 0.1898461699485779
+Epoch 0, Val: Batch 0, acc:14.285714285714285,sup loss:0.23678123950958252, bdit loss: 0.23678123950958252, cfn loss: 1.0001245737075806, cumulative bdit reward: 15.241250991821289, Elapsed time for epoch : 0.19759819507598878
+Epoch 0, Val: Batch 10, acc:7.142857142857142,sup loss:0.2503817677497864, bdit loss: 0.2503817677497864, cfn loss: 0.9997565746307373, cumulative bdit reward: 170.34786987304688, Elapsed time for epoch : 0.20977480014165242
+Epoch 0, Val: Batch 20, acc:100.0,sup loss:0.22736993432044983, bdit loss: 0.22736993432044983, cfn loss: 1.0000628232955933, cumulative bdit reward: 323.23611640930176, Elapsed time for epoch : 0.2218603769938151
+Epoch 0, Val: Batch 30, acc:100.0,sup loss:0.23207944631576538, bdit loss: 0.23207944631576538, cfn loss: 1.000048041343689, cumulative bdit reward: 469.07934379577637, Elapsed time for epoch : 0.23448897997538248
+Epoch 0, Sup Train Loss:0.7680354867292487, Sup Val loss:0.2344105007747809 Sup Train Acc:49.72049689440995, Sup Val Acc:59.02777777777778 Bandit Train Loss:0.7677537861077682, Bandit Val loss:0.23441050036085975 CFN Train Loss:0.0713895358145237, CFN Val loss:0.06250578382362922
+Epoch 1, Train: Batch 0, train acc:53.57142857142857, sup loss:0.24182671308517456, bdit loss: 0.24182671308517456, cfn loss: 1.0000734329223633, cumulative bdit reward: 15.061695098876953, Elapsed time for epoch : 0.0016485929489135742
+Epoch 1, Train: Batch 10, train acc:60.71428571428571, sup loss:0.2545865476131439, bdit loss: 0.2545865476131439, cfn loss: 1.0003995895385742, cumulative bdit reward: 166.03174304962158, Elapsed time for epoch : 0.018328221638997395
+Epoch 1, Train: Batch 20, train acc:46.42857142857143, sup loss:0.32768353819847107, bdit loss: 0.32768353819847107, cfn loss: 0.9999738335609436, cumulative bdit reward: 311.7819356918335, Elapsed time for epoch : 0.03467213312784831
+Epoch 1, Train: Batch 30, train acc:71.42857142857143, sup loss:0.22457316517829895, bdit loss: 0.22457316517829895, cfn loss: 1.000052809715271, cumulative bdit reward: 462.43579864501953, Elapsed time for epoch : 0.051153890291849774
+Epoch 1, Train: Batch 40, train acc:64.28571428571429, sup loss:0.22180765867233276, bdit loss: 0.22180765867233276, cfn loss: 1.0001167058944702, cumulative bdit reward: 608.8018732070923, Elapsed time for epoch : 0.06712358792622884
+Epoch 1, Train: Batch 50, train acc:50.0, sup loss:0.25652235746383667, bdit loss: 0.25652235746383667, cfn loss: 1.0002011060714722, cumulative bdit reward: 760.6864728927612, Elapsed time for epoch : 0.08354694048563639
+Epoch 1, Train: Batch 60, train acc:60.71428571428571, sup loss:0.2420528531074524, bdit loss: 0.2420528531074524, cfn loss: 1.000213861465454, cumulative bdit reward: 912.796462059021, Elapsed time for epoch : 0.10020815928777059
+Epoch 1, Train: Batch 70, train acc:53.57142857142857, sup loss:0.29544585943222046, bdit loss: 0.29544585943222046, cfn loss: 1.0003594160079956, cumulative bdit reward: 1065.018144607544, Elapsed time for epoch : 0.11656439701716105
+Epoch 1, Train: Batch 80, train acc:67.85714285714286, sup loss:0.20794539153575897, bdit loss: 0.20794539153575897, cfn loss: 1.0000498294830322, cumulative bdit reward: 1215.9560441970825, Elapsed time for epoch : 0.13274263938268024
+Epoch 1, Train: Batch 90, train acc:60.71428571428571, sup loss:0.22908644378185272, bdit loss: 0.22908644378185272, cfn loss: 0.9999943971633911, cumulative bdit reward: 1360.6918096542358, Elapsed time for epoch : 0.14891935586929322
+Epoch 1, Train: Batch 100, train acc:39.285714285714285, sup loss:0.32755041122436523, bdit loss: 0.32755041122436523, cfn loss: 1.0002005100250244, cumulative bdit reward: 1514.27139377594, Elapsed time for epoch : 0.16513397296269736
+Epoch 1, Train: Batch 110, train acc:64.28571428571429, sup loss:0.2759847044944763, bdit loss: 0.2759847044944763, cfn loss: 1.0001444816589355, cumulative bdit reward: 1663.7979583740234, Elapsed time for epoch : 0.18188973665237426
+Epoch 1, Val: Batch 0, acc:100.0,sup loss:0.0757024809718132, bdit loss: 0.0757024809718132, cfn loss: 1.0001434087753296, cumulative bdit reward: 30.757762908935547, Elapsed time for epoch : 0.18911133209864298
+Epoch 1, Val: Batch 10, acc:100.0,sup loss:0.0442342534661293, bdit loss: 0.0442342534661293, cfn loss: 1.0003080368041992, cumulative bdit reward: 343.2761516571045, Elapsed time for epoch : 0.2013707637786865
+Epoch 1, Val: Batch 20, acc:0.0,sup loss:0.9447871446609497, bdit loss: 0.9447871446609497, cfn loss: 1.0003283023834229, cumulative bdit reward: 559.5183560848236, Elapsed time for epoch : 0.21369153658548992
+Epoch 1, Val: Batch 30, acc:0.0,sup loss:0.9614391922950745, bdit loss: 0.9614391922950745, cfn loss: 1.0001726150512695, cumulative bdit reward: 569.2210713624954, Elapsed time for epoch : 0.225547456741333
+Epoch 1, Sup Train Loss:0.26531735425410063, Sup Val loss:0.5235281994876763 Sup Train Acc:55.527950310559, Sup Val Acc:49.60317460317461 Bandit Train Loss:0.2653173545132513, Bandit Val loss:0.5235281992289755 CFN Train Loss:0.0625092958950478, CFN Val loss:0.06251367719637023
+Epoch 2, Train: Batch 0, train acc:46.42857142857143, sup loss:0.7344528436660767, bdit loss: 0.7344527840614319, cfn loss: 1.0003557205200195, cumulative bdit reward: 14.666788101196289, Elapsed time for epoch : 0.0016419808069864908
+Epoch 2, Train: Batch 10, train acc:42.857142857142854, sup loss:0.2747410237789154, bdit loss: 0.2747410237789154, cfn loss: 1.0001327991485596, cumulative bdit reward: 164.79991817474365, Elapsed time for epoch : 0.017722368240356445
+Epoch 2, Train: Batch 20, train acc:57.14285714285714, sup loss:0.24997861683368683, bdit loss: 0.24997861683368683, cfn loss: 1.0001014471054077, cumulative bdit reward: 319.3964681625366, Elapsed time for epoch : 0.03372429609298706
+Epoch 2, Train: Batch 30, train acc:71.42857142857143, sup loss:0.20525962114334106, bdit loss: 0.20525962114334106, cfn loss: 1.0002191066741943, cumulative bdit reward: 478.18290615081787, Elapsed time for epoch : 0.049899550278981526
+Epoch 2, Train: Batch 40, train acc:42.857142857142854, sup loss:0.33308330178260803, bdit loss: 0.33308330178260803, cfn loss: 1.0000576972961426, cumulative bdit reward: 627.9864721298218, Elapsed time for epoch : 0.0660809874534607
+Epoch 2, Train: Batch 50, train acc:67.85714285714286, sup loss:0.19924242794513702, bdit loss: 0.19924242794513702, cfn loss: 1.000290870666504, cumulative bdit reward: 779.094690322876, Elapsed time for epoch : 0.08209195931752523
+Epoch 2, Train: Batch 60, train acc:42.857142857142854, sup loss:0.49783802032470703, bdit loss: 0.49783802032470703, cfn loss: 1.0002379417419434, cumulative bdit reward: 931.2039947509766, Elapsed time for epoch : 0.09819364150365194
+Epoch 2, Train: Batch 70, train acc:64.28571428571429, sup loss:0.2216334491968155, bdit loss: 0.2216334491968155, cfn loss: 1.000460147857666, cumulative bdit reward: 1083.6261568069458, Elapsed time for epoch : 0.1145703911781311
+Epoch 2, Train: Batch 80, train acc:53.57142857142857, sup loss:0.23892346024513245, bdit loss: 0.23892346024513245, cfn loss: 1.000454306602478, cumulative bdit reward: 1239.9267683029175, Elapsed time for epoch : 0.13079527616500855
+Epoch 2, Train: Batch 90, train acc:57.14285714285714, sup loss:0.21933166682720184, bdit loss: 0.21933166682720184, cfn loss: 1.0002679824829102, cumulative bdit reward: 1398.3889608383179, Elapsed time for epoch : 0.14702272017796833
+Epoch 2, Train: Batch 100, train acc:53.57142857142857, sup loss:0.2513364255428314, bdit loss: 0.2513364255428314, cfn loss: 1.000175952911377, cumulative bdit reward: 1551.5966625213623, Elapsed time for epoch : 0.16291653315226237
+Epoch 2, Train: Batch 110, train acc:67.85714285714286, sup loss:0.24386104941368103, bdit loss: 0.24386104941368103, cfn loss: 1.0002479553222656, cumulative bdit reward: 1709.549129486084, Elapsed time for epoch : 0.17885491847991944
+Epoch 2, Val: Batch 0, acc:100.0,sup loss:0.14457502961158752, bdit loss: 0.14457502961158752, cfn loss: 1.0001157522201538, cumulative bdit reward: 17.858219146728516, Elapsed time for epoch : 0.18549087047576904
+Epoch 2, Val: Batch 10, acc:100.0,sup loss:0.1608775109052658, bdit loss: 0.1608775109052658, cfn loss: 1.0000584125518799, cumulative bdit reward: 198.36673164367676, Elapsed time for epoch : 0.19771226247151694
+Epoch 2, Val: Batch 20, acc:14.285714285714285,sup loss:0.30150306224823, bdit loss: 0.30150306224823, cfn loss: 1.0001633167266846, cumulative bdit reward: 362.96706676483154, Elapsed time for epoch : 0.21027208964029948
+Epoch 2, Val: Batch 30, acc:14.285714285714285,sup loss:0.29700490832328796, bdit loss: 0.29700490832328796, cfn loss: 1.000169277191162, cumulative bdit reward: 501.82214546203613, Elapsed time for epoch : 0.2224837025006612
+Epoch 2, Sup Train Loss:0.28824896993844407, Sup Val loss:0.22106455639004707 Sup Train Acc:54.627329192546576, Sup Val Acc:56.64682539682539 Bandit Train Loss:0.28824896877226625, Bandit Val loss:0.22106455639004707 CFN Train Loss:0.06251235756537189, CFN Val loss:0.06251045958035523
+Epoch 3, Train: Batch 0, train acc:64.28571428571429, sup loss:0.21077774465084076, bdit loss: 0.21077774465084076, cfn loss: 1.0001016855239868, cumulative bdit reward: 16.34001350402832, Elapsed time for epoch : 0.00164563258488973
+Epoch 3, Train: Batch 10, train acc:67.85714285714286, sup loss:0.20068340003490448, bdit loss: 0.20068340003490448, cfn loss: 1.000252366065979, cumulative bdit reward: 173.1445951461792, Elapsed time for epoch : 0.0179198424021403
+Epoch 3, Train: Batch 20, train acc:57.14285714285714, sup loss:0.2233554869890213, bdit loss: 0.2233554869890213, cfn loss: 1.0003708600997925, cumulative bdit reward: 328.4707622528076, Elapsed time for epoch : 0.03383990526199341
+Epoch 3, Train: Batch 30, train acc:46.42857142857143, sup loss:0.27187666296958923, bdit loss: 0.27187666296958923, cfn loss: 0.9998968839645386, cumulative bdit reward: 485.31173515319824, Elapsed time for epoch : 0.049966665108998616
+Epoch 3, Train: Batch 40, train acc:50.0, sup loss:0.25203633308410645, bdit loss: 0.25203633308410645, cfn loss: 1.0000823736190796, cumulative bdit reward: 644.047963142395, Elapsed time for epoch : 0.06719083388646443
+Epoch 3, Train: Batch 50, train acc:64.28571428571429, sup loss:0.22004951536655426, bdit loss: 0.22004951536655426, cfn loss: 1.0000476837158203, cumulative bdit reward: 801.5802736282349, Elapsed time for epoch : 0.08336631059646607
+Epoch 3, Train: Batch 60, train acc:53.57142857142857, sup loss:0.2538604736328125, bdit loss: 0.2538604736328125, cfn loss: 1.000211238861084, cumulative bdit reward: 955.759913444519, Elapsed time for epoch : 0.0995454470316569
+Epoch 3, Train: Batch 70, train acc:50.0, sup loss:0.22418339550495148, bdit loss: 0.22418339550495148, cfn loss: 0.9999733567237854, cumulative bdit reward: 1115.7990550994873, Elapsed time for epoch : 0.11555734078089396
+Epoch 3, Train: Batch 80, train acc:67.85714285714286, sup loss:0.1945982128381729, bdit loss: 0.1945982128381729, cfn loss: 1.0001322031021118, cumulative bdit reward: 1277.1609659194946, Elapsed time for epoch : 0.13137853145599365
+Epoch 3, Train: Batch 90, train acc:75.0, sup loss:0.1734134405851364, bdit loss: 0.17341342568397522, cfn loss: 1.0000793933868408, cumulative bdit reward: 1440.8785228729248, Elapsed time for epoch : 0.1478209694226583
+Epoch 3, Train: Batch 100, train acc:53.57142857142857, sup loss:0.24356718361377716, bdit loss: 0.24356716871261597, cfn loss: 1.0003399848937988, cumulative bdit reward: 1598.546787261963, Elapsed time for epoch : 0.16477018197377521
+Epoch 3, Train: Batch 110, train acc:67.85714285714286, sup loss:0.21516913175582886, bdit loss: 0.21516913175582886, cfn loss: 1.0003634691238403, cumulative bdit reward: 1756.683032989502, Elapsed time for epoch : 0.18073726097742718
+Epoch 3, Val: Batch 0, acc:17.857142857142858,sup loss:0.6808488965034485, bdit loss: 0.6808488965034485, cfn loss: 1.0004243850708008, cumulative bdit reward: 6.245142459869385, Elapsed time for epoch : 0.18730294704437256
+Epoch 3, Val: Batch 10, acc:7.142857142857142,sup loss:0.7617059350013733, bdit loss: 0.7617059350013733, cfn loss: 1.0002024173736572, cumulative bdit reward: 72.54893207550049, Elapsed time for epoch : 0.1994946042696635
+Epoch 3, Val: Batch 20, acc:100.0,sup loss:0.011240904219448566, bdit loss: 0.011240904219448566, cfn loss: 1.0002517700195312, cumulative bdit reward: 199.16777896881104, Elapsed time for epoch : 0.2114775816599528
+Epoch 3, Val: Batch 30, acc:100.0,sup loss:0.011280911974608898, bdit loss: 0.011280911974608898, cfn loss: 1.0005168914794922, cumulative bdit reward: 464.48811626434326, Elapsed time for epoch : 0.22445029417673748
+Epoch 3, Sup Train Loss:0.22428109917951666, Sup Val loss:0.34082528622820973 Sup Train Acc:58.167701863354026, Sup Val Acc:59.42460317460317 Bandit Train Loss:0.22428109814291414, Bandit Val loss:0.34082528622820973 CFN Train Loss:0.06251137774923574, CFN Val loss:0.06251621577474806
+Epoch 4, Train: Batch 0, train acc:60.71428571428571, sup loss:0.22232605516910553, bdit loss: 0.22232604026794434, cfn loss: 1.000387191772461, cumulative bdit reward: 16.783493041992188, Elapsed time for epoch : 0.0015670935312906901
+Epoch 4, Train: Batch 10, train acc:67.85714285714286, sup loss:0.2006315141916275, bdit loss: 0.2006315141916275, cfn loss: 1.000213623046875, cumulative bdit reward: 179.19994926452637, Elapsed time for epoch : 0.01851684252421061
+Epoch 4, Train: Batch 20, train acc:75.0, sup loss:0.2235056757926941, bdit loss: 0.2235056757926941, cfn loss: 1.000445008277893, cumulative bdit reward: 339.34946060180664, Elapsed time for epoch : 0.034708821773529054
+Epoch 4, Train: Batch 30, train acc:50.0, sup loss:0.2120702862739563, bdit loss: 0.2120702862739563, cfn loss: 0.9999924302101135, cumulative bdit reward: 493.62577724456787, Elapsed time for epoch : 0.050648351510365806
+Epoch 4, Train: Batch 40, train acc:35.714285714285715, sup loss:0.25827547907829285, bdit loss: 0.25827547907829285, cfn loss: 1.000426173210144, cumulative bdit reward: 655.0830402374268, Elapsed time for epoch : 0.06660242080688476
+Epoch 4, Train: Batch 50, train acc:53.57142857142857, sup loss:0.2415737360715866, bdit loss: 0.2415737360715866, cfn loss: 1.0002425909042358, cumulative bdit reward: 810.8441133499146, Elapsed time for epoch : 0.08258477449417115
+Epoch 4, Train: Batch 60, train acc:53.57142857142857, sup loss:0.25096946954727173, bdit loss: 0.25096946954727173, cfn loss: 1.0004574060440063, cumulative bdit reward: 969.0192241668701, Elapsed time for epoch : 0.09879173040390014
+Epoch 4, Train: Batch 70, train acc:67.85714285714286, sup loss:0.22667178511619568, bdit loss: 0.22667178511619568, cfn loss: 1.0001256465911865, cumulative bdit reward: 1126.3310470581055, Elapsed time for epoch : 0.11505938371022542
+Epoch 4, Train: Batch 80, train acc:53.57142857142857, sup loss:0.19871744513511658, bdit loss: 0.19871744513511658, cfn loss: 1.0000784397125244, cumulative bdit reward: 1285.9771099090576, Elapsed time for epoch : 0.1310270627339681
+Epoch 4, Train: Batch 90, train acc:64.28571428571429, sup loss:0.21738502383232117, bdit loss: 0.21738502383232117, cfn loss: 1.0001846551895142, cumulative bdit reward: 1442.5198602676392, Elapsed time for epoch : 0.14687826633453369
+Epoch 4, Train: Batch 100, train acc:64.28571428571429, sup loss:0.20710937678813934, bdit loss: 0.20710937678813934, cfn loss: 1.000056266784668, cumulative bdit reward: 1597.0133266448975, Elapsed time for epoch : 0.1629574179649353
+Epoch 4, Train: Batch 110, train acc:57.14285714285714, sup loss:0.23387748003005981, bdit loss: 0.23387748003005981, cfn loss: 1.0003130435943604, cumulative bdit reward: 1757.698992729187, Elapsed time for epoch : 0.1798859397570292
+Epoch 4, Val: Batch 0, acc:100.0,sup loss:0.07132163643836975, bdit loss: 0.07132163643836975, cfn loss: 1.000288724899292, cumulative bdit reward: 34.062713623046875, Elapsed time for epoch : 0.1868393858273824
+Epoch 4, Val: Batch 10, acc:100.0,sup loss:0.045561354607343674, bdit loss: 0.04556133598089218, cfn loss: 1.0000014305114746, cumulative bdit reward: 377.4228706359863, Elapsed time for epoch : 0.19931026299794516
+Epoch 4, Val: Batch 20, acc:0.0,sup loss:1.191851258277893, bdit loss: 1.191851258277893, cfn loss: 1.0002199411392212, cumulative bdit reward: 606.4025506973267, Elapsed time for epoch : 0.21141332785288494
+Epoch 4, Val: Batch 30, acc:3.571428571428571,sup loss:1.1761099100112915, bdit loss: 1.1761099100112915, cfn loss: 1.000334620475769, cumulative bdit reward: 591.6888799667358, Elapsed time for epoch : 0.22345192035039266
+Epoch 4, Sup Train Loss:0.22490129056184188, Sup Val loss:0.6341848157139288 Sup Train Acc:56.67701863354039, Sup Val Acc:52.08333333333335 Bandit Train Loss:0.2249012888773628, Bandit Val loss:0.6341848115747174 CFN Train Loss:0.06251260894148246, CFN Val loss:0.06251185025191969
+Epoch 5, Train: Batch 0, train acc:60.71428571428571, sup loss:0.21657004952430725, bdit loss: 0.21657004952430725, cfn loss: 1.0002206563949585, cumulative bdit reward: 16.363231658935547, Elapsed time for epoch : 0.0016146381696065268
+Epoch 5, Train: Batch 10, train acc:50.0, sup loss:0.24423378705978394, bdit loss: 0.24423378705978394, cfn loss: 0.9998459815979004, cumulative bdit reward: 171.8609104156494, Elapsed time for epoch : 0.017790607611338296
+Epoch 5, Train: Batch 20, train acc:57.14285714285714, sup loss:0.2643977999687195, bdit loss: 0.2643977999687195, cfn loss: 1.0000464916229248, cumulative bdit reward: 331.60209941864014, Elapsed time for epoch : 0.034606377283732094
+Epoch 5, Train: Batch 30, train acc:60.71428571428571, sup loss:0.231472909450531, bdit loss: 0.231472909450531, cfn loss: 1.0001987218856812, cumulative bdit reward: 493.63875579833984, Elapsed time for epoch : 0.05155237913131714
+Epoch 5, Train: Batch 40, train acc:67.85714285714286, sup loss:0.2287369966506958, bdit loss: 0.2287369966506958, cfn loss: 1.0003278255462646, cumulative bdit reward: 659.0891628265381, Elapsed time for epoch : 0.06773797671000163
+Epoch 5, Train: Batch 50, train acc:50.0, sup loss:0.230758398771286, bdit loss: 0.230758398771286, cfn loss: 1.0001354217529297, cumulative bdit reward: 820.2257022857666, Elapsed time for epoch : 0.08374696969985962
+Epoch 5, Train: Batch 60, train acc:60.71428571428571, sup loss:0.2304958701133728, bdit loss: 0.2304958701133728, cfn loss: 1.000047206878662, cumulative bdit reward: 975.8594369888306, Elapsed time for epoch : 0.09979469776153564
+Epoch 5, Train: Batch 70, train acc:53.57142857142857, sup loss:0.24168911576271057, bdit loss: 0.24168911576271057, cfn loss: 1.0000298023223877, cumulative bdit reward: 1123.427194595337, Elapsed time for epoch : 0.11638718048731486
+Epoch 5, Train: Batch 80, train acc:46.42857142857143, sup loss:0.2683536410331726, bdit loss: 0.2683536410331726, cfn loss: 1.0000098943710327, cumulative bdit reward: 1280.160737991333, Elapsed time for epoch : 0.13327490091323851
+Epoch 5, Train: Batch 90, train acc:60.71428571428571, sup loss:0.22844652831554413, bdit loss: 0.22844652831554413, cfn loss: 1.0004992485046387, cumulative bdit reward: 1440.6877269744873, Elapsed time for epoch : 0.14934246142705282
+Epoch 5, Train: Batch 100, train acc:57.14285714285714, sup loss:0.23212763667106628, bdit loss: 0.23212763667106628, cfn loss: 1.0000934600830078, cumulative bdit reward: 1599.8062982559204, Elapsed time for epoch : 0.16590252717336018
+Epoch 5, Train: Batch 110, train acc:50.0, sup loss:0.24861423671245575, bdit loss: 0.24861423671245575, cfn loss: 1.0001804828643799, cumulative bdit reward: 1758.2740936279297, Elapsed time for epoch : 0.18215410312016805
+Epoch 5, Val: Batch 0, acc:100.0,sup loss:0.13958261907100677, bdit loss: 0.13958264887332916, cfn loss: 1.0002094507217407, cumulative bdit reward: 19.82114601135254, Elapsed time for epoch : 0.18893947203954062
+Epoch 5, Val: Batch 10, acc:100.0,sup loss:0.15316691994667053, bdit loss: 0.15316693484783173, cfn loss: 1.0002663135528564, cumulative bdit reward: 220.099214553833, Elapsed time for epoch : 0.20140889485677083
+Epoch 5, Val: Batch 20, acc:14.285714285714285,sup loss:0.31275707483291626, bdit loss: 0.31275707483291626, cfn loss: 1.0002543926239014, cumulative bdit reward: 397.17870140075684, Elapsed time for epoch : 0.21401636203130087
+Epoch 5, Val: Batch 30, acc:14.285714285714285,sup loss:0.3111301064491272, bdit loss: 0.3111301064491272, cfn loss: 1.0003103017807007, cumulative bdit reward: 531.0777931213379, Elapsed time for epoch : 0.2263015309969584
+Epoch 5, Sup Train Loss:0.22853062645248745, Sup Val loss:0.22630498413410452 Sup Train Acc:56.987577639751535, Sup Val Acc:56.845238095238095 Bandit Train Loss:0.2285306259341862, Bandit Val loss:0.22630499551693598 CFN Train Loss:0.06251158931333085, CFN Val loss:0.06251732032332155
+Epoch 6, Train: Batch 0, train acc:67.85714285714286, sup loss:0.20732328295707703, bdit loss: 0.20732328295707703, cfn loss: 1.0002285242080688, cumulative bdit reward: 16.90731430053711, Elapsed time for epoch : 0.0016100605328877766
+Epoch 6, Train: Batch 10, train acc:39.285714285714285, sup loss:0.2174740582704544, bdit loss: 0.2174740582704544, cfn loss: 1.000065565109253, cumulative bdit reward: 176.76556968688965, Elapsed time for epoch : 0.017640344301859536
+Epoch 6, Train: Batch 20, train acc:71.42857142857143, sup loss:0.20794831216335297, bdit loss: 0.20794831216335297, cfn loss: 1.000047206878662, cumulative bdit reward: 336.0744581222534, Elapsed time for epoch : 0.03430535395940145
+Epoch 6, Train: Batch 30, train acc:67.85714285714286, sup loss:0.18700195848941803, bdit loss: 0.18700195848941803, cfn loss: 0.9999368190765381, cumulative bdit reward: 497.12794399261475, Elapsed time for epoch : 0.050452017784118654
+Epoch 6, Train: Batch 40, train acc:67.85714285714286, sup loss:0.21170048415660858, bdit loss: 0.2117004543542862, cfn loss: 1.0003933906555176, cumulative bdit reward: 654.3066329956055, Elapsed time for epoch : 0.06704769929250082
+Epoch 6, Train: Batch 50, train acc:60.71428571428571, sup loss:0.20816703140735626, bdit loss: 0.20816703140735626, cfn loss: 1.0003912448883057, cumulative bdit reward: 810.794753074646, Elapsed time for epoch : 0.08342566887537638
+Epoch 6, Train: Batch 60, train acc:46.42857142857143, sup loss:0.21195964515209198, bdit loss: 0.21195964515209198, cfn loss: 1.0002247095108032, cumulative bdit reward: 972.1529407501221, Elapsed time for epoch : 0.09987163146336873
+Epoch 6, Train: Batch 70, train acc:57.14285714285714, sup loss:0.22414696216583252, bdit loss: 0.22414696216583252, cfn loss: 1.0004209280014038, cumulative bdit reward: 1129.015438079834, Elapsed time for epoch : 0.1163150946299235
+Epoch 6, Train: Batch 80, train acc:57.14285714285714, sup loss:0.22605487704277039, bdit loss: 0.22605487704277039, cfn loss: 1.0003442764282227, cumulative bdit reward: 1288.0310716629028, Elapsed time for epoch : 0.13260682026545206
+Epoch 6, Train: Batch 90, train acc:67.85714285714286, sup loss:0.19804535806179047, bdit loss: 0.19804535806179047, cfn loss: 1.0002219676971436, cumulative bdit reward: 1449.6971731185913, Elapsed time for epoch : 0.149001145362854
+Epoch 6, Train: Batch 100, train acc:35.714285714285715, sup loss:0.26446986198425293, bdit loss: 0.26446986198425293, cfn loss: 1.000458002090454, cumulative bdit reward: 1603.9698963165283, Elapsed time for epoch : 0.16552809079488118
+Epoch 6, Train: Batch 110, train acc:50.0, sup loss:0.2855813503265381, bdit loss: 0.2855813503265381, cfn loss: 1.0004547834396362, cumulative bdit reward: 1766.1890077590942, Elapsed time for epoch : 0.18161334991455078
+Epoch 6, Val: Batch 0, acc:100.0,sup loss:0.20377422869205475, bdit loss: 0.20377425849437714, cfn loss: 1.0000275373458862, cumulative bdit reward: 16.067380905151367, Elapsed time for epoch : 0.18816002209981283
+Epoch 6, Val: Batch 10, acc:100.0,sup loss:0.22889550030231476, bdit loss: 0.22889554500579834, cfn loss: 1.0000882148742676, cumulative bdit reward: 177.9679937362671, Elapsed time for epoch : 0.20005210638046264
+Epoch 6, Val: Batch 20, acc:14.285714285714285,sup loss:0.21880055963993073, bdit loss: 0.21880055963993073, cfn loss: 1.0002660751342773, cumulative bdit reward: 337.331374168396, Elapsed time for epoch : 0.212021271387736
+Epoch 6, Val: Batch 30, acc:14.285714285714285,sup loss:0.21846581995487213, bdit loss: 0.21846581995487213, cfn loss: 1.000077724456787, cumulative bdit reward: 499.8569097518921, Elapsed time for epoch : 0.22399704058965048
+Epoch 6, Sup Train Loss:0.22646455466747284, Sup Val loss:0.2105324077937338 Sup Train Acc:57.779503105590045, Sup Val Acc:56.845238095238095 Bandit Train Loss:0.22646455414917158, Bandit Val loss:0.210532419797447 CFN Train Loss:0.06251356834950654, CFN Val loss:0.06250886474218634
+Epoch 7, Train: Batch 0, train acc:64.28571428571429, sup loss:0.17098723351955414, bdit loss: 0.17098723351955414, cfn loss: 1.0005145072937012, cumulative bdit reward: 18.158052444458008, Elapsed time for epoch : 0.0015926162401835124
+Epoch 7, Train: Batch 10, train acc:46.42857142857143, sup loss:0.23359565436840057, bdit loss: 0.23359563946723938, cfn loss: 1.00029456615448, cumulative bdit reward: 175.32817554473877, Elapsed time for epoch : 0.01837615172068278
+Epoch 7, Train: Batch 20, train acc:53.57142857142857, sup loss:0.23504087328910828, bdit loss: 0.23504087328910828, cfn loss: 1.0002398490905762, cumulative bdit reward: 336.79911613464355, Elapsed time for epoch : 0.034334194660186765
+Epoch 7, Train: Batch 30, train acc:60.71428571428571, sup loss:0.23594176769256592, bdit loss: 0.23594176769256592, cfn loss: 1.000443935394287, cumulative bdit reward: 494.6939888000488, Elapsed time for epoch : 0.05038243134816488
+Epoch 7, Train: Batch 40, train acc:42.857142857142854, sup loss:0.2282094657421112, bdit loss: 0.2282094657421112, cfn loss: 1.0000730752944946, cumulative bdit reward: 651.1227426528931, Elapsed time for epoch : 0.06643365621566773
+Epoch 7, Train: Batch 50, train acc:75.0, sup loss:0.1934099644422531, bdit loss: 0.1934099644422531, cfn loss: 1.0004700422286987, cumulative bdit reward: 801.7206735610962, Elapsed time for epoch : 0.08255972862243652
+Epoch 7, Train: Batch 60, train acc:60.71428571428571, sup loss:0.2106465846300125, bdit loss: 0.2106465846300125, cfn loss: 1.000278353691101, cumulative bdit reward: 962.7324666976929, Elapsed time for epoch : 0.09968020915985107
+Epoch 7, Train: Batch 70, train acc:53.57142857142857, sup loss:0.2641560733318329, bdit loss: 0.2641560733318329, cfn loss: 1.0003602504730225, cumulative bdit reward: 1120.7102003097534, Elapsed time for epoch : 0.11577093203862508
+Epoch 7, Train: Batch 80, train acc:57.14285714285714, sup loss:0.2507067322731018, bdit loss: 0.2507067322731018, cfn loss: 1.000348448753357, cumulative bdit reward: 1274.60507106781, Elapsed time for epoch : 0.13184098402659097
+Epoch 7, Train: Batch 90, train acc:50.0, sup loss:0.25712090730667114, bdit loss: 0.25712090730667114, cfn loss: 1.000198245048523, cumulative bdit reward: 1434.0703592300415, Elapsed time for epoch : 0.1478196899096171
+Epoch 7, Train: Batch 100, train acc:64.28571428571429, sup loss:0.2059701532125473, bdit loss: 0.2059701532125473, cfn loss: 0.9997979998588562, cumulative bdit reward: 1594.8823642730713, Elapsed time for epoch : 0.16377689043680826
+Epoch 7, Train: Batch 110, train acc:50.0, sup loss:0.23954623937606812, bdit loss: 0.2395462542772293, cfn loss: 1.0003015995025635, cumulative bdit reward: 1750.7401323318481, Elapsed time for epoch : 0.18074507713317872
+Epoch 7, Val: Batch 0, acc:100.0,sup loss:0.06217319518327713, bdit loss: 0.062173180282115936, cfn loss: 1.0002726316452026, cumulative bdit reward: 21.994304656982422, Elapsed time for epoch : 0.18767857551574707
+Epoch 7, Val: Batch 10, acc:100.0,sup loss:0.07005435228347778, bdit loss: 0.07005433738231659, cfn loss: 1.0000214576721191, cumulative bdit reward: 242.88455963134766, Elapsed time for epoch : 0.199750288327535
+Epoch 7, Val: Batch 20, acc:10.714285714285714,sup loss:0.4701729118824005, bdit loss: 0.4701729118824005, cfn loss: 1.0001825094223022, cumulative bdit reward: 423.50434017181396, Elapsed time for epoch : 0.21160954634348553
+Epoch 7, Val: Batch 30, acc:14.285714285714285,sup loss:0.4596145749092102, bdit loss: 0.4596145749092102, cfn loss: 1.0001227855682373, cumulative bdit reward: 523.1115446090698, Elapsed time for epoch : 0.2235214869181315
+Epoch 7, Sup Train Loss:0.229814227508462, Sup Val loss:0.2627456008146207 Sup Train Acc:56.6925465838509, Sup Val Acc:56.64682539682539 Bandit Train Loss:0.229814227508462, Bandit Val loss:0.26274559512320494 CFN Train Loss:0.06251348010871721, CFN Val loss:0.06251302092439598
+Epoch 8, Train: Batch 0, train acc:64.28571428571429, sup loss:0.20689120888710022, bdit loss: 0.20689120888710022, cfn loss: 1.0002745389938354, cumulative bdit reward: 16.5832462310791, Elapsed time for epoch : 0.0016027371088663737
+Epoch 8, Train: Batch 10, train acc:60.71428571428571, sup loss:0.19497790932655334, bdit loss: 0.19497792422771454, cfn loss: 1.000188946723938, cumulative bdit reward: 171.4107084274292, Elapsed time for epoch : 0.017612965901692708
+Epoch 8, Train: Batch 20, train acc:60.71428571428571, sup loss:0.20484451949596405, bdit loss: 0.20484451949596405, cfn loss: 1.0003446340560913, cumulative bdit reward: 326.80327224731445, Elapsed time for epoch : 0.03394601742426554
+Epoch 8, Train: Batch 30, train acc:57.14285714285714, sup loss:0.23212529718875885, bdit loss: 0.23212529718875885, cfn loss: 1.0004711151123047, cumulative bdit reward: 484.4780149459839, Elapsed time for epoch : 0.050535555680592856
+Epoch 8, Train: Batch 40, train acc:57.14285714285714, sup loss:0.232479065656662, bdit loss: 0.232479065656662, cfn loss: 1.000085473060608, cumulative bdit reward: 642.1209897994995, Elapsed time for epoch : 0.06700551907221476
+Epoch 8, Train: Batch 50, train acc:57.14285714285714, sup loss:0.2262110412120819, bdit loss: 0.2262110412120819, cfn loss: 1.0001592636108398, cumulative bdit reward: 804.0074491500854, Elapsed time for epoch : 0.08290139039357504
+Epoch 8, Train: Batch 60, train acc:57.14285714285714, sup loss:0.2302277833223343, bdit loss: 0.2302277833223343, cfn loss: 1.0000308752059937, cumulative bdit reward: 965.077693939209, Elapsed time for epoch : 0.09880192279815674
+Epoch 8, Train: Batch 70, train acc:53.57142857142857, sup loss:0.24481526017189026, bdit loss: 0.24481526017189026, cfn loss: 1.0002849102020264, cumulative bdit reward: 1122.1445512771606, Elapsed time for epoch : 0.11486157973607382
+Epoch 8, Train: Batch 80, train acc:53.57142857142857, sup loss:0.22907871007919312, bdit loss: 0.22907871007919312, cfn loss: 0.9999969005584717, cumulative bdit reward: 1281.5896692276, Elapsed time for epoch : 0.1317236105600993
+Epoch 8, Train: Batch 90, train acc:60.71428571428571, sup loss:0.22148792445659637, bdit loss: 0.22148792445659637, cfn loss: 1.0002925395965576, cumulative bdit reward: 1437.797553062439, Elapsed time for epoch : 0.14809646209081015
+Epoch 8, Train: Batch 100, train acc:42.857142857142854, sup loss:0.2137419730424881, bdit loss: 0.2137419730424881, cfn loss: 1.0001804828643799, cumulative bdit reward: 1596.321481704712, Elapsed time for epoch : 0.16412753264109295
+Epoch 8, Train: Batch 110, train acc:46.42857142857143, sup loss:0.2185302972793579, bdit loss: 0.2185302972793579, cfn loss: 1.0002554655075073, cumulative bdit reward: 1756.6281576156616, Elapsed time for epoch : 0.18009161949157715
+Epoch 8, Val: Batch 0, acc:100.0,sup loss:0.06689606606960297, bdit loss: 0.06689604371786118, cfn loss: 1.0002334117889404, cumulative bdit reward: 23.027324676513672, Elapsed time for epoch : 0.18672756751378378
+Epoch 8, Val: Batch 10, acc:100.0,sup loss:0.06872984766960144, bdit loss: 0.06872983276844025, cfn loss: 1.0001225471496582, cumulative bdit reward: 254.76211738586426, Elapsed time for epoch : 0.19892604748408
+Epoch 8, Val: Batch 20, acc:14.285714285714285,sup loss:0.47628188133239746, bdit loss: 0.47628188133239746, cfn loss: 1.0002260208129883, cumulative bdit reward: 441.9084634780884, Elapsed time for epoch : 0.21205352544784545
+Epoch 8, Val: Batch 30, acc:14.285714285714285,sup loss:0.47592267394065857, bdit loss: 0.47592267394065857, cfn loss: 1.0003328323364258, cumulative bdit reward: 536.7260026931763, Elapsed time for epoch : 0.22443936268488565
+Epoch 8, Sup Train Loss:0.22570847778216652, Sup Val loss:0.2729455678620272 Sup Train Acc:55.96273291925464, Sup Val Acc:56.845238095238095 Bandit Train Loss:0.22570847713428996, Bandit Val loss:0.2729455591696832 CFN Train Loss:0.06251182264607885, CFN Val loss:0.06251355508963267
+Epoch 9, Train: Batch 0, train acc:60.71428571428571, sup loss:0.2274726927280426, bdit loss: 0.2274726927280426, cfn loss: 1.0002832412719727, cumulative bdit reward: 16.363306045532227, Elapsed time for epoch : 0.0016014258066813151
+Epoch 9, Train: Batch 10, train acc:64.28571428571429, sup loss:0.20808130502700806, bdit loss: 0.20808130502700806, cfn loss: 1.0002659559249878, cumulative bdit reward: 174.23053169250488, Elapsed time for epoch : 0.017637415726979574
+Epoch 9, Train: Batch 20, train acc:60.71428571428571, sup loss:0.22024163603782654, bdit loss: 0.22024163603782654, cfn loss: 1.0003323554992676, cumulative bdit reward: 330.68531608581543, Elapsed time for epoch : 0.033970407644907635
+Epoch 9, Train: Batch 30, train acc:64.28571428571429, sup loss:0.18881069123744965, bdit loss: 0.18881072103977203, cfn loss: 1.0001637935638428, cumulative bdit reward: 493.7151575088501, Elapsed time for epoch : 0.05007388989130656
+Epoch 9, Train: Batch 40, train acc:67.85714285714286, sup loss:0.2109881490468979, bdit loss: 0.2109881490468979, cfn loss: 0.9999538660049438, cumulative bdit reward: 661.6302976608276, Elapsed time for epoch : 0.06677955389022827
+Epoch 9, Train: Batch 50, train acc:46.42857142857143, sup loss:0.2287335842847824, bdit loss: 0.2287335842847824, cfn loss: 1.0003362894058228, cumulative bdit reward: 820.9362049102783, Elapsed time for epoch : 0.0830097516377767
+Epoch 9, Train: Batch 60, train acc:50.0, sup loss:0.22965164482593536, bdit loss: 0.22965164482593536, cfn loss: 0.9999682903289795, cumulative bdit reward: 976.1234788894653, Elapsed time for epoch : 0.09908524751663209
+Epoch 9, Train: Batch 70, train acc:57.14285714285714, sup loss:0.22880074381828308, bdit loss: 0.22880074381828308, cfn loss: 1.0001715421676636, cumulative bdit reward: 1132.8552675247192, Elapsed time for epoch : 0.11501570542653401
+Epoch 9, Train: Batch 80, train acc:64.28571428571429, sup loss:0.20623502135276794, bdit loss: 0.20623502135276794, cfn loss: 1.0004594326019287, cumulative bdit reward: 1289.477458000183, Elapsed time for epoch : 0.13117032051086425
+Epoch 9, Train: Batch 90, train acc:71.42857142857143, sup loss:0.17337146401405334, bdit loss: 0.17337146401405334, cfn loss: 1.0001182556152344, cumulative bdit reward: 1454.5927410125732, Elapsed time for epoch : 0.1474978725115458
+Epoch 9, Train: Batch 100, train acc:46.42857142857143, sup loss:0.25728651881217957, bdit loss: 0.25728651881217957, cfn loss: 1.0003167390823364, cumulative bdit reward: 1612.5019540786743, Elapsed time for epoch : 0.16471971273422242
+Epoch 9, Train: Batch 110, train acc:75.0, sup loss:0.19823555648326874, bdit loss: 0.19823555648326874, cfn loss: 1.0001323223114014, cumulative bdit reward: 1773.062918663025, Elapsed time for epoch : 0.18076223929723104
+Epoch 9, Val: Batch 0, acc:17.857142857142858,sup loss:0.49443092942237854, bdit loss: 0.49443092942237854, cfn loss: 1.0002717971801758, cumulative bdit reward: 9.028241157531738, Elapsed time for epoch : 0.1873731295267741
+Epoch 9, Val: Batch 10, acc:7.142857142857142,sup loss:0.5475843548774719, bdit loss: 0.5475843548774719, cfn loss: 1.0002425909042358, cumulative bdit reward: 100.8082447052002, Elapsed time for epoch : 0.19936792055765787
+Epoch 9, Val: Batch 20, acc:100.0,sup loss:0.05454359948635101, bdit loss: 0.05454359948635101, cfn loss: 0.9999640583992004, cumulative bdit reward: 235.21878719329834, Elapsed time for epoch : 0.21161000728607177
+Epoch 9, Val: Batch 30, acc:100.0,sup loss:0.05393104627728462, bdit loss: 0.05393104627728462, cfn loss: 1.0002888441085815, cumulative bdit reward: 470.23784160614014, Elapsed time for epoch : 0.22381441593170165
+Epoch 9, Sup Train Loss:0.21917657955833103, Sup Val loss:0.2713605245161388 Sup Train Acc:56.83229813664595, Sup Val Acc:59.52380952380953 Bandit Train Loss:0.21917658072450888, Bandit Val loss:0.27136052534398103 CFN Train Loss:0.06251350890683091, CFN Val loss:0.06251548955010043
+wandb: - 0.047 MB of 0.094 MB uploaded (0.002 MB deduped)wandb: \ 0.047 MB of 0.094 MB uploaded (0.002 MB deduped)wandb: | 0.094 MB of 0.094 MB uploaded (0.002 MB deduped)wandb:                                                                                
+wandb: W&B sync reduced upload amount by 1.7%             
+wandb: 
+wandb: Run history:
+wandb:              Bandit Train Loss █▂▂▁▁▁▁▁▁▁
+wandb:                Bandit Val loss ▁▆▁▃█▁▁▂▂▂
+wandb:                 CFN Train Loss █▁▁▁▁▁▁▁▁▁
+wandb:                   CFN Val loss ▁▆▄▇▅█▃▅▆▇
+wandb:                          Epoch ▁▂▃▃▄▅▆▆▇█
+wandb:                  Sup Train Acc ▁▆▅█▇▇█▇▆▇
+wandb:                 Sup Train Loss █▂▂▁▁▁▁▁▁▁
+wandb:                    Sup Val Acc █▁▆█▃▆▆▆▆█
+wandb:                   Sup Val Loss ▁▆▁▃█▁▁▂▂▂
+wandb:              b train bdit loss █▁▁▁▁▁▁▁▃▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               b train cfn loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: b train cumulative bdit reward ▁▃▄▆▁▃▅▆▁▃▅▇▁▃▅▇▁▃▅▇▂▄▅▇▂▄▅▇▂▄▅▇▂▃▅▇▂▄▅█
+wandb:                b train sup acc ▅▂▃▅▄▇▅▅▃▇▂▅▆▃▄█▅▄▄▆▄▇▄▅▂▇▅▁▃▂▄▆▅▅▄▂▆▇▅█
+wandb:               b train sup loss █▁▁▁▁▁▁▁▃▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                b val bdit loss ▂▂▂▂▁▁▇▇▂▂▃▃▅▅▁▁▁▁██▂▂▃▃▂▂▂▂▁▁▄▄▁▁▄▄▄▄▁▁
+wandb:                 b val cfn loss ▄▁▄▄▅▆▆▅▄▄▅▅▇▅▆█▆▃▅▆▅▆▆▆▃▄▆▄▆▃▅▄▅▄▅▆▆▅▃▆
+wandb:   b val cumulative bdit reward ▁▃▅▆▁▅▇█▁▃▅▇▁▂▃▆▁▅██▁▃▆▇▁▃▅▇▁▄▆▇▁▄▆▇▁▂▄▆
+wandb:                  b val sup acc ▂▁████▁▁██▂▂▂▁████▁▁██▂▂██▂▂██▂▂██▂▂▂▁██
+wandb:                 b val sup loss ▂▂▂▂▁▁▇▇▂▂▃▃▅▅▁▁▁▁██▂▂▃▃▂▂▂▂▁▁▄▄▁▁▄▄▄▄▁▁
+wandb:                    train_batch ▁▃▅▇▁▃▅▇▁▃▅▇▁▃▅▇▁▃▅▇▂▄▅▇▂▄▅▇▂▄▅▇▂▄▅▇▂▄▅█
+wandb:                      val_batch ▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█
+wandb: 
+wandb: Run summary:
+wandb:              Bandit Train Loss 0.21918
+wandb:                Bandit Val loss 0.27136
+wandb:                 CFN Train Loss 0.06251
+wandb:                   CFN Val loss 0.06252
+wandb:                          Epoch 9
+wandb:                  Sup Train Acc 56.8323
+wandb:                 Sup Train Loss 0.21918
+wandb:                    Sup Val Acc 59.52381
+wandb:                   Sup Val Loss 0.27136
+wandb:              b train bdit loss 0.19824
+wandb:               b train cfn loss 1.00013
+wandb: b train cumulative bdit reward 1773.06292
+wandb:                b train sup acc 75.0
+wandb:               b train sup loss 0.19824
+wandb:                b val bdit loss 0.05393
+wandb:                 b val cfn loss 1.00029
+wandb:   b val cumulative bdit reward 470.23784
+wandb:                  b val sup acc 100.0
+wandb:                 b val sup loss 0.05393
+wandb:                    train_batch 110
+wandb:                      val_batch 30
+wandb: 
+wandb: 🚀 View run mild-butterfly-435 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/ow4xoz4d
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 3 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240512_012203-ow4xoz4d/logs
+Seed completed execution! 1 0.6_1
+------------------------------------------------------------------
+Running for seed 42 of experiment 0.6_1
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/supervised_with_bandit_&_exploration/wandb/run-20240512_012434-ml3gebvl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run eternal-water-437
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/ml3gebvl
+Epoch 0, Train: Batch 0, train acc:57.14285714285714, sup loss:2.494670867919922, bdit loss: 2.4622373580932617, cfn loss: 1.0339082479476929, cumulative bdit reward: 20.45356559753418, Elapsed time for epoch : 0.0020704229672749838
+Epoch 0, Train: Batch 10, train acc:39.285714285714285, sup loss:0.2807122468948364, bdit loss: 0.2807122468948364, cfn loss: 1.4674080610275269, cumulative bdit reward: 189.42344188690186, Elapsed time for epoch : 0.018510679403940838
+Epoch 0, Train: Batch 20, train acc:35.714285714285715, sup loss:0.26208317279815674, bdit loss: 0.26208317279815674, cfn loss: 1.0021731853485107, cumulative bdit reward: 330.0934247970581, Elapsed time for epoch : 0.034360214074452715
+Epoch 0, Train: Batch 30, train acc:42.857142857142854, sup loss:0.2713730037212372, bdit loss: 0.2713730037212372, cfn loss: 1.0004794597625732, cumulative bdit reward: 468.5958251953125, Elapsed time for epoch : 0.05023535490036011
+Epoch 0, Train: Batch 40, train acc:60.71428571428571, sup loss:0.24581889808177948, bdit loss: 0.24581889808177948, cfn loss: 1.0002288818359375, cumulative bdit reward: 607.1145849227905, Elapsed time for epoch : 0.06615966558456421
+Epoch 0, Train: Batch 50, train acc:50.0, sup loss:0.28802427649497986, bdit loss: 0.28802427649497986, cfn loss: 1.0000323057174683, cumulative bdit reward: 750.4222068786621, Elapsed time for epoch : 0.08238912423451741
+Epoch 0, Train: Batch 60, train acc:46.42857142857143, sup loss:0.2562223970890045, bdit loss: 0.2562223970890045, cfn loss: 1.000016450881958, cumulative bdit reward: 890.321403503418, Elapsed time for epoch : 0.09903455972671509
+Epoch 0, Train: Batch 70, train acc:39.285714285714285, sup loss:0.2523721754550934, bdit loss: 0.2523721754550934, cfn loss: 1.000117540359497, cumulative bdit reward: 1029.3405418395996, Elapsed time for epoch : 0.11500279903411866
+Epoch 0, Train: Batch 80, train acc:46.42857142857143, sup loss:0.2500016391277313, bdit loss: 0.2500016391277313, cfn loss: 1.0001569986343384, cumulative bdit reward: 1170.5467548370361, Elapsed time for epoch : 0.13100064198176067
+Epoch 0, Train: Batch 90, train acc:57.14285714285714, sup loss:0.23902492225170135, bdit loss: 0.23902492225170135, cfn loss: 1.0002222061157227, cumulative bdit reward: 1312.083002090454, Elapsed time for epoch : 0.14702991644541422
+Epoch 0, Train: Batch 100, train acc:35.714285714285715, sup loss:0.30163246393203735, bdit loss: 0.30163246393203735, cfn loss: 0.9999244213104248, cumulative bdit reward: 1450.9676752090454, Elapsed time for epoch : 0.16307853857676188
+Epoch 0, Train: Batch 110, train acc:50.0, sup loss:0.29901838302612305, bdit loss: 0.29901838302612305, cfn loss: 1.0000332593917847, cumulative bdit reward: 1590.2602634429932, Elapsed time for epoch : 0.18030374844868977
+Epoch 0, Val: Batch 0, acc:14.285714285714285,sup loss:0.27818846702575684, bdit loss: 0.27818846702575684, cfn loss: 1.000182032585144, cumulative bdit reward: 14.031583786010742, Elapsed time for epoch : 0.18690956433614095
+Epoch 0, Val: Batch 10, acc:7.142857142857142,sup loss:0.2944551408290863, bdit loss: 0.2944551408290863, cfn loss: 1.00045907497406, cumulative bdit reward: 157.03160953521729, Elapsed time for epoch : 0.19875365495681763
+Epoch 0, Val: Batch 20, acc:100.0,sup loss:0.18834899365901947, bdit loss: 0.18834899365901947, cfn loss: 1.0001872777938843, cumulative bdit reward: 305.42479133605957, Elapsed time for epoch : 0.21074791351954142
+Epoch 0, Val: Batch 30, acc:100.0,sup loss:0.192349374294281, bdit loss: 0.192349374294281, cfn loss: 1.0001089572906494, cumulative bdit reward: 463.3667230606079, Elapsed time for epoch : 0.22271124919255575
+Epoch 0, Sup Train Loss:0.7682214319705963, Sup Val loss:0.2346472545630402 Sup Train Acc:49.68944099378883, Sup Val Acc:58.82936507936509 Bandit Train Loss:0.7679397979508276, Bandit Val loss:0.2346472545630402 CFN Train Loss:0.06685494774061701, CFN Val loss:0.06251007318496704
+Epoch 1, Train: Batch 0, train acc:53.57142857142857, sup loss:0.24183455109596252, bdit loss: 0.24183455109596252, cfn loss: 1.0003540515899658, cumulative bdit reward: 15.0704345703125, Elapsed time for epoch : 0.0016253193219502766
+Epoch 1, Train: Batch 10, train acc:60.71428571428571, sup loss:0.25454217195510864, bdit loss: 0.25454217195510864, cfn loss: 1.00011146068573, cumulative bdit reward: 166.20515060424805, Elapsed time for epoch : 0.01759084463119507
+Epoch 1, Train: Batch 20, train acc:46.42857142857143, sup loss:0.3267362713813782, bdit loss: 0.3267362713813782, cfn loss: 1.0002135038375854, cumulative bdit reward: 312.2482500076294, Elapsed time for epoch : 0.034630314509073896
+Epoch 1, Train: Batch 30, train acc:71.42857142857143, sup loss:0.22388248145580292, bdit loss: 0.22388248145580292, cfn loss: 1.0002392530441284, cumulative bdit reward: 462.98867893218994, Elapsed time for epoch : 0.05041929880777995
+Epoch 1, Train: Batch 40, train acc:64.28571428571429, sup loss:0.22201617062091827, bdit loss: 0.22201617062091827, cfn loss: 1.0001477003097534, cumulative bdit reward: 609.4909048080444, Elapsed time for epoch : 0.06645556290944417
+Epoch 1, Train: Batch 50, train acc:50.0, sup loss:0.255746066570282, bdit loss: 0.255746066570282, cfn loss: 1.000118613243103, cumulative bdit reward: 761.3638706207275, Elapsed time for epoch : 0.08232507308324179
+Epoch 1, Train: Batch 60, train acc:60.71428571428571, sup loss:0.24163338541984558, bdit loss: 0.24163338541984558, cfn loss: 1.0001591444015503, cumulative bdit reward: 913.557183265686, Elapsed time for epoch : 0.09847143491109213
+Epoch 1, Train: Batch 70, train acc:53.57142857142857, sup loss:0.2934717833995819, bdit loss: 0.2934717833995819, cfn loss: 1.0001004934310913, cumulative bdit reward: 1065.861988067627, Elapsed time for epoch : 0.11485008001327515
+Epoch 1, Train: Batch 80, train acc:67.85714285714286, sup loss:0.20831817388534546, bdit loss: 0.20831817388534546, cfn loss: 1.0004024505615234, cumulative bdit reward: 1216.8978004455566, Elapsed time for epoch : 0.13165537118911744
+Epoch 1, Train: Batch 90, train acc:60.71428571428571, sup loss:0.2301875352859497, bdit loss: 0.2301875352859497, cfn loss: 1.0003565549850464, cumulative bdit reward: 1361.2574729919434, Elapsed time for epoch : 0.14773618777592976
+Epoch 1, Train: Batch 100, train acc:39.285714285714285, sup loss:0.32864558696746826, bdit loss: 0.32864558696746826, cfn loss: 1.0001579523086548, cumulative bdit reward: 1514.5328845977783, Elapsed time for epoch : 0.16372736692428588
+Epoch 1, Train: Batch 110, train acc:64.28571428571429, sup loss:0.27778416872024536, bdit loss: 0.27778416872024536, cfn loss: 1.0001734495162964, cumulative bdit reward: 1663.931739807129, Elapsed time for epoch : 0.17991995016733806
+Epoch 1, Val: Batch 0, acc:100.0,sup loss:0.05613650381565094, bdit loss: 0.05613650009036064, cfn loss: 1.0003935098648071, cumulative bdit reward: 29.812946319580078, Elapsed time for epoch : 0.18653882741928102
+Epoch 1, Val: Batch 10, acc:100.0,sup loss:0.03223886340856552, bdit loss: 0.03223886340856552, cfn loss: 1.0001647472381592, cumulative bdit reward: 332.32727813720703, Elapsed time for epoch : 0.19980557759602866
+Epoch 1, Val: Batch 20, acc:0.0,sup loss:0.8999953866004944, bdit loss: 0.8999953866004944, cfn loss: 1.000160574913025, cumulative bdit reward: 543.5720241069794, Elapsed time for epoch : 0.2125551422437032
+Epoch 1, Val: Batch 30, acc:0.0,sup loss:0.9169842004776001, bdit loss: 0.9169842004776001, cfn loss: 1.0001492500305176, cumulative bdit reward: 559.3799086809158, Elapsed time for epoch : 0.22453159888585408
+Epoch 1, Sup Train Loss:0.26539046803246374, Sup Val loss:0.48982374737453127 Sup Train Acc:55.59006211180124, Sup Val Acc:49.60317460317461 Bandit Train Loss:0.2653904677733131, Bandit Val loss:0.4898237468053897 CFN Train Loss:0.06250967704083608, CFN Val loss:0.06251183379855421
+Epoch 2, Train: Batch 0, train acc:46.42857142857143, sup loss:0.7337243556976318, bdit loss: 0.7337243556976318, cfn loss: 1.0003085136413574, cumulative bdit reward: 14.713288307189941, Elapsed time for epoch : 0.0015896439552307128
+Epoch 2, Train: Batch 10, train acc:42.857142857142854, sup loss:0.27014610171318054, bdit loss: 0.27014610171318054, cfn loss: 1.0000139474868774, cumulative bdit reward: 164.9800615310669, Elapsed time for epoch : 0.017717480659484863
+Epoch 2, Train: Batch 20, train acc:57.14285714285714, sup loss:0.2634166479110718, bdit loss: 0.2634166479110718, cfn loss: 1.0002177953720093, cumulative bdit reward: 318.42842960357666, Elapsed time for epoch : 0.03369185129801432
+Epoch 2, Train: Batch 30, train acc:71.42857142857143, sup loss:0.21069003641605377, bdit loss: 0.21069003641605377, cfn loss: 1.000119686126709, cumulative bdit reward: 474.7723903656006, Elapsed time for epoch : 0.050219098726908364
+Epoch 2, Train: Batch 40, train acc:46.42857142857143, sup loss:0.3253125548362732, bdit loss: 0.3253125250339508, cfn loss: 1.0005053281784058, cumulative bdit reward: 624.901349067688, Elapsed time for epoch : 0.06705939372380575
+Epoch 2, Train: Batch 50, train acc:71.42857142857143, sup loss:0.1950812041759491, bdit loss: 0.1950812041759491, cfn loss: 1.0002851486206055, cumulative bdit reward: 780.4394245147705, Elapsed time for epoch : 0.08294685284296671
+Epoch 2, Train: Batch 60, train acc:42.857142857142854, sup loss:0.45688214898109436, bdit loss: 0.45688214898109436, cfn loss: 1.0002950429916382, cumulative bdit reward: 936.2333040237427, Elapsed time for epoch : 0.09893610080083211
+Epoch 2, Train: Batch 70, train acc:64.28571428571429, sup loss:0.22117693722248077, bdit loss: 0.22117693722248077, cfn loss: 1.0003979206085205, cumulative bdit reward: 1092.2314386367798, Elapsed time for epoch : 0.11497592131296794
+Epoch 2, Train: Batch 80, train acc:53.57142857142857, sup loss:0.23388105630874634, bdit loss: 0.23388105630874634, cfn loss: 1.0004589557647705, cumulative bdit reward: 1244.563238143921, Elapsed time for epoch : 0.13102332750956217
+Epoch 2, Train: Batch 90, train acc:57.14285714285714, sup loss:0.2176780104637146, bdit loss: 0.2176780104637146, cfn loss: 1.0002058744430542, cumulative bdit reward: 1401.7592134475708, Elapsed time for epoch : 0.14761003653208415
+Epoch 2, Train: Batch 100, train acc:53.57142857142857, sup loss:0.2711690366268158, bdit loss: 0.2711690068244934, cfn loss: 1.0001646280288696, cumulative bdit reward: 1553.4865636825562, Elapsed time for epoch : 0.164075767993927
+Epoch 2, Train: Batch 110, train acc:67.85714285714286, sup loss:0.2569824755191803, bdit loss: 0.2569824755191803, cfn loss: 1.0001671314239502, cumulative bdit reward: 1710.3693475723267, Elapsed time for epoch : 0.1800773859024048
+Epoch 2, Val: Batch 0, acc:100.0,sup loss:0.399921715259552, bdit loss: 0.399921715259552, cfn loss: 1.0001484155654907, cumulative bdit reward: 45.689849853515625, Elapsed time for epoch : 0.18664464950561524
+Epoch 2, Val: Batch 10, acc:100.0,sup loss:0.39321765303611755, bdit loss: 0.39321765303611755, cfn loss: 1.0002750158309937, cumulative bdit reward: 503.1380310058594, Elapsed time for epoch : 0.19893348614374798
+Epoch 2, Val: Batch 20, acc:0.0,sup loss:2.556605100631714, bdit loss: 2.556605100631714, cfn loss: 0.9998669624328613, cumulative bdit reward: 765.7343807220459, Elapsed time for epoch : 0.2108712077140808
+Epoch 2, Val: Batch 30, acc:0.0,sup loss:2.5827932357788086, bdit loss: 2.5827932357788086, cfn loss: 1.0002822875976562, cumulative bdit reward: 599.4433174133301, Elapsed time for epoch : 0.2230919122695923
+Epoch 2, Sup Train Loss:0.28931435528008836, Sup Val loss:1.4903539154264662 Sup Train Acc:54.56521739130434, Sup Val Acc:49.60317460317461 Bandit Train Loss:0.28931435528008836, Bandit Val loss:1.4903539170821507 CFN Train Loss:0.06251160194692404, CFN Val loss:0.06251218749417199
+Epoch 3, Train: Batch 0, train acc:64.28571428571429, sup loss:0.21400867402553558, bdit loss: 0.21400867402553558, cfn loss: 1.0002648830413818, cumulative bdit reward: 16.855220794677734, Elapsed time for epoch : 0.0017647385597229005
+Epoch 3, Train: Batch 10, train acc:67.85714285714286, sup loss:0.20263615250587463, bdit loss: 0.20263615250587463, cfn loss: 1.0001585483551025, cumulative bdit reward: 175.5851011276245, Elapsed time for epoch : 0.018279802799224854
+Epoch 3, Train: Batch 20, train acc:53.57142857142857, sup loss:0.2267768830060959, bdit loss: 0.2267768830060959, cfn loss: 1.0003607273101807, cumulative bdit reward: 331.1867923736572, Elapsed time for epoch : 0.034281718730926516
+Epoch 3, Train: Batch 30, train acc:46.42857142857143, sup loss:0.2662985026836395, bdit loss: 0.2662985026836395, cfn loss: 1.000265121459961, cumulative bdit reward: 488.3042802810669, Elapsed time for epoch : 0.05032291412353516
+Epoch 3, Train: Batch 40, train acc:50.0, sup loss:0.2470904141664505, bdit loss: 0.2470904141664505, cfn loss: 1.000096082687378, cumulative bdit reward: 647.7995519638062, Elapsed time for epoch : 0.06641692717870076
+Epoch 3, Train: Batch 50, train acc:64.28571428571429, sup loss:0.22104649245738983, bdit loss: 0.22104649245738983, cfn loss: 1.0000604391098022, cumulative bdit reward: 804.4289741516113, Elapsed time for epoch : 0.08261645237604777
+Epoch 3, Train: Batch 60, train acc:53.57142857142857, sup loss:0.25259000062942505, bdit loss: 0.25259000062942505, cfn loss: 1.000474214553833, cumulative bdit reward: 957.2844352722168, Elapsed time for epoch : 0.0995164155960083
+Epoch 3, Train: Batch 70, train acc:50.0, sup loss:0.22529572248458862, bdit loss: 0.22529570758342743, cfn loss: 1.0001511573791504, cumulative bdit reward: 1116.6583738327026, Elapsed time for epoch : 0.11538915634155274
+Epoch 3, Train: Batch 80, train acc:57.14285714285714, sup loss:0.19550390541553497, bdit loss: 0.19550390541553497, cfn loss: 0.999772846698761, cumulative bdit reward: 1278.9448070526123, Elapsed time for epoch : 0.1314314842224121
+Epoch 3, Train: Batch 90, train acc:75.0, sup loss:0.1789054274559021, bdit loss: 0.1789054274559021, cfn loss: 1.000210165977478, cumulative bdit reward: 1441.9654741287231, Elapsed time for epoch : 0.1473851164182027
+Epoch 3, Train: Batch 100, train acc:53.57142857142857, sup loss:0.24286486208438873, bdit loss: 0.24286486208438873, cfn loss: 1.000065565109253, cumulative bdit reward: 1598.8696193695068, Elapsed time for epoch : 0.16349833408991496
+Epoch 3, Train: Batch 110, train acc:67.85714285714286, sup loss:0.21359103918075562, bdit loss: 0.21359103918075562, cfn loss: 1.0001864433288574, cumulative bdit reward: 1757.5166282653809, Elapsed time for epoch : 0.1798744320869446
+Epoch 3, Val: Batch 0, acc:17.857142857142858,sup loss:0.27209165692329407, bdit loss: 0.27209165692329407, cfn loss: 1.00054931640625, cumulative bdit reward: 15.568901062011719, Elapsed time for epoch : 0.18662536144256592
+Epoch 3, Val: Batch 10, acc:7.142857142857142,sup loss:0.30500543117523193, bdit loss: 0.30500543117523193, cfn loss: 1.000342607498169, cumulative bdit reward: 174.8080768585205, Elapsed time for epoch : 0.19846545855204265
+Epoch 3, Val: Batch 20, acc:100.0,sup loss:0.16054865717887878, bdit loss: 0.16054865717887878, cfn loss: 1.0001745223999023, cumulative bdit reward: 337.06375312805176, Elapsed time for epoch : 0.21047726074854534
+Epoch 3, Val: Batch 30, acc:100.0,sup loss:0.15968875586986542, bdit loss: 0.15968875586986542, cfn loss: 1.000036597251892, cumulative bdit reward: 513.5673885345459, Elapsed time for epoch : 0.22243579228719076
+Epoch 3, Sup Train Loss:0.22296757477781046, Sup Val loss:0.21601302342282402 Sup Train Acc:57.51552795031055, Sup Val Acc:59.52380952380953 Bandit Train Loss:0.22296757387078325, Bandit Val loss:0.21601302342282402 CFN Train Loss:0.06251186624817226, CFN Val loss:0.06251368537131283
+Epoch 4, Train: Batch 0, train acc:60.71428571428571, sup loss:0.2202957570552826, bdit loss: 0.22029580175876617, cfn loss: 0.999958872795105, cumulative bdit reward: 16.754974365234375, Elapsed time for epoch : 0.0016335010528564452
+Epoch 4, Train: Batch 10, train acc:67.85714285714286, sup loss:0.20127661526203156, bdit loss: 0.20127661526203156, cfn loss: 1.0002034902572632, cumulative bdit reward: 178.7707061767578, Elapsed time for epoch : 0.017775511741638182
+Epoch 4, Train: Batch 20, train acc:75.0, sup loss:0.22500675916671753, bdit loss: 0.22500675916671753, cfn loss: 1.0003538131713867, cumulative bdit reward: 338.7875061035156, Elapsed time for epoch : 0.03403291304906209
+Epoch 4, Train: Batch 30, train acc:50.0, sup loss:0.2100076824426651, bdit loss: 0.2100076824426651, cfn loss: 1.0004656314849854, cumulative bdit reward: 493.0883903503418, Elapsed time for epoch : 0.05054661432902018
+Epoch 4, Train: Batch 40, train acc:35.714285714285715, sup loss:0.25435853004455566, bdit loss: 0.25435853004455566, cfn loss: 1.0003679990768433, cumulative bdit reward: 654.791543006897, Elapsed time for epoch : 0.0663659413655599
+Epoch 4, Train: Batch 50, train acc:53.57142857142857, sup loss:0.23996707797050476, bdit loss: 0.23996707797050476, cfn loss: 1.0003621578216553, cumulative bdit reward: 810.0091075897217, Elapsed time for epoch : 0.08246256510416666
+Epoch 4, Train: Batch 60, train acc:53.57142857142857, sup loss:0.2515789866447449, bdit loss: 0.2515789866447449, cfn loss: 1.0002892017364502, cumulative bdit reward: 968.2835330963135, Elapsed time for epoch : 0.0983841061592102
+Epoch 4, Train: Batch 70, train acc:39.285714285714285, sup loss:0.23451094329357147, bdit loss: 0.23451097309589386, cfn loss: 0.9999958872795105, cumulative bdit reward: 1125.2986965179443, Elapsed time for epoch : 0.11460949977238973
+Epoch 4, Train: Batch 80, train acc:53.57142857142857, sup loss:0.1987268626689911, bdit loss: 0.1987268626689911, cfn loss: 1.0001300573349, cumulative bdit reward: 1285.149507522583, Elapsed time for epoch : 0.13145670890808106
+Epoch 4, Train: Batch 90, train acc:67.85714285714286, sup loss:0.20030023157596588, bdit loss: 0.20030023157596588, cfn loss: 1.0001496076583862, cumulative bdit reward: 1441.4587316513062, Elapsed time for epoch : 0.14739297231038412
+Epoch 4, Train: Batch 100, train acc:64.28571428571429, sup loss:0.20743031799793243, bdit loss: 0.20743031799793243, cfn loss: 1.000250220298767, cumulative bdit reward: 1596.654302597046, Elapsed time for epoch : 0.16330089569091796
+Epoch 4, Train: Batch 110, train acc:57.14285714285714, sup loss:0.23708337545394897, bdit loss: 0.23708337545394897, cfn loss: 1.000087022781372, cumulative bdit reward: 1757.4056673049927, Elapsed time for epoch : 0.1793356935183207
+Epoch 4, Val: Batch 0, acc:100.0,sup loss:0.03603861853480339, bdit loss: 0.03603862226009369, cfn loss: 1.0002444982528687, cumulative bdit reward: 26.795673370361328, Elapsed time for epoch : 0.18609888553619386
+Epoch 4, Val: Batch 10, acc:100.0,sup loss:0.02614554390311241, bdit loss: 0.02614554949104786, cfn loss: 1.0004926919937134, cumulative bdit reward: 296.8992500305176, Elapsed time for epoch : 0.19818323850631714
+Epoch 4, Val: Batch 20, acc:10.714285714285714,sup loss:0.6748928427696228, bdit loss: 0.6748928427696228, cfn loss: 1.0000722408294678, cumulative bdit reward: 499.4571990966797, Elapsed time for epoch : 0.2105593999226888
+Epoch 4, Val: Batch 30, acc:14.285714285714285,sup loss:0.6729088425636292, bdit loss: 0.6729088425636292, cfn loss: 1.0002143383026123, cumulative bdit reward: 559.6339726448059, Elapsed time for epoch : 0.22301161686579388
+Epoch 4, Sup Train Loss:0.22527329066525334, Sup Val loss:0.3585894636085464 Sup Train Acc:56.77018633540375, Sup Val Acc:56.25 Bandit Train Loss:0.22527329170185587, Bandit Val loss:0.35858946329810554 CFN Train Loss:0.06251346177381017, CFN Val loss:0.06251453204701345
+Epoch 5, Train: Batch 0, train acc:60.71428571428571, sup loss:0.21527332067489624, bdit loss: 0.21527330577373505, cfn loss: 1.0003489255905151, cumulative bdit reward: 16.20447540283203, Elapsed time for epoch : 0.0015865524609883627
+Epoch 5, Train: Batch 10, train acc:50.0, sup loss:0.24443647265434265, bdit loss: 0.24443650245666504, cfn loss: 1.0004329681396484, cumulative bdit reward: 171.00488662719727, Elapsed time for epoch : 0.01740231116612752
+Epoch 5, Train: Batch 20, train acc:57.14285714285714, sup loss:0.26299554109573364, bdit loss: 0.26299554109573364, cfn loss: 1.000234603881836, cumulative bdit reward: 331.52679920196533, Elapsed time for epoch : 0.03347231944402059
+Epoch 5, Train: Batch 30, train acc:60.71428571428571, sup loss:0.2360340803861618, bdit loss: 0.2360340803861618, cfn loss: 1.0003690719604492, cumulative bdit reward: 494.37708568573, Elapsed time for epoch : 0.04990384578704834
+Epoch 5, Train: Batch 40, train acc:67.85714285714286, sup loss:0.2343273162841797, bdit loss: 0.2343273162841797, cfn loss: 1.000171422958374, cumulative bdit reward: 659.5564870834351, Elapsed time for epoch : 0.06619249979654948
+Epoch 5, Train: Batch 50, train acc:50.0, sup loss:0.2304311990737915, bdit loss: 0.2304311990737915, cfn loss: 1.0002458095550537, cumulative bdit reward: 821.0882749557495, Elapsed time for epoch : 0.08287225166956584
+Epoch 5, Train: Batch 60, train acc:60.71428571428571, sup loss:0.22722181677818298, bdit loss: 0.22722181677818298, cfn loss: 1.000355839729309, cumulative bdit reward: 976.6687469482422, Elapsed time for epoch : 0.09885377486546834
+Epoch 5, Train: Batch 70, train acc:53.57142857142857, sup loss:0.2410314828157425, bdit loss: 0.2410314828157425, cfn loss: 1.0000073909759521, cumulative bdit reward: 1123.671672821045, Elapsed time for epoch : 0.1150335987408956
+Epoch 5, Train: Batch 80, train acc:46.42857142857143, sup loss:0.25936660170555115, bdit loss: 0.25936660170555115, cfn loss: 1.0002341270446777, cumulative bdit reward: 1280.1659679412842, Elapsed time for epoch : 0.13142601251602173
+Epoch 5, Train: Batch 90, train acc:60.71428571428571, sup loss:0.22817367315292358, bdit loss: 0.22817367315292358, cfn loss: 1.0001128911972046, cumulative bdit reward: 1440.6378231048584, Elapsed time for epoch : 0.14733502864837647
+Epoch 5, Train: Batch 100, train acc:57.14285714285714, sup loss:0.23138833045959473, bdit loss: 0.23138833045959473, cfn loss: 1.0002802610397339, cumulative bdit reward: 1599.4589853286743, Elapsed time for epoch : 0.1642590880393982
+Epoch 5, Train: Batch 110, train acc:50.0, sup loss:0.2485676258802414, bdit loss: 0.2485676258802414, cfn loss: 1.0001170635223389, cumulative bdit reward: 1757.896565437317, Elapsed time for epoch : 0.1803359587987264
+Epoch 5, Val: Batch 0, acc:100.0,sup loss:0.1797359436750412, bdit loss: 0.1797359734773636, cfn loss: 1.0005921125411987, cumulative bdit reward: 18.82370376586914, Elapsed time for epoch : 0.1868403752644857
+Epoch 5, Val: Batch 10, acc:100.0,sup loss:0.19643756747245789, bdit loss: 0.19643761217594147, cfn loss: 1.0002210140228271, cumulative bdit reward: 209.75189018249512, Elapsed time for epoch : 0.19895058870315552
+Epoch 5, Val: Batch 20, acc:14.285714285714285,sup loss:0.26062116026878357, bdit loss: 0.26062116026878357, cfn loss: 1.0000641345977783, cumulative bdit reward: 384.7590551376343, Elapsed time for epoch : 0.21112107038497924
+Epoch 5, Val: Batch 30, acc:14.285714285714285,sup loss:0.25978657603263855, bdit loss: 0.25978657603263855, cfn loss: 1.0002182722091675, cumulative bdit reward: 531.4806652069092, Elapsed time for epoch : 0.22417640686035156
+Epoch 5, Sup Train Loss:0.22771103472813317, Sup Val loss:0.22100915842586094 Sup Train Acc:56.739130434782574, Sup Val Acc:56.845238095238095 Bandit Train Loss:0.2277110349872838, Bandit Val loss:0.2210091712574164 CFN Train Loss:0.06251366621126299, CFN Val loss:0.0625152654118008
+Epoch 6, Train: Batch 0, train acc:50.0, sup loss:0.20919524133205414, bdit loss: 0.20919524133205414, cfn loss: 1.0004140138626099, cumulative bdit reward: 16.829835891723633, Elapsed time for epoch : 0.0015945990880330404
+Epoch 6, Train: Batch 10, train acc:39.285714285714285, sup loss:0.2224089503288269, bdit loss: 0.2224089503288269, cfn loss: 1.0000581741333008, cumulative bdit reward: 175.8910026550293, Elapsed time for epoch : 0.01851170857747396
+Epoch 6, Train: Batch 20, train acc:71.42857142857143, sup loss:0.21121850609779358, bdit loss: 0.21121850609779358, cfn loss: 0.9999210238456726, cumulative bdit reward: 336.04460525512695, Elapsed time for epoch : 0.03453948497772217
+Epoch 6, Train: Batch 30, train acc:67.85714285714286, sup loss:0.1905757486820221, bdit loss: 0.1905757486820221, cfn loss: 1.0004042387008667, cumulative bdit reward: 497.21428871154785, Elapsed time for epoch : 0.05142623980840047
+Epoch 6, Train: Batch 40, train acc:67.85714285714286, sup loss:0.21363911032676697, bdit loss: 0.21363911032676697, cfn loss: 1.0004709959030151, cumulative bdit reward: 653.521614074707, Elapsed time for epoch : 0.06767244338989258
+Epoch 6, Train: Batch 50, train acc:60.71428571428571, sup loss:0.20620295405387878, bdit loss: 0.20620296895503998, cfn loss: 1.0000724792480469, cumulative bdit reward: 809.4247922897339, Elapsed time for epoch : 0.08397823174794515
+Epoch 6, Train: Batch 60, train acc:46.42857142857143, sup loss:0.2063409388065338, bdit loss: 0.2063409388065338, cfn loss: 1.0003200769424438, cumulative bdit reward: 970.7420244216919, Elapsed time for epoch : 0.10056957801183065
+Epoch 6, Train: Batch 70, train acc:57.14285714285714, sup loss:0.22430196404457092, bdit loss: 0.22430196404457092, cfn loss: 0.9999339580535889, cumulative bdit reward: 1127.0263748168945, Elapsed time for epoch : 0.11680628061294555
+Epoch 6, Train: Batch 80, train acc:57.14285714285714, sup loss:0.22447755932807922, bdit loss: 0.22447752952575684, cfn loss: 1.0002142190933228, cumulative bdit reward: 1285.9573907852173, Elapsed time for epoch : 0.13305920759836834
+Epoch 6, Train: Batch 90, train acc:67.85714285714286, sup loss:0.1989235132932663, bdit loss: 0.1989234983921051, cfn loss: 1.0004115104675293, cumulative bdit reward: 1447.5416011810303, Elapsed time for epoch : 0.1490235408147176
+Epoch 6, Train: Batch 100, train acc:35.714285714285715, sup loss:0.2660706639289856, bdit loss: 0.2660706639289856, cfn loss: 1.0006859302520752, cumulative bdit reward: 1602.3327836990356, Elapsed time for epoch : 0.16527915000915527
+Epoch 6, Train: Batch 110, train acc:50.0, sup loss:0.28970590233802795, bdit loss: 0.28970590233802795, cfn loss: 1.0002093315124512, cumulative bdit reward: 1763.7365550994873, Elapsed time for epoch : 0.18145686388015747
+Epoch 6, Val: Batch 0, acc:100.0,sup loss:0.18275421857833862, bdit loss: 0.18275421857833862, cfn loss: 1.0003023147583008, cumulative bdit reward: 39.87881851196289, Elapsed time for epoch : 0.1885375181833903
+Epoch 6, Val: Batch 10, acc:100.0,sup loss:0.16704155504703522, bdit loss: 0.16704155504703522, cfn loss: 1.0002588033676147, cumulative bdit reward: 440.1727867126465, Elapsed time for epoch : 0.20050797859827676
+Epoch 6, Val: Batch 20, acc:0.0,sup loss:1.8273547887802124, bdit loss: 1.8273547887802124, cfn loss: 1.000248908996582, cumulative bdit reward: 685.1063928604126, Elapsed time for epoch : 0.21301596562067668
+Epoch 6, Val: Batch 30, acc:0.0,sup loss:1.7787574529647827, bdit loss: 1.7787574529647827, cfn loss: 1.000291347503662, cumulative bdit reward: 598.8646245002747, Elapsed time for epoch : 0.2258463422457377
+Epoch 6, Sup Train Loss:0.22728632921757905, Sup Val loss:0.994397839738263 Sup Train Acc:56.66149068322981, Sup Val Acc:49.60317460317461 Bandit Train Loss:0.22728632844012717, Bandit Val loss:0.9943978405661054 CFN Train Loss:0.0625134767073652, CFN Val loss:0.06251547796030839
+Epoch 7, Train: Batch 0, train acc:64.28571428571429, sup loss:0.17254868149757385, bdit loss: 0.17254868149757385, cfn loss: 1.000286340713501, cumulative bdit reward: 18.24309539794922, Elapsed time for epoch : 0.001641527811686198
+Epoch 7, Train: Batch 10, train acc:46.42857142857143, sup loss:0.2339029312133789, bdit loss: 0.2339029312133789, cfn loss: 1.0002470016479492, cumulative bdit reward: 176.18920516967773, Elapsed time for epoch : 0.017973681290944416
+Epoch 7, Train: Batch 20, train acc:53.57142857142857, sup loss:0.22953908145427704, bdit loss: 0.22953908145427704, cfn loss: 1.0001986026763916, cumulative bdit reward: 337.32197856903076, Elapsed time for epoch : 0.03403449058532715
+Epoch 7, Train: Batch 30, train acc:60.71428571428571, sup loss:0.23687630891799927, bdit loss: 0.23687630891799927, cfn loss: 1.0003845691680908, cumulative bdit reward: 495.78885650634766, Elapsed time for epoch : 0.05047531525293986
+Epoch 7, Train: Batch 40, train acc:42.857142857142854, sup loss:0.22429221868515015, bdit loss: 0.22429221868515015, cfn loss: 1.0004606246948242, cumulative bdit reward: 653.2293529510498, Elapsed time for epoch : 0.06645113229751587
+Epoch 7, Train: Batch 50, train acc:75.0, sup loss:0.19760504364967346, bdit loss: 0.19760504364967346, cfn loss: 1.0002416372299194, cumulative bdit reward: 803.1410465240479, Elapsed time for epoch : 0.08249987363815307
+Epoch 7, Train: Batch 60, train acc:60.71428571428571, sup loss:0.21450771391391754, bdit loss: 0.21450771391391754, cfn loss: 1.0001537799835205, cumulative bdit reward: 964.3966159820557, Elapsed time for epoch : 0.09884149233500163
+Epoch 7, Train: Batch 70, train acc:53.57142857142857, sup loss:0.2574502229690552, bdit loss: 0.2574502229690552, cfn loss: 0.9998471736907959, cumulative bdit reward: 1123.1368732452393, Elapsed time for epoch : 0.11493756771087646
+Epoch 7, Train: Batch 80, train acc:57.14285714285714, sup loss:0.25608107447624207, bdit loss: 0.25608107447624207, cfn loss: 1.000649094581604, cumulative bdit reward: 1276.210711479187, Elapsed time for epoch : 0.13173718849817911
+Epoch 7, Train: Batch 90, train acc:50.0, sup loss:0.2499186098575592, bdit loss: 0.2499186098575592, cfn loss: 1.0001205205917358, cumulative bdit reward: 1435.8181314468384, Elapsed time for epoch : 0.14763789574305217
+Epoch 7, Train: Batch 100, train acc:64.28571428571429, sup loss:0.20610179007053375, bdit loss: 0.20610179007053375, cfn loss: 1.0003770589828491, cumulative bdit reward: 1596.9139995574951, Elapsed time for epoch : 0.16369043986002604
+Epoch 7, Train: Batch 110, train acc:50.0, sup loss:0.24188482761383057, bdit loss: 0.24188482761383057, cfn loss: 1.0002870559692383, cumulative bdit reward: 1752.896640777588, Elapsed time for epoch : 0.17999789317448933
+Epoch 7, Val: Batch 0, acc:17.857142857142858,sup loss:0.47424399852752686, bdit loss: 0.47424399852752686, cfn loss: 1.000006079673767, cumulative bdit reward: 9.409241676330566, Elapsed time for epoch : 0.18663082917531332
+Epoch 7, Val: Batch 10, acc:7.142857142857142,sup loss:0.5272607803344727, bdit loss: 0.5272607803344727, cfn loss: 0.9997475743293762, cumulative bdit reward: 104.78172492980957, Elapsed time for epoch : 0.19853243033091228
+Epoch 7, Val: Batch 20, acc:100.0,sup loss:0.0620388425886631, bdit loss: 0.0620388425886631, cfn loss: 1.0002660751342773, cumulative bdit reward: 241.12215042114258, Elapsed time for epoch : 0.2107250928878784
+Epoch 7, Val: Batch 30, acc:100.0,sup loss:0.064409539103508, bdit loss: 0.064409539103508, cfn loss: 1.0002074241638184, cumulative bdit reward: 474.6358871459961, Elapsed time for epoch : 0.2233951171239217
+Epoch 7, Sup Train Loss:0.2302242838818094, Sup Val loss:0.266659352204038 Sup Train Acc:57.034161490683196, Sup Val Acc:59.52380952380953 Bandit Train Loss:0.23022428401138473, Bandit Val loss:0.26665935054835344 CFN Train Loss:0.06251337071475775, CFN Val loss:0.06250940604756276
+Epoch 8, Train: Batch 0, train acc:64.28571428571429, sup loss:0.20566146075725555, bdit loss: 0.20566146075725555, cfn loss: 1.0001847743988037, cumulative bdit reward: 16.583417892456055, Elapsed time for epoch : 0.0016009608904520671
+Epoch 8, Train: Batch 10, train acc:60.71428571428571, sup loss:0.19589851796627045, bdit loss: 0.19589851796627045, cfn loss: 1.000236988067627, cumulative bdit reward: 171.46659755706787, Elapsed time for epoch : 0.017656779289245604
+Epoch 8, Train: Batch 20, train acc:60.71428571428571, sup loss:0.20054985582828522, bdit loss: 0.20054985582828522, cfn loss: 1.0001627206802368, cumulative bdit reward: 328.9605655670166, Elapsed time for epoch : 0.0336466113726298
+Epoch 8, Train: Batch 30, train acc:57.14285714285714, sup loss:0.2323426604270935, bdit loss: 0.2323426604270935, cfn loss: 0.9999041557312012, cumulative bdit reward: 488.6599407196045, Elapsed time for epoch : 0.049799386660257974
+Epoch 8, Train: Batch 40, train acc:57.14285714285714, sup loss:0.2316310554742813, bdit loss: 0.2316310554742813, cfn loss: 1.000453233718872, cumulative bdit reward: 645.7271184921265, Elapsed time for epoch : 0.06578259865442912
+Epoch 8, Train: Batch 50, train acc:57.14285714285714, sup loss:0.22566518187522888, bdit loss: 0.22566521167755127, cfn loss: 1.0000890493392944, cumulative bdit reward: 807.5618276596069, Elapsed time for epoch : 0.08294666608174642
+Epoch 8, Train: Batch 60, train acc:57.14285714285714, sup loss:0.22342976927757263, bdit loss: 0.22342976927757263, cfn loss: 1.0002717971801758, cumulative bdit reward: 968.2595844268799, Elapsed time for epoch : 0.09904382228851319
+Epoch 8, Train: Batch 70, train acc:53.57142857142857, sup loss:0.24275007843971252, bdit loss: 0.24275007843971252, cfn loss: 1.0002269744873047, cumulative bdit reward: 1125.1834964752197, Elapsed time for epoch : 0.11499609549840291
+Epoch 8, Train: Batch 80, train acc:53.57142857142857, sup loss:0.22997090220451355, bdit loss: 0.22997090220451355, cfn loss: 1.000382661819458, cumulative bdit reward: 1285.0401134490967, Elapsed time for epoch : 0.13119370539983113
+Epoch 8, Train: Batch 90, train acc:60.71428571428571, sup loss:0.222140833735466, bdit loss: 0.222140833735466, cfn loss: 0.9999028444290161, cumulative bdit reward: 1441.5480060577393, Elapsed time for epoch : 0.14719765583674113
+Epoch 8, Train: Batch 100, train acc:42.857142857142854, sup loss:0.21349865198135376, bdit loss: 0.21349865198135376, cfn loss: 1.000510573387146, cumulative bdit reward: 1599.7851934432983, Elapsed time for epoch : 0.16424686908721925
+Epoch 8, Train: Batch 110, train acc:46.42857142857143, sup loss:0.22146430611610413, bdit loss: 0.22146430611610413, cfn loss: 1.0003365278244019, cumulative bdit reward: 1760.091194152832, Elapsed time for epoch : 0.1802071491877238
+Epoch 8, Val: Batch 0, acc:100.0,sup loss:0.20565186440944672, bdit loss: 0.2056518942117691, cfn loss: 0.9998489022254944, cumulative bdit reward: 17.59602928161621, Elapsed time for epoch : 0.1869225859642029
+Epoch 8, Val: Batch 10, acc:100.0,sup loss:0.2271435409784317, bdit loss: 0.2271435409784317, cfn loss: 1.0000393390655518, cumulative bdit reward: 195.7227783203125, Elapsed time for epoch : 0.19877134561538695
+Epoch 8, Val: Batch 20, acc:14.285714285714285,sup loss:0.22611813247203827, bdit loss: 0.22611813247203827, cfn loss: 0.9999313950538635, cumulative bdit reward: 364.8522787094116, Elapsed time for epoch : 0.21134779850641885
+Epoch 8, Val: Batch 30, acc:14.285714285714285,sup loss:0.22608917951583862, bdit loss: 0.22608917951583862, cfn loss: 0.9999172687530518, cumulative bdit reward: 518.6759262084961, Elapsed time for epoch : 0.22333848476409912
+Epoch 8, Sup Train Loss:0.22413524363351905, Sup Val loss:0.21582810290985638 Sup Train Acc:56.2422360248447, Sup Val Acc:56.845238095238095 Bandit Train Loss:0.22413524285606715, Bandit Val loss:0.21582810332377753 CFN Train Loss:0.06251409303234971, CFN Val loss:0.06250776805811459
+Epoch 9, Train: Batch 0, train acc:60.71428571428571, sup loss:0.2289612889289856, bdit loss: 0.2289612889289856, cfn loss: 1.0002015829086304, cumulative bdit reward: 16.26715087890625, Elapsed time for epoch : 0.0016114989916483561
+Epoch 9, Train: Batch 10, train acc:64.28571428571429, sup loss:0.2080790251493454, bdit loss: 0.2080790251493454, cfn loss: 1.00009286403656, cumulative bdit reward: 174.90970611572266, Elapsed time for epoch : 0.018215938409169515
+Epoch 9, Train: Batch 20, train acc:60.71428571428571, sup loss:0.2208695411682129, bdit loss: 0.2208695411682129, cfn loss: 1.0003222227096558, cumulative bdit reward: 332.19946670532227, Elapsed time for epoch : 0.034720412890116376
+Epoch 9, Train: Batch 30, train acc:64.28571428571429, sup loss:0.18844200670719147, bdit loss: 0.18844200670719147, cfn loss: 0.999916136264801, cumulative bdit reward: 493.8069143295288, Elapsed time for epoch : 0.05100885232289632
+Epoch 9, Train: Batch 40, train acc:67.85714285714286, sup loss:0.2105182707309723, bdit loss: 0.2105182707309723, cfn loss: 1.0000410079956055, cumulative bdit reward: 661.4678211212158, Elapsed time for epoch : 0.06720558007558187
+Epoch 9, Train: Batch 50, train acc:46.42857142857143, sup loss:0.22668983042240143, bdit loss: 0.22668983042240143, cfn loss: 1.0002583265304565, cumulative bdit reward: 821.2241878509521, Elapsed time for epoch : 0.0835688591003418
+Epoch 9, Train: Batch 60, train acc:50.0, sup loss:0.22902196645736694, bdit loss: 0.22902196645736694, cfn loss: 1.0003553628921509, cumulative bdit reward: 975.9806861877441, Elapsed time for epoch : 0.10003305276234944
+Epoch 9, Train: Batch 70, train acc:57.14285714285714, sup loss:0.22951145470142365, bdit loss: 0.22951145470142365, cfn loss: 1.0007625818252563, cumulative bdit reward: 1132.8625621795654, Elapsed time for epoch : 0.1163324515024821
+Epoch 9, Train: Batch 80, train acc:64.28571428571429, sup loss:0.20995201170444489, bdit loss: 0.20995201170444489, cfn loss: 1.0000498294830322, cumulative bdit reward: 1289.7211723327637, Elapsed time for epoch : 0.13252590497334799
+Epoch 9, Train: Batch 90, train acc:71.42857142857143, sup loss:0.17454929649829865, bdit loss: 0.17454929649829865, cfn loss: 1.0003880262374878, cumulative bdit reward: 1454.5973672866821, Elapsed time for epoch : 0.1487987200419108
+Epoch 9, Train: Batch 100, train acc:46.42857142857143, sup loss:0.25739309191703796, bdit loss: 0.25739309191703796, cfn loss: 1.000305414199829, cumulative bdit reward: 1613.6357164382935, Elapsed time for epoch : 0.16486053864161174
+Epoch 9, Train: Batch 110, train acc:75.0, sup loss:0.19304071366786957, bdit loss: 0.19304069876670837, cfn loss: 1.0004483461380005, cumulative bdit reward: 1772.3897857666016, Elapsed time for epoch : 0.1812726338704427
+Epoch 9, Val: Batch 0, acc:100.0,sup loss:0.08724471926689148, bdit loss: 0.08724471926689148, cfn loss: 1.0001014471054077, cumulative bdit reward: 20.732646942138672, Elapsed time for epoch : 0.1883120854695638
+Epoch 9, Val: Batch 10, acc:100.0,sup loss:0.0981261283159256, bdit loss: 0.0981261283159256, cfn loss: 1.0001513957977295, cumulative bdit reward: 229.33414459228516, Elapsed time for epoch : 0.20070226192474366
+Epoch 9, Val: Batch 20, acc:14.285714285714285,sup loss:0.39801546931266785, bdit loss: 0.39801546931266785, cfn loss: 1.0002920627593994, cumulative bdit reward: 406.20604133605957, Elapsed time for epoch : 0.21294405857721965
+Epoch 9, Val: Batch 30, acc:14.285714285714285,sup loss:0.39383283257484436, bdit loss: 0.39383283257484436, cfn loss: 1.0005720853805542, cumulative bdit reward: 523.0567989349365, Elapsed time for epoch : 0.22497801780700682
+Epoch 9, Sup Train Loss:0.21941354533900384, Sup Val loss:0.24159998736447758 Sup Train Acc:57.42236024844721, Sup Val Acc:56.845238095238095 Bandit Train Loss:0.2194135458573051, Bandit Val loss:0.24159998736447758 CFN Train Loss:0.06251437320657398, CFN Val loss:0.06252445963521798
+wandb: - 0.081 MB of 0.081 MB uploadedwandb: \ 0.081 MB of 0.081 MB uploadedwandb: | 0.151 MB of 0.197 MB uploaded (0.002 MB deduped)wandb: / 0.151 MB of 0.197 MB uploaded (0.002 MB deduped)wandb: - 0.197 MB of 0.197 MB uploaded (0.002 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:              Bandit Train Loss █▂▂▁▁▁▁▁▁▁
+wandb:                Bandit Val loss ▁▃█▁▂▁▅▁▁▁
+wandb:                 CFN Train Loss █▁▁▁▁▁▁▁▁▁
+wandb:                   CFN Val loss ▂▃▃▃▄▄▄▂▁█
+wandb:                          Epoch ▁▂▃▃▄▅▆▆▇█
+wandb:                  Sup Train Acc ▁▆▅█▇▇▇█▇█
+wandb:                 Sup Train Loss █▂▂▁▁▁▁▁▁▁
+wandb:                    Sup Val Acc █▁▁█▆▆▁█▆▆
+wandb:                   Sup Val Loss ▁▃█▁▂▁▅▁▁▁
+wandb:              b train bdit loss █▁▁▁▁▁▁▁▃▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:               b train cfn loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: b train cumulative bdit reward ▁▃▄▆▁▃▅▆▁▃▅▇▁▃▅▇▁▃▅▇▂▄▅▇▂▄▅▇▂▄▅▇▂▄▅▇▂▄▅█
+wandb:                b train sup acc ▅▂▃▅▄▇▅▅▃▇▂▅▆▃▄█▅▄▄▇▄▇▄▅▂▇▅▁▃▂▄▆▅▅▄▂▆▇▅█
+wandb:               b train sup loss █▁▁▁▁▁▁▁▃▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                b val bdit loss ▂▂▁▁▁▁▃▃▂▂██▂▂▁▁▁▁▃▃▁▁▂▂▁▁▆▆▂▂▁▁▁▂▂▂▁▁▂▂
+wandb:                 b val cfn loss ▅▇▅▄▆▄▄▄▄▅▂▅█▆▅▃▅▇▄▅█▅▄▅▆▅▅▆▃▁▅▅▂▃▃▂▄▄▆█
+wandb:   b val cumulative bdit reward ▁▂▄▅▁▄▆▆▁▆█▆▁▃▄▆▁▄▆▆▁▃▄▆▁▅▇▆▁▂▃▅▁▃▄▆▁▃▅▆
+wandb:                  b val sup acc ▂▁████▁▁██▁▁▂▁████▂▂██▂▂██▁▁▂▁████▂▂██▂▂
+wandb:                 b val sup loss ▂▂▁▁▁▁▃▃▂▂██▂▂▁▁▁▁▃▃▁▁▂▂▁▁▆▆▂▂▁▁▁▂▂▂▁▁▂▂
+wandb:                    train_batch ▁▃▅▇▁▃▅▇▁▃▅▇▁▃▅▇▁▃▅▇▂▄▅▇▂▄▅▇▂▄▅▇▂▄▅▇▂▄▅█
+wandb:                      val_batch ▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█▁▃▆█
+wandb: 
+wandb: Run summary:
+wandb:              Bandit Train Loss 0.21941
+wandb:                Bandit Val loss 0.2416
+wandb:                 CFN Train Loss 0.06251
+wandb:                   CFN Val loss 0.06252
+wandb:                          Epoch 9
+wandb:                  Sup Train Acc 57.42236
+wandb:                 Sup Train Loss 0.21941
+wandb:                    Sup Val Acc 56.84524
+wandb:                   Sup Val Loss 0.2416
+wandb:              b train bdit loss 0.19304
+wandb:               b train cfn loss 1.00045
+wandb: b train cumulative bdit reward 1772.38979
+wandb:                b train sup acc 75.0
+wandb:               b train sup loss 0.19304
+wandb:                b val bdit loss 0.39383
+wandb:                 b val cfn loss 1.00057
+wandb:   b val cumulative bdit reward 523.0568
+wandb:                  b val sup acc 14.28571
+wandb:                 b val sup loss 0.39383
+wandb:                    train_batch 110
+wandb:                      val_batch 30
+wandb: 
+wandb: 🚀 View run eternal-water-437 at: https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/ml3gebvl
+wandb: ⭐️ View project at: https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: Synced 7 W&B file(s), 0 media file(s), 3 artifact file(s) and 1 other file(s)
+wandb: Find logs at: ./wandb/run-20240512_012434-ml3gebvl/logs
+Seed completed execution! 42 0.6_1
+------------------------------------------------------------------
+Running for seed 89 of experiment 0.6_1
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/supervised_with_bandit_&_exploration/wandb/run-20240512_012704-un9nz0ti
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run glowing-fog-439
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/un9nz0ti
+Epoch 0, Train: Batch 0, train acc:57.14285714285714, sup loss:2.494670867919922, bdit loss: 2.4622373580932617, cfn loss: 1.0348371267318726, cumulative bdit reward: 20.45356559753418, Elapsed time for epoch : 0.0027391791343688967
+Epoch 0, Train: Batch 10, train acc:39.285714285714285, sup loss:0.28148117661476135, bdit loss: 0.28148117661476135, cfn loss: 1.7438379526138306, cumulative bdit reward: 189.43253564834595, Elapsed time for epoch : 0.02048150698343913
+Epoch 0, Train: Batch 20, train acc:35.714285714285715, sup loss:0.26160022616386414, bdit loss: 0.26160022616386414, cfn loss: 1.0677183866500854, cumulative bdit reward: 330.1479115486145, Elapsed time for epoch : 0.0405810276667277
+Epoch 0, Train: Batch 30, train acc:42.857142857142854, sup loss:0.27154508233070374, bdit loss: 0.27154508233070374, cfn loss: 1.0020567178726196, cumulative bdit reward: 468.6594920158386, Elapsed time for epoch : 0.05842673381169637
+Epoch 0, Train: Batch 40, train acc:60.71428571428571, sup loss:0.24568790197372437, bdit loss: 0.24568790197372437, cfn loss: 0.9998259544372559, cumulative bdit reward: 607.1877245903015, Elapsed time for epoch : 0.07710864146550496
+Epoch 0, Train: Batch 50, train acc:50.0, sup loss:0.2881648540496826, bdit loss: 0.2881648540496826, cfn loss: 1.0002663135528564, cumulative bdit reward: 750.5029196739197, Elapsed time for epoch : 0.09456563790639241
+Epoch 0, Train: Batch 60, train acc:46.42857142857143, sup loss:0.2560998201370239, bdit loss: 0.2560998201370239, cfn loss: 1.0001106262207031, cumulative bdit reward: 890.4034094810486, Elapsed time for epoch : 0.11359024047851562
+Epoch 0, Train: Batch 70, train acc:39.285714285714285, sup loss:0.25225895643234253, bdit loss: 0.25225895643234253, cfn loss: 1.0001220703125, cumulative bdit reward: 1029.4453501701355, Elapsed time for epoch : 0.13323546250661214
+Epoch 0, Train: Batch 80, train acc:46.42857142857143, sup loss:0.24997736513614655, bdit loss: 0.24997736513614655, cfn loss: 1.000070571899414, cumulative bdit reward: 1170.7228980064392, Elapsed time for epoch : 0.15101035435994467
+Epoch 0, Train: Batch 90, train acc:57.14285714285714, sup loss:0.2385103404521942, bdit loss: 0.2385103404521942, cfn loss: 1.000104546546936, cumulative bdit reward: 1312.3886075019836, Elapsed time for epoch : 0.1693241238594055
+Epoch 0, Train: Batch 100, train acc:39.285714285714285, sup loss:0.3009154498577118, bdit loss: 0.3009154498577118, cfn loss: 1.0003818273544312, cumulative bdit reward: 1451.5156655311584, Elapsed time for epoch : 0.18709818919499716
+Epoch 0, Train: Batch 110, train acc:50.0, sup loss:0.2978341281414032, bdit loss: 0.2978341281414032, cfn loss: 1.0000370740890503, cumulative bdit reward: 1591.3949084281921, Elapsed time for epoch : 0.20657554070154827
+Epoch 0, Val: Batch 0, acc:14.285714285714285,sup loss:0.27778753638267517, bdit loss: 0.27778753638267517, cfn loss: 1.0001351833343506, cumulative bdit reward: 14.090690612792969, Elapsed time for epoch : 0.21484497785568238
+Epoch 0, Val: Batch 10, acc:7.142857142857142,sup loss:0.2940569818019867, bdit loss: 0.2940569818019867, cfn loss: 1.0001682043075562, cumulative bdit reward: 157.66476821899414, Elapsed time for epoch : 0.22858616908391316
+Epoch 0, Val: Batch 20, acc:100.0,sup loss:0.18840862810611725, bdit loss: 0.18840862810611725, cfn loss: 1.0000723600387573, cumulative bdit reward: 306.3510494232178, Elapsed time for epoch : 0.24258906443913777
+Epoch 0, Val: Batch 30, acc:100.0,sup loss:0.1922653168439865, bdit loss: 0.1922653168439865, cfn loss: 1.000360131263733, cumulative bdit reward: 464.2919988632202, Elapsed time for epoch : 0.2564923723538717
+Epoch 0, Sup Train Loss:0.7681244286506073, Sup Val loss:0.23437181115150452 Sup Train Acc:49.68944099378883, Sup Val Acc:58.82936507936509 Bandit Train Loss:0.7678426640189212, Bandit Val loss:0.2343718128071891 CFN Train Loss:0.06972094796921896, CFN Val loss:0.06250542681664228
+Epoch 1, Train: Batch 0, train acc:53.57142857142857, sup loss:0.24200770258903503, bdit loss: 0.24200770258903503, cfn loss: 1.0002179145812988, cumulative bdit reward: 15.095548629760742, Elapsed time for epoch : 0.0015981316566467286
+Epoch 1, Train: Batch 10, train acc:60.71428571428571, sup loss:0.254793256521225, bdit loss: 0.254793256521225, cfn loss: 0.9997385740280151, cumulative bdit reward: 166.15829467773438, Elapsed time for epoch : 0.017384775479634604
+Epoch 1, Train: Batch 20, train acc:46.42857142857143, sup loss:0.32637858390808105, bdit loss: 0.32637858390808105, cfn loss: 1.000228762626648, cumulative bdit reward: 311.8913621902466, Elapsed time for epoch : 0.0338409423828125
+Epoch 1, Train: Batch 30, train acc:71.42857142857143, sup loss:0.22387278079986572, bdit loss: 0.22387278079986572, cfn loss: 0.9998470544815063, cumulative bdit reward: 462.6383867263794, Elapsed time for epoch : 0.05015779336293538
+Epoch 1, Train: Batch 40, train acc:64.28571428571429, sup loss:0.2223275899887085, bdit loss: 0.2223275899887085, cfn loss: 0.9999734163284302, cumulative bdit reward: 609.4287395477295, Elapsed time for epoch : 0.06637923320134481
+Epoch 1, Train: Batch 50, train acc:50.0, sup loss:0.2581314742565155, bdit loss: 0.2581314742565155, cfn loss: 1.000195860862732, cumulative bdit reward: 760.5351181030273, Elapsed time for epoch : 0.0822051485379537
+Epoch 1, Train: Batch 60, train acc:60.71428571428571, sup loss:0.2437988668680191, bdit loss: 0.2437988668680191, cfn loss: 1.000051498413086, cumulative bdit reward: 912.6655225753784, Elapsed time for epoch : 0.09803709189097086
+Epoch 1, Train: Batch 70, train acc:53.57142857142857, sup loss:0.29612869024276733, bdit loss: 0.29612869024276733, cfn loss: 1.0000293254852295, cumulative bdit reward: 1065.23122215271, Elapsed time for epoch : 0.11475288470586141
+Epoch 1, Train: Batch 80, train acc:67.85714285714286, sup loss:0.20870845019817352, bdit loss: 0.20870845019817352, cfn loss: 1.0002176761627197, cumulative bdit reward: 1215.752389907837, Elapsed time for epoch : 0.13110448519388834
+Epoch 1, Train: Batch 90, train acc:60.71428571428571, sup loss:0.23002870380878448, bdit loss: 0.23002870380878448, cfn loss: 1.0002307891845703, cumulative bdit reward: 1360.3869018554688, Elapsed time for epoch : 0.1469879666964213
+Epoch 1, Train: Batch 100, train acc:39.285714285714285, sup loss:0.3282927870750427, bdit loss: 0.3282928168773651, cfn loss: 1.0000303983688354, cumulative bdit reward: 1513.7456350326538, Elapsed time for epoch : 0.16381033261617026
+Epoch 1, Train: Batch 110, train acc:64.28571428571429, sup loss:0.2798473834991455, bdit loss: 0.2798473834991455, cfn loss: 1.0002167224884033, cumulative bdit reward: 1662.9067859649658, Elapsed time for epoch : 0.1796287218729655
+Epoch 1, Val: Batch 0, acc:100.0,sup loss:0.060798946768045425, bdit loss: 0.060798946768045425, cfn loss: 1.0003334283828735, cumulative bdit reward: 30.415966033935547, Elapsed time for epoch : 0.18610514005025228
+Epoch 1, Val: Batch 10, acc:100.0,sup loss:0.03486020117998123, bdit loss: 0.03486020490527153, cfn loss: 1.0002365112304688, cumulative bdit reward: 339.15124702453613, Elapsed time for epoch : 0.19863539139429728
+Epoch 1, Val: Batch 20, acc:0.0,sup loss:0.9437528252601624, bdit loss: 0.9437528252601624, cfn loss: 1.0001835823059082, cumulative bdit reward: 552.5441669225693, Elapsed time for epoch : 0.21089678208033244
+Epoch 1, Val: Batch 30, acc:0.0,sup loss:0.9613640308380127, bdit loss: 0.9613640308380127, cfn loss: 1.0002391338348389, cumulative bdit reward: 561.8299735784531, Elapsed time for epoch : 0.22304256757100424
+Epoch 1, Sup Train Loss:0.2654392260572185, Sup Val loss:0.514281768972675 Sup Train Acc:55.55900621118012, Sup Val Acc:49.60317460317461 Bandit Train Loss:0.2654392264459444, Bandit Val loss:0.5142817685587538 CFN Train Loss:0.06250947571319082, CFN Val loss:0.06251032474554247
+Epoch 2, Train: Batch 0, train acc:46.42857142857143, sup loss:0.7322446703910828, bdit loss: 0.7322447299957275, cfn loss: 1.0000495910644531, cumulative bdit reward: 14.548746109008789, Elapsed time for epoch : 0.0016747037569681802
+Epoch 2, Train: Batch 10, train acc:42.857142857142854, sup loss:0.2741160988807678, bdit loss: 0.2741160988807678, cfn loss: 1.0001823902130127, cumulative bdit reward: 164.28554821014404, Elapsed time for epoch : 0.017881627877553305
+Epoch 2, Train: Batch 20, train acc:57.14285714285714, sup loss:0.2576591372489929, bdit loss: 0.2576591372489929, cfn loss: 1.00014328956604, cumulative bdit reward: 317.9453477859497, Elapsed time for epoch : 0.033854663372039795
+Epoch 2, Train: Batch 30, train acc:71.42857142857143, sup loss:0.20356322824954987, bdit loss: 0.20356322824954987, cfn loss: 1.0006093978881836, cumulative bdit reward: 475.21482372283936, Elapsed time for epoch : 0.04971987803777059
+Epoch 2, Train: Batch 40, train acc:46.42857142857143, sup loss:0.3297465443611145, bdit loss: 0.3297465443611145, cfn loss: 0.9999053478240967, cumulative bdit reward: 627.316743850708, Elapsed time for epoch : 0.06625080108642578
+Epoch 2, Train: Batch 50, train acc:71.42857142857143, sup loss:0.19804219901561737, bdit loss: 0.19804219901561737, cfn loss: 1.00003182888031, cumulative bdit reward: 781.2917881011963, Elapsed time for epoch : 0.08233477671941121
+Epoch 2, Train: Batch 60, train acc:42.857142857142854, sup loss:0.49255919456481934, bdit loss: 0.49255919456481934, cfn loss: 0.9999843835830688, cumulative bdit reward: 935.9622659683228, Elapsed time for epoch : 0.09848976929982503
+Epoch 2, Train: Batch 70, train acc:64.28571428571429, sup loss:0.21231399476528168, bdit loss: 0.21231399476528168, cfn loss: 1.000169277191162, cumulative bdit reward: 1090.8109998703003, Elapsed time for epoch : 0.11450747648874919
+Epoch 2, Train: Batch 80, train acc:53.57142857142857, sup loss:0.21976140141487122, bdit loss: 0.21976140141487122, cfn loss: 1.0001991987228394, cumulative bdit reward: 1247.437442779541, Elapsed time for epoch : 0.13052285114924114
+Epoch 2, Train: Batch 90, train acc:57.14285714285714, sup loss:0.21668195724487305, bdit loss: 0.21668195724487305, cfn loss: 1.000051498413086, cumulative bdit reward: 1405.8442487716675, Elapsed time for epoch : 0.14725788036982218
+Epoch 2, Train: Batch 100, train acc:53.57142857142857, sup loss:0.25585585832595825, bdit loss: 0.25585585832595825, cfn loss: 1.00033438205719, cumulative bdit reward: 1558.3515214920044, Elapsed time for epoch : 0.1637894590695699
+Epoch 2, Train: Batch 110, train acc:64.28571428571429, sup loss:0.27095118165016174, bdit loss: 0.27095118165016174, cfn loss: 0.9999111294746399, cumulative bdit reward: 1716.465353012085, Elapsed time for epoch : 0.17995457649230956
+Epoch 2, Val: Batch 0, acc:100.0,sup loss:0.2806089520454407, bdit loss: 0.2806088626384735, cfn loss: 1.0002888441085815, cumulative bdit reward: 42.81919860839844, Elapsed time for epoch : 0.18648377656936646
+Epoch 2, Val: Batch 10, acc:100.0,sup loss:0.2758270502090454, bdit loss: 0.27582699060440063, cfn loss: 1.0001016855239868, cumulative bdit reward: 472.14599609375, Elapsed time for epoch : 0.19847646951675416
+Epoch 2, Val: Batch 20, acc:0.0,sup loss:2.2688095569610596, bdit loss: 2.2688095569610596, cfn loss: 1.0003217458724976, cumulative bdit reward: 723.0782690048218, Elapsed time for epoch : 0.2104963461558024
