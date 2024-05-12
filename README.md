@@ -36,6 +36,6 @@ Harmonization/Alignment emerging without any exlicit reward/feedback for it.
 3. supervised learning model baseline with an alpha ration of 4 and predictivity as 0.9 (baseline). -> done, all settings with 5 seeds data available now. 
 4. coding for measures of reliance and bias -> done
 
-5. bandit algos made
-6. bandit algos use contrastive embedding to decide mask on or off. 
-- Exploration done via pseudo-counts (input state and output 0 or 1)
+5. bandit algos made -> done
+6. bandit algos use contrastive embedding to decide mask on or off.  -> done
+- Exploration done via pseudo-counts (input state and output 0 or 1) -> done

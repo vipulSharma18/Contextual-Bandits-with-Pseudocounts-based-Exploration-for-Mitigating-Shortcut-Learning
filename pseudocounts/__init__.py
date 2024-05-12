@@ -1,1 +1,1 @@
-from cfn import ExplorationBonus, CoinFlipMaker, ExponentialDecayExploration
+from .cfn import ExplorationBonus, CoinFlipMaker, ExponentialDecayExploration
