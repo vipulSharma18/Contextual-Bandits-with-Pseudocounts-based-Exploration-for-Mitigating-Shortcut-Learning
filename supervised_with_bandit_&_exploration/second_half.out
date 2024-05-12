@@ -1,0 +1,15 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 2001518
+##  Job Name : second_half
+##  Nodelist : gpu2005
+##      CPUs : 1
+##  Mem/Node : 16384 MB
+## Directory : /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/supervised_with_bandit_&_exploration
+##   Job Started : Sun May 12 01:22:36 AM EDT 2024
+###############################################################################
+Running for settings: ['0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+==========================================================================
+Running experiment for setting 0.8_1
+==========================================================================
+Running for seed 1 of experiment 0.8_1
+wandb: Currently logged in as: vipul. Use `wandb login --relogin` to force relogin

@@ -52,4 +52,4 @@ class CoinFlipMaker(object):
         self.p_replace = p_replace
         self.num_coins = num_coins
     def __call__(self, num_samples):
-        return 2 * np.random.binomial(1, 0.5, size=(num_samples, self.num_coins)) - 1
+        return torch.tensor(2 * np.random.binomial(1, 0.5, size=(num_samples, self.num_coins)) - 1)

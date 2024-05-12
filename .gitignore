@@ -9,6 +9,7 @@ optimal_classifier/model_weights/*.joblib
 */wandb/
 contrastive_learning/model_weights/*.pth
 contrastive_learning/sample_data/*.png
+supervised_with_bandit_&_exploration/model_weights/*.pth
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

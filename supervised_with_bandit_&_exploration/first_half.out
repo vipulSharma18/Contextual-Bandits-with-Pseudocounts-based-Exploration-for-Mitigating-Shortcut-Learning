@@ -1,0 +1,37 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 2001517
+##  Job Name : first_half
+##  Nodelist : gpu1401
+##      CPUs : 1
+##  Mem/Node : 16384 MB
+## Directory : /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/supervised_with_bandit_&_exploration
+##   Job Started : Sun May 12 01:21:55 AM EDT 2024
+###############################################################################
+Running for settings: ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5']
+==========================================================================
+Running experiment for setting 0.6_1
+==========================================================================
+Running for seed 1 of experiment 0.6_1
+wandb: Currently logged in as: vipul. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /oscar/scratch/vsharm44/rl_project/Exploration-For-Shortcut-Learning/supervised_with_bandit_&_exploration/wandb/run-20240512_012203-ow4xoz4d
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run mild-butterfly-435
+wandb: ⭐️ View project at https://wandb.ai/vipul/RL_Project_CSCI2951F
+wandb: 🚀 View run at https://wandb.ai/vipul/RL_Project_CSCI2951F/runs/ow4xoz4d
+/users/vsharm44/.conda/envs/dl_project/lib/python3.11/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+/users/vsharm44/.conda/envs/dl_project/lib/python3.11/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch 0, Train: Batch 0, train acc:57.14285714285714, sup loss:2.494670867919922, bdit loss: 2.4622373580932617, cfn loss: 1.0371856689453125, cumulative bdit reward: 20.45356559753418, Elapsed time for epoch : 0.010642762978871663
+Epoch 0, Train: Batch 10, train acc:39.285714285714285, sup loss:0.28127753734588623, bdit loss: 0.28127753734588623, cfn loss: 1.7539918422698975, cumulative bdit reward: 189.4350848197937, Elapsed time for epoch : 0.028197050094604492
+Epoch 0, Train: Batch 20, train acc:35.714285714285715, sup loss:0.26205432415008545, bdit loss: 0.26205432415008545, cfn loss: 1.549216389656067, cumulative bdit reward: 330.12101221084595, Elapsed time for epoch : 0.04422961076100667
+Epoch 0, Train: Batch 30, train acc:42.857142857142854, sup loss:0.27274638414382935, bdit loss: 0.27274638414382935, cfn loss: 1.0025522708892822, cumulative bdit reward: 468.64220571517944, Elapsed time for epoch : 0.06066271464029948
+Epoch 0, Train: Batch 40, train acc:60.71428571428571, sup loss:0.2451018989086151, bdit loss: 0.2451018989086151, cfn loss: 1.0017118453979492, cumulative bdit reward: 607.1742434501648, Elapsed time for epoch : 0.07682952086130777
+Epoch 0, Train: Batch 50, train acc:50.0, sup loss:0.2889746427536011, bdit loss: 0.2889746427536011, cfn loss: 1.0006790161132812, cumulative bdit reward: 750.5251851081848, Elapsed time for epoch : 0.09277206261952718
+Epoch 0, Train: Batch 60, train acc:46.42857142857143, sup loss:0.25598037242889404, bdit loss: 0.25598037242889404, cfn loss: 1.000420331954956, cumulative bdit reward: 890.4120230674744, Elapsed time for epoch : 0.10884811083475748
+Epoch 0, Train: Batch 70, train acc:39.285714285714285, sup loss:0.2521543502807617, bdit loss: 0.2521543502807617, cfn loss: 1.0000700950622559, cumulative bdit reward: 1029.4492201805115, Elapsed time for epoch : 0.12497552235921223
+Epoch 0, Train: Batch 80, train acc:46.42857142857143, sup loss:0.24986986815929413, bdit loss: 0.24986986815929413, cfn loss: 1.0000932216644287, cumulative bdit reward: 1170.727478504181, Elapsed time for epoch : 0.14092453320821127
+Epoch 0, Train: Batch 90, train acc:57.14285714285714, sup loss:0.23882539570331573, bdit loss: 0.23882539570331573, cfn loss: 1.0001181364059448, cumulative bdit reward: 1312.3552107810974, Elapsed time for epoch : 0.15717389583587646

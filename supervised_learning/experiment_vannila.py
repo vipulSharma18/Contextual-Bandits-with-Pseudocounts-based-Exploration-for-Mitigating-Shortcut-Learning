@@ -13,7 +13,7 @@ import torch
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import pandas as pd
-from .supervised_model import create_model, set_seed
+from supervised_learning.supervised_model import create_model, set_seed
 import wandb
 
 def calculate_accuracy(outputs, labels, threshold=0.5):
