@@ -38,7 +38,7 @@ def experiment(setting='0.9_5', seed=1):
     z_dim, patch_size = 256, 224//4
     patchOps = PatchOperations(patch_size=patch_size, image_size=(224,224))
     #encoder paths
-    encoder_path = '../contrastive_learning/model_weights/255_56_resnet18_'+str(setting)+'_'+str(seed)+'.pth'
+    encoder_path = '../contrastive_learning/model_weights/256_56_resnet18_'+str(setting)+'_'+str(seed)+'.pth'
     context_generator = load_context_gen(z_dim=256, patch_size=56, path = encoder_path).to(device)
     context_generator.eval()
     #bandit and cfn model
