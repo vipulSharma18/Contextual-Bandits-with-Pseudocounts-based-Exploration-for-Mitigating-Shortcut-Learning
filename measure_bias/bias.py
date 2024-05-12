@@ -55,20 +55,15 @@ def reliance(model=None, data=None, type=None):
         return reliance_tabular(model, data)
 
 if __name__=='__main__': 
-    wandb.init(
-        project="RL_Project_CSCI2951F", 
-        config={
-            'architecture': 'Bias Measurement with bandits',
-            'task': 'red vs green',
-            'class_threshold': 0.5,
-        })
-    
     optimal_weights = '../optimal_classifier/model_weights/'
     #weights for vanilla
     #resnet_weights = '../supervised_learning/model_weights/'
     #weights for bandit based exploration augmented resent
     resnet_weights = '../supervised_with_bandit_&_exploration/model_weights/'
     optimal_template = 'lda_model_' #0.6_2_1.joblib p_s a_s seed
+    #template for vanilla
+    #resnet_template = 'results_vanilla_' #0.6_1_1.pth p_s a_s seed
+    #template for bandit
     resnet_template = 'supervised_' #0.6_1_1.pth p_s a_s seed
 
     data_path = '../data/'
@@ -92,6 +87,15 @@ if __name__=='__main__':
             print("Running for seed", seed, "of experiment", setting) 
             #model
             set_seed(seed)
+            wandb.init(
+                project="RL_Project_CSCI2951F", 
+                config={
+                'architecture': 'Bias Measurement with Vanilla Supervised Learning',
+                'task': 'red vs green',
+                'class_threshold': 0.5,
+                'setting': setting, 
+                'seed': seed
+                })
             resnet = load_model(resnet_weights+resnet_template+setting+'_'+str(seed)+'.pth').to(device)
             resnet.eval()
             lda = load_lda(optimal_weights+optimal_template+setting+'_'+str(seed)+'.joblib')
@@ -120,5 +124,6 @@ if __name__=='__main__':
             wandb.log({'p_s': p_s, 'a_s': a_s, 'seeds': seed, 'resnet_reliance': resnet_reliance, 'lda_reliance': lda_reliance, 'bias': bias})
             print("Seed completed execution!", seed, setting)
             print("------------------------------------------------------------------")
+            wandb.finish()
 
         print("Experiment complete", setting)
