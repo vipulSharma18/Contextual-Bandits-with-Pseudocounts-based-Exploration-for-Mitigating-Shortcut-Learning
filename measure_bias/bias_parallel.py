@@ -57,7 +57,7 @@ def reliance(model=None, data=None, type=None):
 if __name__=='__main__': 
     optimal_weights = '../optimal_classifier/model_weights/'
     optimal_template = 'lda_model_' #0.6_2_1.joblib p_s a_s seed
-    '''
+    
     #weights for vanilla
     resnet_weights = '../supervised_learning/model_weights/'
     #template for vanilla
@@ -67,6 +67,7 @@ if __name__=='__main__':
     resnet_weights = '../supervised_with_bandit_&_exploration/model_weights/'
     #template for bandit
     resnet_template = 'supervised_' #0.6_1_1.pth p_s a_s seed
+    '''
     print("Configs:", resnet_weights, resnet_template)
     data_path = '../data/'
     test = 'synthetic_test_data.csv'
@@ -78,16 +79,15 @@ if __name__=='__main__':
         transforms.ToTensor()
     ])
     
-    #settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+    settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5', '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
     #settings = ['0.8_5']
-    settings = ['0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+    #settings = ['0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
     
     for setting in settings: 
         print("==========================================================================")
         print("Measuring bias for setting", setting)
         print("==========================================================================")
         seeds = [1,42,89,23,113]
-        #seeds = [89,23,113]
         for seed in seeds:
             print("Running for seed", seed, "of experiment", setting) 
             #model
@@ -95,8 +95,8 @@ if __name__=='__main__':
             wandb.init(
                 project="RL_Project_CSCI2951F", 
                 config={
-                #'architecture': 'Bias Measurement with Vanilla Supervised Learning',
-                'architecture': 'Bias Measurement with bandits',
+                'architecture': 'Bias Measurement with Vanilla Supervised Learning',
+                #'architecture': 'Bias Measurement with bandits',
                 'task': 'red vs green',
                 'class_threshold': 0.5,
                 'setting': setting, 
