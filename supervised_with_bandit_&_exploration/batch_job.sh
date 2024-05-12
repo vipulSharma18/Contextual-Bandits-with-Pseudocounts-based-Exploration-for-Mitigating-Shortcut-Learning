@@ -2,10 +2,10 @@
 #SBATCH -n 1
 #SBATCH -N 1
 #SBATCH --mem=16G
-#SBATCH -t 4:00:00
-#SBATCH -J second_half
-#SBATCH -o second_half.out
-#SBATCH -e second_half.out
+#SBATCH -t 8:00:00
+#SBATCH -J first_half
+#SBATCH -o first_half.out
+#SBATCH -e first_half.out
 #SBATCH -p gpu --gres=gpu:1 --gres-flags=enforce-binding
 
 if [ -f /etc/bashrc ]; then

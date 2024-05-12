@@ -54,13 +54,13 @@ def experiment(setting='0.9_5', seed=1):
     criterion_bandit = nn.MSELoss()
     criterion_cfn = nn.MSELoss() #bandit.pseudocount_gen
     
-    lr_bandit, lr_sup, lr_cfn = 1e-02, 1e-02, 1e-02
+    lr_bandit, lr_sup, lr_cfn = 0.05, 1e-02, 0.05
     optim_sup = optim.Adam(sup_model.parameters(), lr=lr_sup)
     optim_bandit = optim.Adam(bandit.parameters(), lr=lr_bandit)
     optim_cfn = optim.Adam(bandit.pseudocount_gen.parameters(), lr=lr_cfn)
     
     #wandb setup
-    epochs=10
+    epochs=30
     wandb.init(
         project="RL_Project_CSCI2951F", 
         config={
@@ -205,10 +205,12 @@ def experiment(setting='0.9_5', seed=1):
 #0.25 mins per epoch, 10 epochs per model -> 1 model = 2.5 mins
 # 20 settings*5 seeds -> 100 models -> 250 mins -> 4.16 hrs -> to be safe 5 hrs reserved
 #splitting into 2 -> 2.5 hrs 
+#*3 as 30 epochs -> 8 hrs worst case. best case 6 hrs.
+
 if __name__=='__main__': 
     #experiment('0.9_5', seed=1)
-    #settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5']#, '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
-    settings = ['0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+    settings = ['0.6_1', '0.6_2', '0.6_3', '0.6_4', '0.6_5', '0.7_1', '0.7_2', '0.7_3', '0.7_4', '0.7_5']#, '0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
+    #settings = ['0.8_1', '0.8_2', '0.8_3', '0.8_4', '0.8_5', '0.9_1', '0.9_2', '0.9_3', '0.9_4', '0.9_5']
     print("Running for settings:", settings)
     for setting in settings: 
         print("==========================================================================")

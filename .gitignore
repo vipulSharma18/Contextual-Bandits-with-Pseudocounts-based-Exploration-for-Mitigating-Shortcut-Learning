@@ -10,6 +10,7 @@ optimal_classifier/model_weights/*.joblib
 contrastive_learning/model_weights/*.pth
 contrastive_learning/sample_data/*.png
 supervised_with_bandit_&_exploration/model_weights/*.pth
+supervised_with_bandit_&_exploration/*.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
