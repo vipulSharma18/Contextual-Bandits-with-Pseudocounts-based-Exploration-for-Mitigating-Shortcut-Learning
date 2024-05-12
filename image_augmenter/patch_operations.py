@@ -41,22 +41,20 @@ class PatchOperations():
         unfolded = unfolded.view(image.size(0), image.size(1), -1, self.patch_size, self.patch_size)
         return unfolded.permute(0, 2, 1, 3, 4) #batch_dim, num_patches, colors, h, w
 
-    def reconstruct_image(self, patches, mask): 
-        """Input patches and bandit's returned mask, recreate original image with cyan masks"""
+    def mask_images(self, images, picks): 
+        """Input patches and bandit's returned mask, sample from original image replacing rest with cyan masks"""
+        images = images.unsqueeze(0) if len(images.shape)==3 else images
+        batch_size = images.size(0)
         #directly creating a normalized image between 0 and 1
-        image = torch.zeros((3, self.image_size[0], self.image_size[1]))
-        idx = 0
-        for i in range(0, self.image_size[0], self.patch_size):
-            for j in range(0, self.image_size[1], self.patch_size):
-                if idx in mask:
-                    # Create a cyan patch for masking
-                    patch = torch.ones((3, self.patch_size, self.patch_size)) * torch.tensor([0,1,1])
-                else:
-                    patch = patches[idx]
-                image.paste(patch, (i, j))
-                image[:, i:i+self.patch_size, j:j+self.patch_size] = patch #1 image: 3, h, w
-                idx += 1
-        return image
+        reconstructed_images = torch.ones_like(images) * torch.tensor([0, 1, 1]).view(1, 3, 1, 1)
+        row_patches = self.image_size[0]//self.patch_size
+        col_patches = self.image_size[1]//self.patch_size
+        rows = (picks//row_patches)*self.patch_size 
+        cols = (picks%col_patches)*self.patch_size
+        for i in range(batch_size): 
+            reconstructed_images[i, :, rows[i]:rows[i]+self.patch_size, cols[i]:cols[i]+self.patch_size] = \
+                images[i, :, rows[i]:rows[i]+self.patch_size, cols[i]:cols[i]+self.patch_size]
+        return reconstructed_images
     
 class RemoveBackgroundTransform:
     def __init__(self, background_color=(0, 255, 255), replacement_color=(0, 0, 0)):

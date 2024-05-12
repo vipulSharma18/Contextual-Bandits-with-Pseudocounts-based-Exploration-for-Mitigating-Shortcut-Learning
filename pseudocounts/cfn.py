@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 import math 
 
-class ExplorationBonus(nn.module): 
+class ExplorationBonus(nn.Module): 
     def __init__(self, input_size=256, hidden_size=512, output_size=64): 
         super().__init__()
         self.fc1 = nn.Linear(input_size, hidden_size)
@@ -28,13 +28,20 @@ class ExponentialDecayExploration():
         self.init_value = init_value
         self.exp_decay_rate = exp_decay_rate
         self.current_step = 0
+        self.exploit_on = False
     def __call__(self): 
-        value = self.init_value*math.exp(-self.exp_decay_rate*self.current_step)
+        if not self.exploit_on: 
+            value = self.init_value*math.exp(-self.exp_decay_rate*self.current_step)
+        elif self.exploit_on: 
+            value = 0
         return value
     def step(self): 
         self.current_step+=1
     def reset(self): 
         self.current_step = 0
+        self.exploit_on = False
+    def exploit(self): 
+        self.exploit_on = True
     
 #code taken from this
 #https://github.com/samlobel/CFN/blob/main/bonus_based_exploration/intrinsic_motivation/intrinsic_rewards.py

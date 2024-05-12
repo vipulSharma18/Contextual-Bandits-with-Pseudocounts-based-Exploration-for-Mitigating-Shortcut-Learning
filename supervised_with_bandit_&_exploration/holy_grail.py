@@ -7,6 +7,7 @@ import torch.nn as nn
 import torch.optim as optim 
 from torchvision import datasets, transforms 
 from torch.utils.data import DataLoader
+from torch.nn.functional import one_hot
 from PIL import Image
 import numpy as np
 import pandas as pd
@@ -41,8 +42,9 @@ def experiment(setting='0.9_5', seed=1):
     context_generator = load_context_gen(z_dim=256, patch_size=56, path = encoder_path).to(device)
     context_generator.eval()
     #bandit and cfn model
+    #+2 in context length for the 1-hot vector of class
     num_coins, hidden_size, exploration_factor = 64, 512, 0.8
-    bandit = ContextualBanditWithPseudoCounts(context_length=z_dim, hidden_size=hidden_size,\
+    bandit = ContextualBanditWithPseudoCounts(context_length=z_dim+2, hidden_size=hidden_size,\
         num_coins=num_coins, lambda_explore=exploration_factor).to(device)
     #supervised model
     sup_model = create_model().to(device)
@@ -76,82 +78,97 @@ def experiment(setting='0.9_5', seed=1):
             'epochs': epochs
         })
     for epoch in range(epochs): 
+        cumulative_bandit_reward = 0
         sup_train_loss, bandit_train_loss, cfn_train_loss = 0, 0, 0
         bandit.exploration_rate_gen.reset()
-        #times = {'patch': [], 'forward': [], 'logit_cal': [], 'back_q': [], 'back_k': []}
+        K = patchOps.num_patches #patches per image
         batch_running_time = time.time()
         for i, (images, cls_label) in enumerate(train_loader): 
-            start = time.time()
+            cls_label = cls_label.to(device)
+            images = images.to(device)
             optim_sup.zero_grad()
             optim_bandit.zero_grad()
             optim_cfn.zero_grad()
-            K = patchOps.num_patches #patches per image
-            #get patches
-            
-            #class conditioned bandits. concatenating 1-hot class label to state context.
-            
-            #send context to bandit.
-            context = None
+            #get patches -> done
+            patches = patchOps.extract_patches(images)
+            #get context for each patch -> done
+            with torch.no_grad(): 
+                context = context_generator(patches.to(device))
+                #class conditioned bandits. concatenating 1-hot class label to state context. -> done
+                context = torch.cat((context, one_hot(cls_label)), dim=-1)
+            #send context to bandit. -> done
             bandit_output, pseudocount_output, coin_label = bandit(context)
-            #pick patch with max probability -> 
-            
-            #reconstruct images based on action
-            transformed_images = None
-            #supervised forward-backward
+            #pick patch with max probability -> done
+            bandit_output = torch.reshape(bandit_output, (-1, K)) #batch_dim, K num of patches
+            bandit_logits, patch_idx = torch.max(bandit_output, dim=-1)
+            #reconstruct images based on action -> done
+            transformed_images = patchOps.mask_images(images, patch_idx) #only pick image patch given by patch_idx, rest are cyan
+            #supervised forward-backward -> done
             logits = sup_model(transformed_images)
-            loss_sup = criterion_sup(logits, labels)
+            loss_sup = criterion_sup(logits, cls_label)
             loss_sup.backward()
             optim_sup.step()
             sup_train_loss += loss_sup.item()
-            #bandit backward
-            logits, labels = [], []
-            loss_bandit = criterion_bandit(logits, labels)
+            #bandit backward -> done
+            bandit_labels, _ = logits[:, cls_label] #softmax prob of the correct class
+            cumulative_bandit_reward += np.sum(bandit_labels.cpu().numpy())
+            loss_bandit = criterion_bandit(bandit_logits, bandit_labels)
             loss_bandit.backward()
             optim_bandit.step()
+            bandit_train_loss += loss_bandit.item()
+            #cfn backward -> done
+            loss_cfn = criterion_cfn(pseudocount_output, coin_label)
+            loss_cfn.backward()
+            optim_cfn.step()
+            cfn_train_loss += loss_cfn.item()
+            #exploration rate exponential decay-> done
             bandit.exploration_rate_gen.step()
-            train_loss_sup += loss.item()
-            cfn_train_loss
-            bandit_train_loss
-            sup_train_loss
+            #logging -> done
             if i%10 == 0: 
-                print(f"Epoch {epoch}, Batch {i}, train loss:{loss.item()}, Elapsed time for epoch : {(time.time() - batch_running_time)/60}")
+                print(f"Epoch {epoch}, Train: Batch {i},\
+                    sup loss:{loss_sup.item()}, bdit loss: {loss_bandit.item()}, \
+                        cfn loss: {loss_cfn.item()}, cumulative bdit reward: {cumulative_bandit_reward}, \
+                            Elapsed time for epoch : {(time.time() - batch_running_time)/60}")
                 #print("Batch Time statistics", end=": ")
                 #for k in times: 
                 #    print(k, ":", np.mean(times[k]), end=",", sep="")
                 #print()
-                wandb.log({'train_batch':i, 'train_batch_loss': loss.item()})
-        train_loss /= len(train_loader)
-        #validation
-        val_loss= 0
-        q_enc.eval()
-        k_enc.eval()
+                wandb.log({'train_batch':i, 'b train sup loss':loss_sup.item(), 'b train bdit loss':loss_bandit.item(), \
+                    'b train cfn loss':loss_cfn.item(), 'b train cumulative bdit reward':cumulative_bandit_reward})
+        sup_train_loss /= len(train_loader)
+        bandit_train_loss /= len(train_loader) #1 image = 1 context/state
+        cfn_train_loss /= (len(train_loader)*K) #1 image = 16 or K states/patches to explore
+        #validation #TODO
+        cumulative_bandit_reward = 0
+        sup_val_loss, bandit_val_loss, cfn_val_loss = 0, 0, 0
+        bandit.exploration_rate_gen.exploit() #make exploration factor =0, i.e., pure exploitation
+        bandit.eval()
+        sup_model.eval()
+        bandit.pseudocount_gen.eval()
         with torch.no_grad():
             for i, (images, cls_label) in enumerate(val_loader): 
-                queries, keys = patchOps.query_key(images.to(device)) #batch_dim, num_patches, 3, h, w
-                del images
-                z_q = q_enc(queries) #B*K, z_dim
-                z_k = k_enc(keys) #B*K, z_dim
-                K = patchOps.num_patches #patches per image
-                logits, labels = [], []
-                for j in range(len(cls_label)): 
-                    logits.append(torch.mm(z_q[j*K:j*K+K], z_k[j*K:j*K+K].t())) #K,K -> diagonals are positive pairs
-                    labels.append(torch.arange(K, dtype=torch.long, device=device))
-                logits = torch.cat(logits, dim=0)
-                labels = torch.cat(labels, dim=0)
-                #print(keys.size(), logits.size(), labels.size(), K)
-                loss = criterion(logits, labels)
-                val_loss += loss.item()
+                cls_label = cls_label.to(device)
+                images = images.to(device)
+                
                 if i%10 == 0: 
-                    print(f"Batch {i}, val loss:{loss.item()}")
-                    wandb.log({'val_batch':i, 'val_batch_loss': loss.item()})
-            val_loss /= len(val_loader)
-        print(f"Epoch {epoch}, Train Loss:{train_loss}, Val loss:{val_loss}")
-        wandb.log({'Epoch': epoch, 'Train Loss':train_loss, 'Val Loss':val_loss})
-        if val_loss<best_val_loss: 
-            best_val_loss = val_loss
-            torch.save(q_enc.state_dict(), 'model_weights/'+str(z_dim)+'_'+str(patch_size)+'_resnet18_'+setting+'_'+str(seed)+'.pth')
+                    print(f"Epoch {epoch}, Val: Batch {i},\
+                    sup loss:{loss_sup.item()}, bdit loss: {loss_bandit.item()}, \
+                        cfn loss: {loss_cfn.item()}, cumulative bdit reward: {cumulative_bandit_reward}, \
+                            Elapsed time for epoch : {(time.time() - batch_running_time)/60}")
+                    wandb.log({'val_batch':i, 'b val sup loss':loss_sup.item(), 'b val bdit loss':loss_bandit.item(), \
+                    'b val cfn loss':loss_cfn.item(), 'b val cumulative bdit reward':cumulative_bandit_reward})
+            sup_val_loss /= len(val_loader)
+            bandit_val_loss /= len(val_loader) #1 image = 1 context/state
+            cfn_val_loss /= (len(val_loader)*K) #1 image = 16 or K states/patches to explore
+        print(f"Epoch {epoch}, Sup Train Loss:{sup_train_loss}, Sup Val loss:{sup_val_loss}", end=" ")
+        print(f"Bandit Train Loss:{bandit_train_loss}, Bandit Val loss:{bandit_val_loss}", end=" ")
+        print(f"CFN Train Loss:{cfn_train_loss}, CFN Val loss:{cfn_val_loss}")
+        wandb.log({'Epoch': epoch, 'Sup Train Loss':sup_train_loss, 'Sup Val Loss':sup_val_loss,\
+            "Bandit Train Loss":bandit_train_loss, "Bandit Val loss":bandit_val_loss, \
+                "CFN Train Loss":cfn_train_loss, "CFN Val loss":cfn_val_loss})
+        torch.save(bandit.state_dict(), 'model_weights/bandit_'+setting+'_'+str(seed)+'.pth')
+        torch.save(sup_model.state_dict(), 'model_weights/supervised_'+setting+'_'+str(seed)+'.pth')
     wandb.finish()
-    del q_enc, k_enc
 
 
 
