@@ -9,7 +9,7 @@ Features used by ANNs often differ from humans, they prefer more available featu
 
 I'm not using bounding boxes or IOU as the truth values unlike past RL Computer Vision work. 
 For every application, there's some ground truth for localization/segmentation/tracking present. 
-I don't have any ground truth, "hope" all via exploration. 
+I don't have any ground truth, "hope" that exploration will work out is all I have. 
 
 Human feedback in other papers which tune vision models using RL.
 
