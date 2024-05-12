@@ -29,6 +29,7 @@ class ContextualBanditWithPseudoCounts(nn.Module):
             nn.ReLU(),
             nn.Linear(hidden_size, 1)
         )
+        self.sigmoid = nn.Sigmoid()
     def forward(self, context): 
         pred_reward = self.reward_model(context)
         
@@ -38,7 +39,6 @@ class ContextualBanditWithPseudoCounts(nn.Module):
         inverse_pseudocount = pseudocount_output.detach()
         exploration_bonus = inverse_pseudocount.pow(2).mean(dim=-1).unsqueeze(-1) #batch_sz,1
         total_reward = pred_reward + self.exploration_rate_gen()*exploration_bonus
-        
-        bandit_output = nn.Sigmoid(total_reward) #probability of including context/patch/state in input to supervisory model
+        bandit_output = self.sigmoid(total_reward) #probability of including context/patch/state in input to supervisory model
         #actual reward will be the softmax probability of true class
         return bandit_output, pseudocount_output, coin_label

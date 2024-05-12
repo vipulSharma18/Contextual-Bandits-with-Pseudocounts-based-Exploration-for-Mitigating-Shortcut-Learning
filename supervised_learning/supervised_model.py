@@ -11,7 +11,7 @@ def set_seed(seed):
 def create_model(): 
     resnet18 = models.resnet18(weights=None)
     num_ftrs = resnet18.fc.in_features
-    resnet18.fc = nn.Linear(num_ftrs, 1)
+    resnet18.fc = nn.Linear(num_ftrs, 1) #prob of class 1, 1-prob = prob of class 0
     return resnet18
 
 def load_model(model_path):

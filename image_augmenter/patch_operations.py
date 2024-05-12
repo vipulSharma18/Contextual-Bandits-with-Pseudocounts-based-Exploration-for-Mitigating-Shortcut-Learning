@@ -46,7 +46,7 @@ class PatchOperations():
         images = images.unsqueeze(0) if len(images.shape)==3 else images
         batch_size = images.size(0)
         #directly creating a normalized image between 0 and 1
-        reconstructed_images = torch.ones_like(images) * torch.tensor([0, 1, 1]).view(1, 3, 1, 1)
+        reconstructed_images = torch.ones_like(images) * torch.tensor([0, 1, 1]).view(1, 3, 1, 1).to(images.device)
         row_patches = self.image_size[0]//self.patch_size
         col_patches = self.image_size[1]//self.patch_size
         rows = (picks//row_patches)*self.patch_size 
