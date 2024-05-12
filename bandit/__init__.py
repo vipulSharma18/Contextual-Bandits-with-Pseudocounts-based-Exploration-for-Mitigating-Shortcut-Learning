@@ -1,1 +1,1 @@
-from .neural_bandit import ContextualBanditWithPseudoCounts
+from .neural_bandit import ContextualBanditWithPseudoCounts, load_bandit

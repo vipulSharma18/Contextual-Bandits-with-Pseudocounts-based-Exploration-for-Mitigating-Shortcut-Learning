@@ -42,3 +42,8 @@ class ContextualBanditWithPseudoCounts(nn.Module):
         bandit_output = self.sigmoid(total_reward) #probability of including context/patch/state in input to supervisory model
         #actual reward will be the softmax probability of true class
         return bandit_output, pseudocount_output, coin_label
+
+def load_bandit(path, context_length, hidden_size, num_coins, lambda_explore):
+    model = ContextualBanditWithPseudoCounts(context_length, hidden_size, num_coins, lambda_explore)
+    model.load_state_dict(torch.load(path))
+    return model
