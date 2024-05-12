@@ -82,6 +82,9 @@ def experiment(setting='0.9_5', seed=1):
         sup_train_loss, bandit_train_loss, cfn_train_loss = 0, 0, 0
         bandit.exploration_rate_gen.reset()
         K = patchOps.num_patches #patches per image
+        bandit.train()
+        sup_model.train()
+        bandit.pseudocount_gen.train()
         batch_running_time = time.time()
         for i, (images, cls_label) in enumerate(train_loader): 
             cls_label = cls_label.to(device)
@@ -111,7 +114,7 @@ def experiment(setting='0.9_5', seed=1):
             sup_train_loss += loss_sup.item()
             #bandit backward -> done
             bandit_labels, _ = logits[:, cls_label] #softmax prob of the correct class
-            cumulative_bandit_reward += np.sum(bandit_labels.cpu().numpy())
+            cumulative_bandit_reward += torch.sum(bandit_labels).item()
             loss_bandit = criterion_bandit(bandit_logits, bandit_labels)
             loss_bandit.backward()
             optim_bandit.step()
@@ -138,7 +141,8 @@ def experiment(setting='0.9_5', seed=1):
         sup_train_loss /= len(train_loader)
         bandit_train_loss /= len(train_loader) #1 image = 1 context/state
         cfn_train_loss /= (len(train_loader)*K) #1 image = 16 or K states/patches to explore
-        #validation #TODO
+        
+        #validation
         cumulative_bandit_reward = 0
         sup_val_loss, bandit_val_loss, cfn_val_loss = 0, 0, 0
         bandit.exploration_rate_gen.exploit() #make exploration factor =0, i.e., pure exploitation
@@ -149,7 +153,29 @@ def experiment(setting='0.9_5', seed=1):
             for i, (images, cls_label) in enumerate(val_loader): 
                 cls_label = cls_label.to(device)
                 images = images.to(device)
-                
+                patches = patchOps.extract_patches(images)
+                with torch.no_grad(): 
+                    context = context_generator(patches.to(device))
+                    #class conditioned bandits. concatenating 1-hot class label to state context. -> done
+                    context = torch.cat((context, one_hot(cls_label)), dim=-1)
+                bandit_output, pseudocount_output, coin_label = bandit(context)
+                #pick patch with max probability -> done
+                bandit_output = torch.reshape(bandit_output, (-1, K)) #batch_dim, K num of patches
+                bandit_logits, patch_idx = torch.max(bandit_output, dim=-1)
+                #reconstruct images based on action -> done
+                transformed_images = patchOps.mask_images(images, patch_idx) #only pick image patch given by patch_idx, rest are cyan
+                #supervised forward-backward -> done
+                logits = sup_model(transformed_images)
+                loss_sup = criterion_sup(logits, cls_label)
+                sup_val_loss += loss_sup.item()
+                #bandit backward -> done
+                bandit_labels, _ = logits[:, cls_label] #softmax prob of the correct class
+                cumulative_bandit_reward += torch.sum(bandit_labels).item()
+                loss_bandit = criterion_bandit(bandit_logits, bandit_labels)
+                bandit_val_loss += loss_bandit.item()
+                #cfn backward -> done
+                loss_cfn = criterion_cfn(pseudocount_output, coin_label)
+                cfn_val_loss += loss_cfn.item()
                 if i%10 == 0: 
                     print(f"Epoch {epoch}, Val: Batch {i},\
                     sup loss:{loss_sup.item()}, bdit loss: {loss_bandit.item()}, \
