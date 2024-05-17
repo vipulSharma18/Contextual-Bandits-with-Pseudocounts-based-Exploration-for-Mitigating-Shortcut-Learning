@@ -3,6 +3,7 @@ Features used by ANNs often differ from humans, they prefer more available featu
 
 # Proposed Architecture: 
 ![Proposed Architecture](./docs/new_architecture_diagram.PNG)
+A much more complicated version of this project: https://arxiv.org/abs/2310.08584 (it's also proof that this project's methodology is based on sound assumptions and research). 
 
 # Limitations and Challenges: 
 1. Data: The synthetic image data is very difficult to get "right". It has to follow 2 conditions to be a good dataset. The first is that it has to be easy enough and only rely on the sampled z_s and z_c for an image to belong to a particular class such that we can compare the image model with a Bayes optimal classifier trained on the raw embedded z values. While being simple enough, it has to be also complex enough in such a way that the model actually needs to use the values of z_s and z_c to make its classification decision. This is done by making the square and the circle objects greyscale in the original work, but this is not at all a trivial operation. In the work done till now, I tried to make the scales and range of z_s and z_c different for each class but keeping the objects as greyscale never resulted in above-chance accuracy for a vanilla ResNet18-based supervised model. I still need to figure out how to do this, i.e., how to even reproduce the existing literature. I ended up making class 0 and class 1 have different colors, red and green but this resulted in the model ignoring the intensity of the colors and only relying on the type of the color for classification.
