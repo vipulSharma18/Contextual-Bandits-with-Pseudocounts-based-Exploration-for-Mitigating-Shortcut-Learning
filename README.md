@@ -2,7 +2,7 @@
 Features used by ANNs often differ from humans, they prefer more available features (pixel footprint) even if they are less or similarly predictive as the core ones. The project uses exploration &amp; bandits to guide a supervised learning algo to attend to the core features instead of the spurious ones.
 
 # Proposed Architecture: 
-![Proposed Architecture](./docs/new_architecture_diagram.PNG)
+![Proposed Architecture](./docs/new_architecture_diagram.PNG)       
 A much more complicated version of this project: https://arxiv.org/abs/2310.08584 (it's also proof that this project's methodology is based on sound assumptions and research). 
 
 # Limitations and Challenges: 
